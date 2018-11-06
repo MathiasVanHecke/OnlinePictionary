@@ -3,7 +3,7 @@
       <div class="o-container">
         <router-link to="/">Home</router-link> |
         <router-link to="/game">New Game</router-link> |
-        <router-link to="/settings">Settings</router-link>
+        <router-link to="/waiting">Waiting Room</router-link>
       </div>
       <div class="c-bar c-bar-header"></div>
   </div>

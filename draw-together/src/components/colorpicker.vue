@@ -15,8 +15,8 @@ export default {
     return { 
       colors : [
         "salmon",
-        "red",
-        "firebrick",
+        "crimson",
+        "darkred",
 
         "lightpink",
         "hotpink",
@@ -27,7 +27,7 @@ export default {
         "mediumorchid",
 
         "lightsteelblue",
-        "slateblue",
+        "steelblue",
         "darkslateblue",
 
         "paleturquoise",
@@ -46,18 +46,21 @@ export default {
         "darkgoldenrod",
         "saddlebrown",
 
-        "yellow",
         "gold",
         "darkorange",
+        "chocolate",
 
         "white",
-        "grey",
+        "silver",
         "black",
       ]
     }
   },
   components: {
     color
+  },
+  mounted: function (){
+    document.querySelector('#white').classList.add('c-color-white');
   }
 }
 </script>

@@ -347,6 +347,14 @@ template {
  * Fuck focussed inputfields
  */
 
- input:focus{
-   outline: none;
- }
+input:focus{
+  outline: none;
+}
+
+ /**
+ * Fuck random p margins
+ */
+
+p{
+  margin: 0;
+}

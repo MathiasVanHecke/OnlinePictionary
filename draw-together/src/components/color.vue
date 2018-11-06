@@ -1,5 +1,6 @@
 <template>
-    <div class="c-color" v-on:click="setColor" :id="color"></div>
+    <div class="c-color" v-on:click="setColor" :id="color">
+    </div>
 </template>
 
 <script>
@@ -9,13 +10,13 @@ export default {
     color: String
   },
   methods: {
-    setColor: function (event) {
-      this.$store.dispatch('setColor', event.srcElement.id);
+    setColor: function() {
+      this.$store.dispatch('setColor', this.color);
       console.log(this.$store.getters.getPickedColor);
     }
   },
   mounted: function (){
-    this.$el.style.backgroundColor = this.$el.id;
+    this.$el.style.backgroundColor = this.color;
   }
 }
 </script>

@@ -1,19 +1,60 @@
 <template>
-  <div class="c-game o-container">
-    <drawing/>
-    <controls/>
-    <div class="c-chat-holder js-chat-holder">
-        <div class="c-word">______</div>
-        <div class="c-bar c-bar-guess">
-            <div class="c-guess">
-                <div class="c-guess-done"></div>
-                <div class="c-guess-done"></div>
-            </div>
+  <div class="c-game o-container o-grid">
+    <div class="c-members o-grid">
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Céline</p>
+                <p class="c-member-score">12440</p>
+            </span>
         </div>
-        <chat/>
-        <div class="c-bar c-bar-progress"></div>
-        <div class="c-progress"></div>
-        <input placeholder="guess" id="guess" class="c-chat-input">
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Mathias</p>
+                <p class="c-member-score">1250</p>
+            </span>
+        </div>
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Nico</p>
+                <p class="c-member-score">2360</p>
+            </span>
+        </div>
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Gaëtan</p>
+                <p class="c-member-score">3610</p>
+            </span>
+        </div>
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Jens</p>
+                <p class="c-member-score">4250</p>
+            </span>
+        </div>
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Bauke</p>
+                <p class="c-member-score">1480</p>
+            </span>
+        </div>
+        <div class="c-member">
+            <div class="c-member-avatar"></div>
+            <span>
+                <p class="c-member-name">Piemel</p>
+                <p class="c-member-score">20</p>
+            </span>
+        </div>
+    </div>
+    <div class="o-grid c-game-row">
+        <drawing/>
+        <controls/>
+        <chatholder/>
     </div>
   </div>
 </template>
@@ -22,97 +63,60 @@
 // @ is an alias to /src
 import controls from '@/components/controls.vue';
 import drawing from '@/components/drawing.vue';
-import chat from '@/components/chat.vue';
+import chatholder from '@/components/chatholder.vue';
 
 export default {
   name: 'game',
   components: {
     controls,
     drawing,
-    chat
+    chatholder
   }
 }
 </script>
 
 <style lang="scss" scoped>
 @import './src/style/objects/objects.container';
+@import './src/style/objects/objects.grid';
 @import './src/style/components/components.bar';
 
 .c-game {
-    display: grid;
+    max-width: 1268px;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: auto;
+    grid-gap: 1.5em;
+}
+
+.c-members {
+    max-width: 1018px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+}
+
+.c-member {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.c-member-avatar {
+    width: 2.5em;
+    height: 2.5em;
+    margin-right: .75rem;
+    border-radius: 50%;
+    background-color: thistle;
+}
+
+.c-member-score {
+    margin-top: .2rem;
+    text-align: left;
+    color: steelblue;
+}
+
+.c-game-row {
     grid-template-columns: 800px 1fr 300px;
     grid-template-rows: auto;
-    grid-gap: .75rem;
-
     max-width: 1268px;
-}
-
-.c-chat-holder {
-    background-color: white;
-
-    display: grid;
-    grid-template-rows: auto .25rem 1fr .25rem auto;
-
-    border-radius: .75rem;
-
-    width: 300px;
-    height: 600px;
-}
-
-.c-word {
-    background-color: lightgray;
-    
-    border: none;
-    border-radius: .75rem .75rem 0 0;
-    height: 3rem;
-
-    text-align: center;
-    line-height: 3rem;
-    font-size: 200%;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-}
-
-.c-guess {
-    width: 100%;
-    height: 100%;
-    
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: repeat(7, 1fr);
-}
-
-.c-guess-done {
-    width: 100%;
-    height: 100%;
-    background-color: whitesmoke;
-}
-
-.c-progress {
-    width: 15%;
-    height: 100%;
-    background: whitesmoke;
-    grid-row: 4;
-    grid-column: 1;
-    justify-self: end;
-}
-
-.c-chat-input {
-    background-color: lightgray;
-    
-    border: none;
-    border-radius: 0 0 .75rem .75rem;
-    height: 3rem;
-
-    text-align: center;
-    font-family: inherit;
-    font-size: 100%;
-
-    transition: 300ms ease-in-out;
-}
-
-.c-chat-input:focus {
-    background-color: #ded3de;
 }
 
 </style>

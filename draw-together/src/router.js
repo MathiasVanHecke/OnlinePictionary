@@ -20,12 +20,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "game" */ './views/Game.vue')
     },
     {
-      path: '/settings',
-      name: 'settings',
+      path: '/waiting',
+      name: 'waiting',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "settings" */ './views/Settings.vue')
+      component: () => import(/* webpackChunkName: "settings" */ './views/Waiting.vue')
     }
   ]
 })

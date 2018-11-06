@@ -3,9 +3,6 @@
 
     <brush v-for="brush in brushes" :key="brush" :brush="brush"></brush>
 
-    <!-- <div class="c-brush" id="S"></div>
-    <div class="c-brush" id="M"></div>
-    <div class="c-brush" id="L"></div> -->
   </div>
 </template>
 
@@ -19,7 +16,7 @@ export default {
       brushes : [
         4,
         18,
-        32,
+        32
       ]
     }
   },

@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="This is your settings page"/>
+  <div class="waiting">
+    <HelloWorld msg="Ahhh... the waiting page"/>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import appheader from '@/components/appheader.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'settings',
+  name: 'waiting',
   components: {
     HelloWorld,
     appheader

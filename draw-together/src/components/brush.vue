@@ -6,18 +6,17 @@
 
 <script>
 export default {
-  name: 'color',
+  name: 'brush',
   props: {
     brush: Number,
   },
   methods: {
-    setBrush: function (event) {
-      this.$store.dispatch('setBrush', event.srcElement.id);
+    setBrush: function() {
+      this.$store.dispatch('setBrush', this.brush);
       console.log(this.$store.getters.getPickedBrush);
-    }
+    },
   },
-  mounted: function (){
-    console.log(this.$el);
+  mounted: function(){
     this.$el.children[0].style.width = this.$el.id + "px";
     this.$el.children[0].style.height = this.$el.id + "px";
   }
