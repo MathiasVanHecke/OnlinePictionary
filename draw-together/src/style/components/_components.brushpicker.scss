@@ -1,0 +1,33 @@
+@import  '../settings/_settings.global';
+
+.c-brushpicker {
+    /*liggend*/
+    grid-template-rows: repeat(3, 2rem);
+    grid-template-columns: 2rem;
+    grid-auto-flow: row;
+    max-height: calc(6rem + 4*$gutter)
+}
+
+.c-brushpicker {
+    /*staand*/
+    grid-template-rows: 2rem;
+    grid-template-columns: repeat(3, 2rem);
+    grid-auto-flow: column;
+    max-height: calc(6rem + 4*$gutter)
+}
+
+.c-brush {
+    background-color: $light-grey;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.c-brush-size {
+    background-color: black;
+    border-radius: 50%;
+}

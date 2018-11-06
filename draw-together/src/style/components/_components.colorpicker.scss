@@ -1,0 +1,24 @@
+@import  '../settings/_settings.global';
+
+.c-colorpicker {
+    /*liggend*/
+    grid-template-rows: repeat(3, 2rem);
+    grid-template-columns: repeat(10, 2rem);
+    grid-auto-flow: column;
+    max-width: calc(10rem + 4*$gutter)
+}
+
+.c-colorpicker {
+    /*staand*/
+    grid-template-rows: repeat(10, 2rem);
+    grid-template-columns: repeat(3, 2rem);
+    grid-auto-flow: row;
+    max-height: calc(10rem + 4*$gutter)
+}
+
+.c-color {
+    background-color: $light-grey;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+}

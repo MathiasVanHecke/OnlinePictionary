@@ -1,0 +1,33 @@
+// COLORS
+$color-a: salmon;
+$color-b: thistle;
+$color-c: steelblue;
+$color-vue: #42b983;
+
+$white: white;
+$light-grey: whitesmoke;
+$medium-grey: lightgrey;
+$focus-grey: #ded3de;
+
+// FONTS
+$font-a: 'Tajawal', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-b: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+$container-width: 1200px;
+$header-height: 3rem;
+
+// GUTTER / GRID
+$gutter: .75rem;
+$basic-radius: .75rem;
+$border-width: 2px;
+$bar-height: .25rem;
+
+// BREAKPOINTS
+$phone-small: 320px;
+	  $phone: 480px;
+	 $tablet: 980px;
+	 $laptop: 1140px;
+
+// ANIMATIONS
+$speed: 300ms;
+$easing: ease-in-out;

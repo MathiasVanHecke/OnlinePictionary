@@ -1,0 +1,21 @@
+@import  '../settings/_settings.global';
+
+.c-bar {
+    width: 100%;
+    height: 100%;
+    grid-column: 1;
+}
+
+.c-bar-header {
+    background: linear-gradient(to right, $color-a, $color-b 50%, $color-c);
+}
+
+.c-bar-guess {
+    grid-row: 2;
+    background: linear-gradient(to right, $color-a, $color-b);
+}
+
+.c-bar-progress {
+    grid-row: 4;
+    background: linear-gradient(to right, $color-b, $color-c);
+}

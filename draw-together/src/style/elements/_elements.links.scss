@@ -1,0 +1,10 @@
+@import '../settings/settings.global';
+
+a {
+	color: $color-c;
+}
+
+a:hover {
+	color: $color-b;
+	text-decoration: none;
+}

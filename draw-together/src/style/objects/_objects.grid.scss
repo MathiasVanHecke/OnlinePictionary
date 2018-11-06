@@ -1,0 +1,7 @@
+@import '../settings/settings.global';
+@import '../tools/tools.mq';
+
+.o-grid {
+	display: grid;
+	grid-gap: $gutter;
+}

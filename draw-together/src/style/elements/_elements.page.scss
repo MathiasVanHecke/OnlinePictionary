@@ -1,0 +1,14 @@
+body,
+html {
+	font-family: $font-a;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	background: $light-grey;
+
+	text-align: center;
+}
+
+::selection {
+	background: $color-a;
+}

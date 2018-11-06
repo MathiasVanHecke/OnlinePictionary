@@ -1,0 +1,22 @@
+@import  '../settings/_settings.global';
+
+.c-chat {
+    align-self: start;
+
+    grid-template-rows: 1fr;
+    padding: $gutter;
+}
+
+.c-chat-message {
+    background-color: $light-grey;
+    border-radius: 2rem;
+    padding: $gutter;
+    margin: 0;
+    max-width: 80%;
+    justify-self: end;
+    transition: 800ms;
+}
+
+.c-chat-response {
+    justify-self: start;
+}
