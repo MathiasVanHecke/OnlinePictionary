@@ -1,10 +1,27 @@
 <template>
   <div class="c-chat o-grid">
-    <p class="c-chat-message c-chat-response">kip</p>
+    <span class="c-chat-response">
+      <div class="c-chat-member"></div>
+      <p class="c-chat-message">kip</p>
+    </span>
     <p class="c-chat-message">geit</p>
-    <p class="c-chat-message c-chat-response">olifant</p>
-    <p class="c-chat-message c-chat-response">paard</p>
+    <span class="c-chat-response">
+      <div class="c-chat-member" style="background-color: steelblue;"></div>
+      <p class="c-chat-message">olifant</p>
+    </span>
+    <span class="c-chat-response">
+      <div class="c-chat-member" style="background-color: thistle;"></div>
+      <p class="c-chat-message">paard</p>
+    </span>
     <p class="c-chat-message">giraf</p>
+    <span class="c-chat-responseb">
+      <p class="c-chat-memberb">Mathias</p>
+      <p class="c-chat-message">eenhoorn</p>
+    </span>
+    <span class="c-chat-responseb">
+      <p class="c-chat-memberb">Nico</p>
+      <p class="c-chat-message">ezel</p>
+    </span>
   </div>
 </template>
 
