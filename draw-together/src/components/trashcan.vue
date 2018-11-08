@@ -1,10 +1,15 @@
 <template>
-  <input type="button" class="c-trashcan" value="🗑️" id="clr">
+  <input v-on:click="emiterase" type="button" class="c-trashcan" value="🗑️" id="clr">
 </template>
 
 <script>
 export default {
-  name: 'trashcan'
+  name: 'trashcan',
+  methods : {
+    emiterase : function () {
+      this.$root.$emit('erasecanvas');
+    }
+  }
 }
 </script>
 

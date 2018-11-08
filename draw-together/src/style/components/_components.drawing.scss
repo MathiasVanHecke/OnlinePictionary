@@ -1,6 +1,18 @@
 @import  '../settings/_settings.global';
 
-#can {
+canvas {
     border-radius: $basic-radius;
     background-color: $white;
+}
+
+@media only screen and (min-width: 1350px) { 
+    #canxxs {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1349px) { 
+    #canvas {
+        display: none;
+    }
 }
