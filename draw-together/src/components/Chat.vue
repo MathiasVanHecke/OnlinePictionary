@@ -4,7 +4,7 @@
       <div class="c-chat-member"></div>
       <p class="c-chat-message">kip</p>
     </span>
-    <p class="c-chat-message">geit</p>
+    <ChatMessage m="Geit"/>
     <span class="c-chat-response">
       <div class="c-chat-member" style="background-color: steelblue;"></div>
       <p class="c-chat-message">olifant</p>
@@ -13,21 +13,31 @@
       <div class="c-chat-member" style="background-color: thistle;"></div>
       <p class="c-chat-message">paard</p>
     </span>
-    <p class="c-chat-message">giraf</p>
+    <ChatMessage m="Giraf"/>
     <span class="c-chat-responseb">
       <p class="c-chat-memberb">Mathias</p>
       <p class="c-chat-message">eenhoorn</p>
     </span>
-    <span class="c-chat-responseb">
-      <p class="c-chat-memberb">Nico</p>
-      <p class="c-chat-message">ezel</p>
+    <span class="c-chat-response">
+      <div class="c-chat-member" style="background-color: steelblue;"></div>
+      <span class='c-chat-responseb'>
+        <p class="c-chat-memberb">Nico</p>
+        <p class="c-chat-message">ezel</p>
+      </span>
     </span>
   </div>
 </template>
 
 <script>
+import ChatMessage from '@/components/ChatMessage.vue';
+import ChatResponse from '@/components/ChatResponse.vue';
+
 export default {
-  name: 'Chat'
+  name: 'Chat',
+  components: {
+    ChatMessage,
+    ChatResponse,
+  }
 }
 </script>
 
