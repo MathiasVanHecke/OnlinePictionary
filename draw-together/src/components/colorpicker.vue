@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import color from '@/components/color.vue';
+import Color from '@/components/Color.vue';
 
 export default {
-  name: 'colorpicker',
+  name: 'ColorPicker',
   data() {
     return { 
       colors : [
@@ -57,7 +57,7 @@ export default {
     }
   },
   components: {
-    color
+    Color
   },
   mounted: function (){
     document.querySelector('#white').classList.add('c-color-white');

@@ -7,16 +7,16 @@
 </template>
 
 <script>
-import brushpicker from '@/components/brushpicker.vue'
-import colorpicker from '@/components/colorpicker.vue'
-import trashcan from '@/components/trashcan.vue'
+import BrushPicker from '@/components/BrushPicker.vue'
+import ColorPicker from '@/components/ColorPicker.vue'
+import Trashcan from '@/components/Trashcan.vue'
 
 export default {
   name: 'controls',
   components: {
-    colorpicker,
-    brushpicker,
-    trashcan
+    ColorPicker,
+    BrushPicker,
+    Trashcan
   }
 }
 </script>

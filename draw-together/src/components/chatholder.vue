@@ -16,12 +16,12 @@
 
 <script>
 // @ is an alias to /src
-import chat from '@/components/chat.vue';
+import Chat from '@/components/Chat.vue';
 
 export default {
-  name: 'chatholder',
+  name: 'ChatHolder',
   components: {
-    chat
+    Chat
   },
   data() {
     return {

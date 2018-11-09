@@ -7,15 +7,15 @@
 
 <script>
 // @ is an alias to /src
-import appheader from '@/components/appheader.vue'
-import memberbar from '@/components/memberbar.vue'
+import AppHeader from '@/components/AppHeader.vue'
+import MemberBar from '@/components/MemberBar.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'waiting',
+  name: 'Waiting',
   components: {
-    appheader,
-    memberbar,
+    AppHeader,
+    MemberBar,
     HelloWorld,
   }
 }

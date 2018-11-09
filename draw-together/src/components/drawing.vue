@@ -18,29 +18,29 @@
 
 <script>
 export default {
-  name: 'drawing',
+  name: 'Drawing',
   data: function () {
     return {
-        ctx : null,
-        cts : null,
         prevX : 0, 
         prevY : 0,
         currX : 0, 
         currY : 0,
-        c : "black",
-        b : 2,
         isTouch : false,
         isDrawing : false,
         isDot : false,
         isEnabled : true,
     }
   },
+  computed: {
+    c: function () { return this.$store.getters.getPickedColor; },
+    b: function () { return this.$store.getters.getPickedBrush; },
+    ctx: function() { return this.$refs.canvas.getContext("2d"); },
+    cts: function() { return this.$refs.canxxs.getContext("2d"); },
+  },
   methods: {
     //event handelers
     start : function(e, touch) {
       if (this.isEnabled){
-        this.c = this.$store.getters.getPickedColor;
-        this.b = this.$store.getters.getPickedBrush;
         if (touch){ this.isTouch = true }
         else { this.isTouch = false }
         this.getXY(e);
@@ -107,8 +107,6 @@ export default {
     }
   },
   mounted: function() {
-    this.ctx = this.$refs.canvas.getContext("2d");
-    this.cts = this.$refs.canxxs.getContext("2d");
     this.$root.$on('erasecanvas', () => { this.erase(); });
     this.$root.$on('draw', (c, b, currX, currY, prevX, prevY) => { 
       this.c = c;

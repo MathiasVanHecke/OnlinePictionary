@@ -10,18 +10,18 @@
 </template>
 
 <script>
-import memberbar from '@/components/memberbar.vue'
-import controls from '@/components/controls.vue';
-import drawing from '@/components/drawing.vue';
-import chatholder from '@/components/chatholder.vue';
+import MemberBar from '@/components/MemberBar.vue'
+import Controls from '@/components/DrawingControls.vue';
+import Drawing from '@/components/Drawing.vue';
+import ChatHolder from '@/components/ChatHolder.vue';
 
 export default {
-  name: 'game',
+  name: 'Game',
   components: {
-    memberbar,
-    controls,
-    drawing,
-    chatholder
+    MemberBar,
+    Controls,
+    Drawing,
+    ChatHolder
   }
 }
 </script>

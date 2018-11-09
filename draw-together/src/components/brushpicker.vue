@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import brush from '@/components/brush.vue';
+import Brush from '@/components/Brush.vue';
 
 export default {
-  name: 'brushpicker',
+  name: 'BrushPicker',
   data() {
     return { 
       brushes : [
@@ -21,7 +21,7 @@ export default {
     }
   },
   components: {
-    brush
+    Brush
   }
 }
 </script>

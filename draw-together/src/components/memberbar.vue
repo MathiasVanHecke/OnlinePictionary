@@ -54,7 +54,7 @@
 
 <script>
 export default {
-  name: 'memberbar'
+  name: 'MemberBar'
 }
 </script>
 

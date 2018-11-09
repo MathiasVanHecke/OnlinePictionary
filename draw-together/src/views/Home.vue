@@ -6,14 +6,14 @@
 
 <script>
 // @ is an alias to /src
-import appheader from '@/components/appheader.vue'
+import AppHeader from '@/components/AppHeader.vue'
 import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
     HelloWorld,
-    appheader
+    AppHeader
   }
 }
 </script>

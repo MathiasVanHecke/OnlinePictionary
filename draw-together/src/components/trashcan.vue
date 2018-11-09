@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'trashcan',
+  name: 'Trashcan',
   methods : {
     emiterase : function () {
       this.$root.$emit('erasecanvas');
