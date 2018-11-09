@@ -7,7 +7,7 @@
                 <div class="c-guess-done"></div>
             </div>
         </div>
-        <chat/>
+        <Chat/>
         <div class="c-bar c-bar-progress"></div>
         <div class="c-progress"></div>
         <input v-model="guess" placeholder="guess" id="guess" class="c-chat-input">

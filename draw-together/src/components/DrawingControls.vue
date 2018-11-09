@@ -1,8 +1,8 @@
 <template>
   <div class="c-controls o-grid">
-      <colorpicker/>
-      <brushpicker/>
-      <trashcan/>
+      <ColorPicker/>
+      <BrushPicker/>
+      <Trashcan/>
   </div>
 </template>
 

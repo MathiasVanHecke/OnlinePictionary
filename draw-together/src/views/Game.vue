@@ -1,17 +1,17 @@
 <template>
   <div class="c-game o-container o-grid">
-    <memberbar/>
+    <MemberBar/>
     <div class="o-grid c-game-row">
-        <controls/>
-        <drawing/>
-        <chatholder/>
+        <DrawingControls/>
+        <Drawing/>
+        <ChatHolder/>
     </div>
   </div>
 </template>
 
 <script>
 import MemberBar from '@/components/MemberBar.vue'
-import Controls from '@/components/DrawingControls.vue';
+import DrawingControls from '@/components/DrawingControls.vue';
 import Drawing from '@/components/Drawing.vue';
 import ChatHolder from '@/components/ChatHolder.vue';
 
@@ -19,7 +19,7 @@ export default {
   name: 'Game',
   components: {
     MemberBar,
-    Controls,
+    DrawingControls,
     Drawing,
     ChatHolder
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="c-brushpicker o-grid o-collection">
 
-    <brush v-for="brush in brushes" :key="brush" :brush="brush"></brush>
+    <Brush v-for="brush in brushes" :key="brush" :brush="brush"></Brush>
 
   </div>
 </template>

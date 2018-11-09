@@ -1,7 +1,7 @@
 <template>
   <div class="c-colorpicker o-grid o-collection">
 
-    <color v-for="color in colors" :key="color" :color="color"></color>
+    <Color v-for="color in colors" :key="color" :color="color"/>
 
   </div>
 </template>

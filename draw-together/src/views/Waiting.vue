@@ -1,6 +1,6 @@
 <template>
   <div class="c-waiting o-container">
-    <memberbar/>
+    <MemberBar/>
     <HelloWorld msg="Ahhh... the waiting page"/>
   </div>
 </template>
