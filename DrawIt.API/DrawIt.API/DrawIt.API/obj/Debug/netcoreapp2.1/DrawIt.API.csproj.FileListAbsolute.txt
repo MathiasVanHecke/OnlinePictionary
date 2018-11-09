@@ -1,0 +1,17 @@
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.Models.dll
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csprojAssemblyReference.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csproj.CoreCompileInputs.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.RazorAssemblyInfo.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.RazorAssemblyInfo.cs
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.AssemblyInfoInputs.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.AssemblyInfo.cs
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.RazorTargetAssemblyInfo.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.deps.json
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.runtimeconfig.json
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.runtimeconfig.dev.json
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.dll
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.pdb
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.Models.pdb
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csproj.CopyComplete
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.dll
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.pdb

@@ -1,0 +1,11 @@
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.deps.json
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.dll
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.pdb
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csprojAssemblyReference.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csproj.CoreCompileInputs.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfoInputs.cache
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfo.cs
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.dll
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.pdb
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.json
+C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.dev.json
