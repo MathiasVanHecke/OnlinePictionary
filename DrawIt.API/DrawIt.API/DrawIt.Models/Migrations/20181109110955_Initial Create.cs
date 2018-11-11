@@ -13,7 +13,11 @@ namespace DrawIt.Models.Migrations
                 {
                     wordId = table.Column<Guid>(nullable: false),
                     wordNl = table.Column<string>(nullable: true),
-                    wordEng = table.Column<string>(nullable: true)
+                    wordEng = table.Column<string>(nullable: true),
+                    likes = table.Column<int>(nullable: false),
+                    dislikes = table.Column<int>(nullable: false),
+                    Guessed = table.Column<int>(nullable: false),
+                    DNGuessed = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

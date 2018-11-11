@@ -24,6 +24,14 @@ namespace DrawIt.Models.Migrations
                     b.Property<Guid>("wordId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("DNGuessed");
+
+                    b.Property<int>("Guessed");
+
+                    b.Property<int>("dislikes");
+
+                    b.Property<int>("likes");
+
                     b.Property<string>("wordEng");
 
                     b.Property<string>("wordNl");

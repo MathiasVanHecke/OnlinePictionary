@@ -9,3 +9,14 @@ C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Mod
 C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.pdb
 C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.json
 C:\SOURCE\_FullStack\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.dev.json
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.deps.json
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.json
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.dev.json
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.dll
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.pdb
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csprojAssemblyReference.cache
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csproj.CoreCompileInputs.cache
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfoInputs.cache
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfo.cs
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.dll
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.pdb

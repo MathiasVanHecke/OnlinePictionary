@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DrawIt.Models.Migrations
 {
     [DbContext(typeof(DrawItAPIContext))]
-    [Migration("20181103155727_InitialCreate")]
+    [Migration("20181109110955_Initial Create")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,14 @@ namespace DrawIt.Models.Migrations
                 {
                     b.Property<Guid>("wordId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<int>("DNGuessed");
+
+                    b.Property<int>("Guessed");
+
+                    b.Property<int>("dislikes");
+
+                    b.Property<int>("likes");
 
                     b.Property<string>("wordEng");
 

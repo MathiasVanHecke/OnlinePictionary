@@ -12249,11 +12249,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
+      "projectUniqueName": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
       "projectName": "DrawIt.API",
-      "projectPath": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
+      "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
       "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.API\\obj\\",
+      "outputPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12272,8 +12272,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj": {
-              "projectPath": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj"
+            "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj": {
+              "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj"
             }
           }
         }

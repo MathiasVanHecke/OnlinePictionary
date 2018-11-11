@@ -1,14 +1,9 @@
 <template>
-  <div class="c-chat-response o-grid">
-
-    <span class="c-chat-response">
-      <div class="c-chat-member" style="background-color: steelblue;"></div>
-      <p class="c-chat-message">olifant</p>
-    </span>
-
-    <span class="c-chat-responseb">
-      <p class="c-chat-memberb">Nico</p>
-      <p class="c-chat-message">ezel</p>
+  <div class="c-chat-response">
+    <div class="c-chat-member"></div>
+    <span class='c-chat-responseb'>
+    <p class="c-chat-memberb">{{ name }}</p>
+    <p class="c-chat-message">{{ msg }}</p>
     </span>
   </div>
 </template>
@@ -17,7 +12,8 @@
 export default {
   name: 'ChatResponse',
   props: {
-    m: String
+    msg: String,
+    name: String,
   }
 }
 </script>

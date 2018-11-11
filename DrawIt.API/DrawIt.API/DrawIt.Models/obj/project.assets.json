@@ -3521,11 +3521,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj",
+      "projectUniqueName": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj",
       "projectName": "DrawIt.Models",
-      "projectPath": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj",
+      "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj",
       "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "D:\\downloads\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\obj\\",
+      "outputPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

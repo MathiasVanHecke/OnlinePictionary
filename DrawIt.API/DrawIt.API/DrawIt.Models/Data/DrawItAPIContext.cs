@@ -15,5 +15,6 @@ namespace DrawIt.API.Models
         }
 
         public DbSet<DrawIt.Models.Data.Word> Word { get; set; }
+        public DbSet<DrawIt.Models.Data.Categorie> Categorie { get; set; }
     }
 }
