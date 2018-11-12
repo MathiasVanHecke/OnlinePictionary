@@ -18,7 +18,7 @@ export default {
         let width = 100;
         this.exe = setInterval(frame, 20);
         function frame() {
-            if (width <= 0) { this.$root.$emit('stop'); } 
+            if (width <= 0) { that.$root.$emit("stop"); } 
             else {
                 width = width - (100/seconds/50);
                 that.$el.children[0].style.width = width + '%';

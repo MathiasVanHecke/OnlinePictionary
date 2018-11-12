@@ -23,19 +23,27 @@ export default {
   data() {
     return {
       guess : "",
-      myname : "Nico",
+      guessed : false,
     }
   },
   methods: {
     submit : function() {
       if(this.guess.trim().length == 0){ return; }
-      this.$root.$emit('guess', this.myname, this.guess);
+      this.$root.$emit('guess', this.$store.getters.getMyName, this.guess);
       this.guess = "";
     }
   },
   mounted: function() {
+    this.$root.$on('start', () => {
+      this.guessed = false;
+    })
     this.$root.$on('guess', (name, msg) => { 
-      if (msg == this.$store.getters.getTheWord){ this.$root.$emit('guessed', name); }
+      if (msg == this.$store.getters.getTheWord){ 
+        if (!this.guessed) {
+          this.$root.$emit('guessed', name); 
+          this.guessed = true;
+        }
+      }
       else {this.$root.$emit('message', name, msg); }
     });
   }

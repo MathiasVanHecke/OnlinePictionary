@@ -10,26 +10,34 @@ export default {
   data() {
     return {
       text : "",
+      wait : (delay) => new Promise(resolve => setTimeout(resolve, delay)),
     }
   },
   methods: {
-    show : function() {
+    drafted : function() {
       this.$el.classList.remove('c-hidden');
-      setTimeout(this.hide, 3000);
+      this.wait(4500)
+      .then(() => (this.hide()))
+      .then(() => (this.$root.$emit('start', 15)));
+    },
+    stop : function() {
+      this.$el.classList.remove('c-hidden');
+      this.wait(4500)
+      .then(() => (this.hide()))
+      .then(() => (this.$root.$emit('drafted', "Piemel")));
     },
     hide : function() {
       this.$el.classList.add('c-hidden');
-      this.$root.$emit('start', 60);
     }
   },
   mounted: function() {
     this.$root.$on('drafted', (member) => { 
       this.text = "Next up: " + member + " is drawing...";
-      this.show(); 
+      this.drafted(); 
     });
     this.$root.$on('stop', () => { 
       this.text = "The word was: " + this.$store.getters.getTheWord + "!";
-      this.show(); 
+      this.stop(); 
     });
   }
 }
