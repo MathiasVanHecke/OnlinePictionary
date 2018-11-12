@@ -1,8 +1,7 @@
 <template>
     <div class="c-bar c-bar-guess">
         <div class="c-guess">
-            <div class="c-guess-done"></div>
-            <div class="c-guess-done"></div>
+            <div v-for="item in guesses" :key="item" class="c-guess-done"></div>
         </div>
     </div>
 </template>
@@ -10,6 +9,16 @@
 <script>
 export default {
   name: 'GuessBar',
+  data() {
+    return {
+        guesses : 2,
+    }
+  },
+  mounted: function() {
+    this.$root.$on('guessed', () => {
+        this.guesses += 1;
+    });
+  }
 }
 </script>
 

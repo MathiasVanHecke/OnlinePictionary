@@ -60,20 +60,6 @@ export default {
       this.scrolldown();
     });
   }
-  },
-  mounted: function() {
-    this.$root.$on('addchat', (newGuess) => { 
-      if(newGuess.trim().length == 0){return}
-      this.guesses.push({
-        id: this.idForGuess,
-        message: newGuess,
-        own: false,
-      })
-
-      this.newGuess = ' '
-      this.idForGuess++
-    });
-  }
 }
 </script>
 

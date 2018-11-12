@@ -22,16 +22,24 @@ export default {
   },
   data() {
     return {
-      newGuess: ''
+      guess : "",
+      myname : "Nico",
+      word : "eenhoorn"
     }
   },
   methods: {
     submit : function() {
       if(this.guess.trim().length == 0){ return; }
       console.log(this.guess)
-      this.$root.$emit('message', 'Nico', this.guess);
+      this.$root.$emit('guess', this.myname, this.guess);
       this.guess = "";
     }
+  },
+  mounted: function() {
+    this.$root.$on('guess', (name, msg) => { 
+      if (msg == this.word){ this.$root.$emit('guessed', name); }
+      else {this.$root.$emit('message', name, msg); }
+    });
   }
 }
 </script>
