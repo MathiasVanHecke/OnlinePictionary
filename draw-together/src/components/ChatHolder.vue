@@ -10,7 +10,7 @@
         <Chat/>
         <div class="c-bar c-bar-progress"></div>
         <div class="c-progress"></div>
-        <input v-model="guess" placeholder="guess" id="guess" class="c-chat-input">
+        <input @keyup.enter="addChat" v-model="newGuess" placeholder="guess" id="guess" class="c-chat-input">
     </div>
 </template>
 
@@ -24,9 +24,14 @@ export default {
   },
   data() {
     return {
-      guess : "",
+      newGuess: ''
     }
-  }
+  },
+  methods:{
+      addChat: function(){
+          this.$root.$emit('addchat', this.newGuess);
+      }
+  },
 }
 </script>
 
