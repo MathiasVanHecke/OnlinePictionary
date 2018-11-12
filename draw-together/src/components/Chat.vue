@@ -1,42 +1,64 @@
 <template>
-  <div class="c-chat o-grid">
-    <span class="c-chat-response">
-      <div class="c-chat-member"></div>
-      <p class="c-chat-message">kip</p>
-    </span>
-    <ChatMessage m="Geit"/>
-    <span class="c-chat-response">
-      <div class="c-chat-member" style="background-color: steelblue;"></div>
-      <p class="c-chat-message">olifant</p>
-    </span>
-    <span class="c-chat-response">
-      <div class="c-chat-member" style="background-color: thistle;"></div>
-      <p class="c-chat-message">paard</p>
-    </span>
-    <ChatMessage m="Giraf"/>
-    <span class="c-chat-responseb">
-      <p class="c-chat-memberb">Mathias</p>
-      <p class="c-chat-message">eenhoorn</p>
-    </span>
-    <span class="c-chat-response">
-      <div class="c-chat-member" style="background-color: steelblue;"></div>
-      <span class='c-chat-responseb'>
-        <p class="c-chat-memberb">Nico</p>
-        <p class="c-chat-message">ezel</p>
-      </span>
-    </span>
-  </div>
+  <VuePerfectScrollbar class="c-chat o-grid">
+    <ChatItem v-for="item in chatitems" :key="item.id" :msg="item.msg" :name="item.name"/>
+  </VuePerfectScrollbar>
 </template>
 
 <script>
+import VuePerfectScrollbar from 'vue-perfect-scrollbar';
 import ChatMessage from '@/components/ChatMessage.vue';
 import ChatResponse from '@/components/ChatResponse.vue';
+import ChatItem from '@/components/ChatItem.vue';
 
 export default {
   name: 'Chat',
   components: {
     ChatMessage,
     ChatResponse,
+    ChatItem,
+    VuePerfectScrollbar,
+  },
+  data() {
+    return {
+      chatitems: [
+        {
+          id: 1,
+          msg: "kip",
+          name: "Bauke",
+        },
+        {
+          id: 2,
+          msg: "paard",
+          name: "Nico",
+        },
+        {
+          id: 3,
+          msg: "geit",
+          name: "Mathias",
+        },
+        {
+          id: 4,
+          msg: "koe",
+          name: "Piemel",
+        },
+      ]
+    }
+  },
+  methods: {
+    scrolldown : function() {
+      this.$el.scrollTop = this.$el.scrollHeight;
+    },
+  },
+  mounted: function() {
+    this.scrolldown();
+    this.$root.$on('message', (name, msg) => { 
+      this.chatitems.push({
+        id : this.chatitems.length + 1,
+        msg : msg,
+        name : name
+        });
+      this.scrolldown();
+    });
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <p class="c-chat-message">
-      {{ m }}
+      {{ msg }}
   </p>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: 'ChatMessage',
   props: {
-    m: String
+    msg: String
   }
 }
 </script>

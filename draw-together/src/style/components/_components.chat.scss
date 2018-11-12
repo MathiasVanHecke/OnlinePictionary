@@ -5,16 +5,22 @@
 
     grid-template-rows: 1fr;
     padding: $gutter;
+
+    height: calc(600px - 6.5rem);
+    box-sizing: border-box;
+    overflow: auto;
 }
 
 .c-chat-message {
     background-color: $light-grey;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     padding: $gutter;
     margin: 0;
     max-width: 80%;
+    align-self: flex-end;
     justify-self: end;
     transition: 800ms;
+    word-break: break-word;
 }
 
 .c-chat-response {
@@ -27,7 +33,7 @@
     width: $gutter;
     height: $gutter;
     margin-right: .25rem;
-    background-color: $color-a;
+    background-color: $color-b;
     border-radius: 50%;
 
     transition: 300ms all ease-out;
@@ -41,6 +47,7 @@
 
 .c-chat-responseb {
     justify-self: start;
+    align-self: flex-end;
     display: flex;
     flex-flow: column nowrap;
 }

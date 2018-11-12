@@ -11,11 +11,30 @@
 }
 
 .c-bar-guess {
-    grid-row: 2;
     background: linear-gradient(to right, $color-a, $color-b);
 }
 
+.c-guess {
+    width: 100%;
+    height: 100%;
+    
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.c-guess-done {
+    background-color: $light-grey;
+}
+
 .c-bar-progress {
-    grid-row: 4;
     background: linear-gradient(to right, $color-b, $color-c);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.c-progress {
+    width: 15%;
+    height: 100%;
+    background: $light-grey;
 }

@@ -6,11 +6,13 @@
         <Drawing/>
         <ChatHolder/>
     </div>
+    <GameMaster/>
   </div>
 </template>
 
 <script>
-import MemberBar from '@/components/MemberBar.vue'
+import MemberBar from '@/components/MemberBar.vue';
+import GameMaster from '@/components/GameMaster.vue';
 import DrawingControls from '@/components/DrawingControls.vue';
 import Drawing from '@/components/Drawing.vue';
 import ChatHolder from '@/components/ChatHolder.vue';
@@ -19,9 +21,13 @@ export default {
   name: 'Game',
   components: {
     MemberBar,
+    GameMaster,
     DrawingControls,
     Drawing,
     ChatHolder
+  },
+  mounted () {
+    this.$root.$emit('drafted', "Mathias");
   }
 }
 </script>
