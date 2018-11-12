@@ -1,6 +1,6 @@
 <template>
   <VuePerfectScrollbar class="c-chat o-grid">
-    <ChatItem v-for="item in chatitems" :key="item.id" :msg="item.msg" :name="item.name"/>
+    <ChatItem v-for="item in chatitems" :key="item.id" :msg="item.msg" :name="item.name" class="fade-in"/>
   </VuePerfectScrollbar>
 </template>
 
@@ -32,12 +32,17 @@ export default {
           name: "Nico",
         },
         {
-          id: 3,
+          id:3,
+          msg: "Céline guessed the word!",
+          name: "",
+        },
+        {
+          id: 4,
           msg: "geit",
           name: "Mathias",
         },
         {
-          id: 4,
+          id: 5,
           msg: "koe",
           name: "Piemel",
         },
@@ -51,6 +56,14 @@ export default {
   },
   mounted: function() {
     this.scrolldown();
+    this.$root.$on('guessed', (name) => {
+      this.chatitems.push({
+        id : this.chatitems.length + 1,
+        msg : name + " guessed the word!",
+        name : ""
+        });
+      this.scrolldown();
+    })
     this.$root.$on('message', (name, msg) => { 
       this.chatitems.push({
         id : this.chatitems.length + 1,

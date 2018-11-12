@@ -1,9 +1,11 @@
-<template v-if="mine==false">
-    <ChatResponse v-if="mine==false" :name="name" :msg="msg"/>
+<template>
+    <ChatAnnouncement v-if="name == ''" :msg="msg"/>
+    <ChatResponse v-else-if="mine==false" :name="name" :msg="msg"/>
     <ChatMessage v-else :msg="msg"/>
 </template>
 
 <script>
+import ChatAnnouncement from '@/components/ChatAnnouncement.vue';
 import ChatMessage from '@/components/ChatMessage.vue';
 import ChatResponse from '@/components/ChatResponse.vue';
 
@@ -26,7 +28,8 @@ export default {
   },
   components : {
     ChatMessage,
-    ChatResponse
+    ChatResponse,
+    ChatAnnouncement,
   }
 }
 </script>
