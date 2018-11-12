@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    theWord: "eenhoorn",
     pickedColor: "black",
     pickedBrush: "2"
   },
@@ -17,6 +18,7 @@ export default new Vuex.Store({
     setBrush: ({commit}, b) => {commit("setPickedBrush", b)}
   },
   getters: {
+    getTheWord: state => state.theWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
   }

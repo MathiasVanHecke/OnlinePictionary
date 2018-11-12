@@ -1,6 +1,6 @@
 <template>
   <div class="c-game-master c-hidden">
-    <h3>Next up: {{guesser}} is drawing...</h3>
+    <h3>{{ text }}</h3>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'GameMaster',
   data() {
     return {
-      guesser : "",
+      text : "",
     }
   },
   methods: {
@@ -23,7 +23,14 @@ export default {
     }
   },
   mounted: function() {
-    this.$root.$on('drafted', (member) => { this.guesser = member; this.show(); });
+    this.$root.$on('drafted', (member) => { 
+      this.text = "Next up: " + member + " is drawing...";
+      this.show(); 
+    });
+    this.$root.$on('stop', () => { 
+      this.text = "The word was: " + this.$store.getters.getTheWord + "!";
+      this.show(); 
+    });
   }
 }
 </script>
