@@ -15,8 +15,8 @@ export default new Vuex.Store({
     setPickedBrush(state, b){state.pickedBrush = b}
   },
   actions: {
-    setColor: ({commit}, c) => {commit("setPickedColor", c)},
-    setBrush: ({commit}, b) => {commit("setPickedBrush", b)}
+    setColor: ({commit}, c) => {commit("setPickedColor", c); },
+    setBrush: ({commit}, b) => {commit("setPickedBrush", b); }
   },
   getters: {
     getMyName: state => state.myName,

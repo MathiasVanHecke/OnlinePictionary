@@ -8,7 +8,6 @@ export default {
   methods : {
     emiterase : function () {
       this.$root.$emit('erasecanvas');
-      this.$root.$emit('stop');
     }
   }
 }

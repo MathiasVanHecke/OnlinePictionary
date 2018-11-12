@@ -24,7 +24,7 @@ export default {
       this.$el.classList.remove('c-hidden');
       this.wait(4500)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('drafted', "Piemel")));
+      .then(() => (this.$root.$emit('drafted', "Nico")));
     },
     hide : function() {
       this.$el.classList.add('c-hidden');
@@ -32,7 +32,11 @@ export default {
   },
   mounted: function() {
     this.$root.$on('drafted', (member) => { 
-      this.text = "Next up: " + member + " is drawing...";
+      if(member == this.$store.getters.getMyName){
+        let word = "zebrapaardje";
+        this.text = "You're up! The word is \"" + word + "\"";
+      }
+      else { this.text = "Next up: " + member + " is drawing..."; }
       this.drafted(); 
     });
     this.$root.$on('stop', () => { 

@@ -24,6 +24,7 @@ export default {
     return {
       guess : "",
       guessed : false,
+      isEnabled : true,
     }
   },
   methods: {
@@ -34,17 +35,24 @@ export default {
     }
   },
   mounted: function() {
+    this.$root.$on('drafted', (member) => {
+      if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
+    this.$root.$on('stop', () => { 
+      this.isEnabled = true; 
+    });
     this.$root.$on('start', () => {
       this.guessed = false;
     })
     this.$root.$on('guess', (name, msg) => { 
-      if (msg == this.$store.getters.getTheWord){ 
-        if (!this.guessed) {
-          this.$root.$emit('guessed', name); 
-          this.guessed = true;
+      if (this.isEnabled) {
+        if (msg == this.$store.getters.getTheWord){ 
+          if (!this.guessed) {
+            this.$root.$emit('guessed', name); 
+            this.guessed = true;
+          }
         }
+        else {this.$root.$emit('message', name, msg); }
       }
-      else {this.$root.$emit('message', name, msg); }
     });
   }
 }

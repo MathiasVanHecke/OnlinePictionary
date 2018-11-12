@@ -28,7 +28,7 @@ export default {
         isTouch : false,
         isDrawing : false,
         isDot : false,
-        isEnabled : true,
+        isEnabled : false,
     }
   },
   computed: {
@@ -124,8 +124,12 @@ export default {
       this.currY = currY;
       this.drawdot(); 
     });
-    this.$root.$on('enable',  () => { this.isEnabled = true  });
-    this.$root.$on('disable', () => { this.isEnabled = false });
+    this.$root.$on('drafted', (member) => {
+      if(member == this.$store.getters.getMyName) {this.isEnabled = true; } });
+    this.$root.$on('stop', () => { 
+      this.isEnabled = false; 
+      this.erase();
+      });
   }
 }
 </script>
