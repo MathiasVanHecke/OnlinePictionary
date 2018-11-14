@@ -10,6 +10,20 @@
   cursor: pointer;
 }
 
+.c-login-tac {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding-left: 1.5em;
+  margin-bottom: $gutter;
+}
+
+.c-login-tac-text {
+  line-height: 2em;
+  color: $dark-grey;
+  padding-left: 1em;
+}
+
 .c-login-input{
   background: $light-grey;
 
