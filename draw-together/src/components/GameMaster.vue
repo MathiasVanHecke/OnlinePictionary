@@ -18,7 +18,7 @@ export default {
       this.$el.classList.remove('c-hidden');
       this.wait(4500)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('start', 15)));
+      .then(() => (this.$root.$emit('start', 60)));
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');
@@ -34,7 +34,7 @@ export default {
     this.$root.$on('drafted', (member) => { 
       if(member == this.$store.getters.getMyName){
         let word = "zebrapaardje";
-        this.text = "You're up! The word is \"" + word + "\"";
+        this.text = "You're up! The word is \"" + word + "\".";
       }
       else { this.text = "Next up: " + member + " is drawing..."; }
       this.drafted(); 

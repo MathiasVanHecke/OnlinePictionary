@@ -1,6 +1,6 @@
 <template>
   <div class="c-drawing">
-      <canvas ref="canvas" id="canvas" 
+      <canvas v-show="!isSmall" ref="canvas" id="canvas" 
               width="800" height="600"
               v-on:mousedown="start($event)"
               v-on:mousemove="middle($event)"
@@ -10,8 +10,15 @@
               v-on:touchmove.prevent="middle($event)"
               v-on:touchend.prevent="stop">
       </canvas>
-      <canvas ref="canxxs" id="canxxs" 
+      <canvas v-show="isSmall" ref="canxxs" id="canxxs" 
               width="400" height="300"
+              v-on:mousedown="start($event)"
+              v-on:mousemove="middle($event)"
+              v-on:mouseout="stop"
+              v-on:mouseup="stop"
+              v-on:touchstart.prevent="start($event)"
+              v-on:touchmove.prevent="middle($event)"
+              v-on:touchend.prevent="stop"
               ></canvas>
   </div>
 </template>
@@ -25,6 +32,7 @@ export default {
         prevY : 0,
         currX : 0, 
         currY : 0,
+        isSmall : false,
         isTouch : false,
         isDrawing : false,
         isDot : false,
@@ -39,15 +47,15 @@ export default {
   },
   methods: {
     //event handelers
-    start : function(e, touch) {
+    start : function(e) {
+      console.log(e);
       if (this.isEnabled){
-        if (touch){ this.isTouch = true }
-        else { this.isTouch = false }
         this.getXY(e);
         this.isDrawing = true;
         this.isDot = true;
         if (this.isDot) {
-          this.drawdot();
+          this.drawdot(this.ctx, this.currX, this.currY);
+          this.drawdot(this.cts, this.currX/2, this.currY/2);
           this.isDot = false;
         }
       }
@@ -68,13 +76,17 @@ export default {
     getXY : function(e){
       this.prevX = this.currX;
       this.prevY = this.currY;
-      if (this.isTouch) {
-        this.currX = e.changedTouches[0].pageX;
-        this.currY = e.changedTouches[0].pageY;
+      try {
+        this.currX = e.changedTouches[0].pageX - e.srcElement.offsetLeft;
+        this.currY = e.changedTouches[0].pageY - e.srcElement.offsetTop;
       }
-      else {
+      catch {
         this.currX = e.clientX - e.srcElement.offsetLeft;
         this.currY = e.clientY - e.srcElement.offsetTop;
+      }
+      if (this.isSmall) {
+        this.currX *= 2;
+        this.currY *= 2;
       }
     },
 
@@ -85,28 +97,36 @@ export default {
       this.cts.clearRect(0, 0, this.$refs.canxxs.clientWidth, this.$refs.canxxs.clientHeight);
     },
     draw: function() {
-        this.drawdot();
-        this.drawline();
-        this.drawdot();
+        this.drawdot(this.ctx, this.currX, this.currY);
+        this.drawline(this.ctx, this.currX, this.currY, this.prevX, this.prevY);
+        this.drawdot(this.ctx, this.currX, this.currY);
+        this.drawdot(this.cts, this.currX/2, this.currY/2);
+        this.drawline(this.cts, this.currX/2, this.currY/2, this.prevX/2, this.prevY/2);
+        this.drawdot(this.cts, this.currX/2, this.currY/2);
     },
-    drawdot: function() {
-        this.ctx.beginPath();
-        this.ctx.fillStyle = this.c;
-        this.ctx.arc(this.currX, this.currY, this.b/2 , 0, 2 * Math.PI);
-        this.ctx.fill();
-        this.ctx.closePath();
+    drawdot: function(mycanvas, currX, currY) {
+        mycanvas.beginPath();
+        mycanvas.fillStyle = this.c;
+        mycanvas.arc(currX, currY, this.b/2 , 0, 2 * Math.PI);
+        mycanvas.fill();
+        mycanvas.closePath();
     },
-    drawline: function(){
-        this.ctx.beginPath();
-        this.ctx.moveTo(this.prevX, this.prevY);
-        this.ctx.lineTo(this.currX, this.currY);
-        this.ctx.strokeStyle = this.c;
-        this.ctx.lineWidth = this.b;
-        this.ctx.stroke();
-        this.ctx.closePath();
+    drawline: function(mycanvas, currX, currY, prevX, prevY){
+        mycanvas.beginPath();
+        mycanvas.moveTo(prevX, prevY);
+        mycanvas.lineTo(currX, currY);
+        mycanvas.strokeStyle = this.c;
+        mycanvas.lineWidth = this.b;
+        mycanvas.stroke();
+        mycanvas.closePath();
     }
   },
   mounted: function() {
+    if( window.innerWidth < 1350 ) this.isSmall = true; 
+    window.addEventListener('resize', () => { 
+      if( window.innerWidth < 1350 ) this.isSmall = true; 
+      else this.isSmall = false; 
+      });
     this.$root.$on('erasecanvas', () => { this.erase(); });
     this.$root.$on('draw', (c, b, currX, currY, prevX, prevY) => { 
       this.c = c;
