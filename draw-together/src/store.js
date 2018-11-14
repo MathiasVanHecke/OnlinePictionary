@@ -20,7 +20,7 @@ export default new Vuex.Store({
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
     setBrush: ({commit}, b) => {commit("setPickedBrush", b)},
 
-    startConnection: ({commit}) => {
+    startConnection: () => {
       let connection = new signalR.HubConnectionBuilder({useDefaultpath : false})
         .withUrl("https://localhost:44321/chatHub")
         .build();

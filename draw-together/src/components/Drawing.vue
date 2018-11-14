@@ -76,11 +76,11 @@ export default {
     getXY : function(e){
       this.prevX = this.currX;
       this.prevY = this.currY;
-      try {
+      if (e.changedTouches != undefined) {
         this.currX = e.changedTouches[0].pageX - e.srcElement.offsetLeft;
         this.currY = e.changedTouches[0].pageY - e.srcElement.offsetTop;
       }
-      catch {
+      else {
         this.currX = e.clientX - e.srcElement.offsetLeft;
         this.currY = e.clientY - e.srcElement.offsetTop;
       }
