@@ -7,6 +7,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    myName: "Nico",
+    theWord: "eenhoorn",
     pickedColor: "black",
     pickedBrush: "2"
   },
@@ -29,6 +31,8 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    getMyName: state => state.myName,
+    getTheWord: state => state.theWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
   }

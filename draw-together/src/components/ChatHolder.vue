@@ -23,15 +23,14 @@ export default {
   data() {
     return {
       guess : "",
-      myname : "Nico",
-      word : "eenhoorn"
+      guessed : false,
+      isEnabled : true,
     }
   },
   methods: {
     submit : function() {
       if(this.guess.trim().length == 0){ return; }
-      console.log(this.guess)
-      this.$root.$emit('guess', this.myname, this.guess);
+      this.$root.$emit('guess', this.$store.getters.getMyName, this.guess);
       this.guess = "";
     }
   },
@@ -39,9 +38,24 @@ export default {
     this.$store.dispatch("startConnection");
   },
   mounted: function() {
+    this.$root.$on('drafted', (member) => {
+      if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
+    this.$root.$on('stop', () => { 
+      this.isEnabled = true; 
+    });
+    this.$root.$on('start', () => {
+      this.guessed = false;
+    })
     this.$root.$on('guess', (name, msg) => { 
-      if (msg == this.word){ this.$root.$emit('guessed', name); }
-      else {this.$root.$emit('message', name, msg); }
+      if (this.isEnabled) {
+        if (msg == this.$store.getters.getTheWord){ 
+          if (!this.guessed) {
+            this.$root.$emit('guessed', name); 
+            this.guessed = true;
+          }
+        }
+        else {this.$root.$emit('message', name, msg); }
+      }
     });
   }
 }

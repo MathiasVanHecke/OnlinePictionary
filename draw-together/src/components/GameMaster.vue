@@ -1,6 +1,6 @@
 <template>
   <div class="c-game-master c-hidden">
-    <h3>Next up: {{guesser}} is drawing...</h3>
+    <h3>{{ text }}</h3>
   </div>
 </template>
 
@@ -9,21 +9,40 @@ export default {
   name: 'GameMaster',
   data() {
     return {
-      guesser : "",
+      text : "",
+      wait : (delay) => new Promise(resolve => setTimeout(resolve, delay)),
     }
   },
   methods: {
-    show : function() {
+    drafted : function() {
       this.$el.classList.remove('c-hidden');
-      setTimeout(this.hide, 3000);
+      this.wait(4500)
+      .then(() => (this.hide()))
+      .then(() => (this.$root.$emit('start', 60)));
+    },
+    stop : function() {
+      this.$el.classList.remove('c-hidden');
+      this.wait(4500)
+      .then(() => (this.hide()))
+      .then(() => (this.$root.$emit('drafted', "Nico")));
     },
     hide : function() {
       this.$el.classList.add('c-hidden');
-      this.$root.$emit('start', 60);
     }
   },
   mounted: function() {
-    this.$root.$on('drafted', (member) => { this.guesser = member; this.show(); });
+    this.$root.$on('drafted', (member) => { 
+      if(member == this.$store.getters.getMyName){
+        let word = "zebrapaardje";
+        this.text = "You're up! The word is \"" + word + "\".";
+      }
+      else { this.text = "Next up: " + member + " is drawing..."; }
+      this.drafted(); 
+    });
+    this.$root.$on('stop', () => { 
+      this.text = "The word was: " + this.$store.getters.getTheWord + "!";
+      this.stop(); 
+    });
   }
 }
 </script>

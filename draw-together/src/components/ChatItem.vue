@@ -15,14 +15,9 @@ export default {
     msg: String,
     name: String,
   },
-  data() {
-    return {
-        myname : "Nico",
-    }
-  },
   computed: {
     mine: function () {
-      if (this.name == this.myname) return true;
+      if (this.name == this.$store.getters.getMyName) return true;
       else return false;
     }
   },

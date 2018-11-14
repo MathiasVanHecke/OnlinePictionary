@@ -6,15 +6,11 @@
 
 <script>
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
-import ChatMessage from '@/components/ChatMessage.vue';
-import ChatResponse from '@/components/ChatResponse.vue';
 import ChatItem from '@/components/ChatItem.vue';
 
 export default {
   name: 'Chat',
   components: {
-    ChatMessage,
-    ChatResponse,
     ChatItem,
     VuePerfectScrollbar,
   },
