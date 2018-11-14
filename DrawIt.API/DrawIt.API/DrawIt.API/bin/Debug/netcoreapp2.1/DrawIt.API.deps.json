@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "4d2d8c6782a1c88c304bd2d3a26eb83ed414a290"
+    "signature": "c9cf0b23a089aa8fe67e1a2688deae0426d7e9ec"
   },
   "compilationOptions": {
     "defines": [
@@ -31,6 +31,7 @@
           "Microsoft.EntityFrameworkCore.Design": "2.1.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.4",
           "Microsoft.NETCore.App": "2.1.0",
+          "Microsoft.Owin.Cors": "4.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.1.1"
         },
         "runtime": {
@@ -38,6 +39,17 @@
         },
         "compile": {
           "DrawIt.API.dll": {}
+        }
+      },
+      "Microsoft.AspNet.Cors/5.0.0": {
+        "runtime": {
+          "lib/net45/System.Web.Cors.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.11001.0"
+          }
+        },
+        "compile": {
+          "lib/net45/System.Web.Cors.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -320,6 +332,36 @@
       },
       "Microsoft.NETCore.Platforms/2.1.0": {},
       "Microsoft.NETCore.Targets/2.1.0": {},
+      "Microsoft.Owin/4.0.0": {
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Owin.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.4677.103"
+          }
+        },
+        "compile": {
+          "lib/net451/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Cors/4.0.0": {
+        "dependencies": {
+          "Microsoft.AspNet.Cors": "5.0.0",
+          "Microsoft.Owin": "4.0.0",
+          "Owin": "1.0.0"
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Owin.Cors.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.4677.103"
+          }
+        },
+        "compile": {
+          "lib/net451/Microsoft.Owin.Cors.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "2.1.1",
@@ -457,6 +499,17 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "runtime": {
+          "lib/net40/Owin.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.2.0": {
@@ -3516,6 +3569,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Microsoft.AspNet.Cors/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3mQVt5ZkHVs0mO2pAeNZHPoWb0DmxDMyS7YkU9usvvdc7C1gLHBuvbICZWtcnpiH+Im7SxAd7lSxL56Bqxos7A==",
+      "path": "microsoft.aspnet.cors/5.0.0",
+      "hashPath": "microsoft.aspnet.cors.5.0.0.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
       "serviceable": true,
@@ -3621,6 +3681,20 @@
       "path": "microsoft.netcore.targets/2.1.0",
       "hashPath": "microsoft.netcore.targets.2.1.0.nupkg.sha512"
     },
+    "Microsoft.Owin/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Nmvy2V2WiRHTnSs65REVaYHZrsXjXFS1MxwYqGrS6YjjajazEmQ1+dQWZiyO3dCOhnh6PhNfsGBCxbim36sjAg==",
+      "path": "microsoft.owin/4.0.0",
+      "hashPath": "microsoft.owin.4.0.0.nupkg.sha512"
+    },
+    "Microsoft.Owin.Cors/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3XK5v7a8MEgWAmiscfOLkno/OkvvdPXkgncQLJxytfxs3Zs/ahnC5IyOHweOpC5yQCoeab5tKAP9InLUdxaL5w==",
+      "path": "microsoft.owin.cors/4.0.0",
+      "hashPath": "microsoft.owin.cors.4.0.0.nupkg.sha512"
+    },
     "Microsoft.VisualStudio.Web.CodeGeneration/2.1.1": {
       "type": "package",
       "serviceable": true,
@@ -3690,6 +3764,13 @@
       "sha512": "sha512-/VaEPsEgj3p5YPLLxbYc6rB8gYIPf+8wCWOAlAe3l/SP0DXcefZ58uJer1ToBKIpwbPN5LkgTXtvilze5UJoYQ==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "Owin/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-S87+AKxSxfhXRzIQfm6WBxfGbnzECLG8bmVp3lRiwjeYG9YBJ0AXd+2Xn7I7aqwwj0j4erSpX6H9OhXy+qQ7tw==",
+      "path": "owin/1.0.0",
+      "hashPath": "owin.1.0.0.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",

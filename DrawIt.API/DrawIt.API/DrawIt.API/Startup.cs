@@ -14,6 +14,8 @@ using Microsoft.EntityFrameworkCore;
 using DrawIt.API.Models;
 using DrawIt.Models.Repositories;
 using DrawIt.API.Controllers;
+using DrawIt.Models.Hubs;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 namespace DrawIt.API
 {
@@ -35,22 +37,49 @@ namespace DrawIt.API
 
             services.AddDbContext<DrawItAPIContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DrawItAPIContext")));
+
+
+            services.AddSignalR();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+          
+
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); 
             }
             else
             {
                 app.UseHsts();
             }
 
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<ChatHub>("/chatHub");
+            });
+
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin()
+                .AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            });
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }
+
+        
     }
 }

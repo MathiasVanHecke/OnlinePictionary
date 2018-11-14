@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'AppHeader'
+  name: 'LoginForm'
 }
 </script>
 

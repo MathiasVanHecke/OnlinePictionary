@@ -35,6 +35,9 @@ export default {
       this.guess = "";
     }
   },
+  created(){
+    this.$store.dispatch("startConnection");
+  },
   mounted: function() {
     this.$root.$on('guess', (name, msg) => { 
       if (msg == this.word){ this.$root.$emit('guessed', name); }

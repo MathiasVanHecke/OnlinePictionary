@@ -20,3 +20,6 @@ D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Deb
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfo.cs
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.dll
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.pdb
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.SignalR.Core.dll
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.SignalR.Core.xml
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csproj.CopyComplete
