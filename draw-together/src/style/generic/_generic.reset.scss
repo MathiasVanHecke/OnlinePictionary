@@ -344,9 +344,10 @@ template {
 ========================================================================== */
 
 /**
- * Fuck focussed inputfields
+ * Fuck focussed inputfields and buttons
  */
 
+button:focus,
 input:focus{
   outline: none;
 }

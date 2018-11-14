@@ -4,12 +4,11 @@ $color-b: thistle;
 $color-c: steelblue;
 $color-vue: #42b983;
 
-$color-b-faded: #ded3de;
-
 $white: white;
 $light-grey: whitesmoke;
+$focus-light-grey: #eee7ee;
 $medium-grey: lightgrey;
-$focus-grey: #ded3de;
+$focus-medium-grey: #ded3de;
 
 // FONTS
 $font-a: 'Tajawal', Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -20,7 +19,7 @@ $container-width: 1200px;
 
 $gutter: .75rem;
 $basic-radius: .75rem;
-$border-width: 2px;
+$small-radius: .25rem;
 
 $bar-height: .25rem;
 $header-height: 3rem;

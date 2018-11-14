@@ -7,10 +7,6 @@
 }
 
 .c-member {
-    @if 8px > 10px {
-        color: seagreen;
-    }
-
     padding-right: 2em;
     display: flex;
     flex-flow: row nowrap;
