@@ -1,7 +1,8 @@
 <template>
   <div class="c-appheader">
       <div class="o-container">
-        <router-link to="/">Home</router-link> |
+        <router-link to="/">Landing</router-link> |
+        <router-link to="/home">Home</router-link> |
         <router-link to="/game">New Game</router-link> |
         <router-link to="/waiting">Waiting Room</router-link>
       </div>
