@@ -8,9 +8,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     myName: "Nico",
-    roundsAmount: '',
-    roundsLength: '',
-    Word: "",
+    roundsAmount: "",
+    roundsLength: "",
+    pickedWord: "",
     pickedColor: "black",
     pickedBrush: "2"
   },
@@ -19,7 +19,7 @@ export default new Vuex.Store({
     setRoundsLength(state, l){state.roundsLength = l},
     setPickedColor(state, c){state.pickedColor = c},
     setPickedBrush(state, b){state.pickedBrush = b},
-    setPickedWord(state, w){state.Word = w},
+    setPickedWord(state, w){state.pickedWord = w},
   },
   actions: {
     setRoundsAmount: ({commit}, r) => {commit("setRoundsAmount", r)},
@@ -37,7 +37,7 @@ export default new Vuex.Store({
       connection.start();
     },
 
-    setWord:({commit})=>{
+    setWord: ({commit}) => {
       fetch('https://localhost:44321/api/words/random')
         .then(function(response){
           if(!response.ok) return new Error(response);
@@ -45,16 +45,16 @@ export default new Vuex.Store({
         })
         .then(function(json){
           console.log(json['wordEng']);
-          commit( 'setPickedWord', json['wordEng'])
+          commit('setPickedWord', json['wordEng'])
         })
-        .catch((error => { console.log(error.statusText); }));
+        .catch((error => { console.log(error.statusText); commit('setPickedWord', 'eenhoorn') }));
     }
   },
   getters: {
     getMyName: state => state.myName,
     getRoundsAmount: state => state.roundsAmount,
     getRoundsLength: state => state.roundsLength,
-    getTheWord: state => state.Word,
+    getPickedWord: state => state.pickedWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
   }

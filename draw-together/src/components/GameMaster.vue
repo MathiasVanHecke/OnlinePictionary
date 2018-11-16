@@ -1,6 +1,6 @@
 <template>
   <div class="c-game-master c-hidden">
-    <h3>You're up! The word is {{ word }}.</h3>
+    <h3>{{text}}</h3>
   </div>
 </template>
 
@@ -10,13 +10,12 @@ export default {
   data() {
     return {
       text : "",
-
       wait : (delay) => new Promise(resolve => setTimeout(resolve, delay)),
     }
   },
   computed:{
     word: function(){
-      return this.$store.getters.getTheWord
+      return this.$store.getters.getPickedWord;
     }
   },
   methods: {
@@ -24,7 +23,7 @@ export default {
       this.$el.classList.remove('c-hidden');
       this.wait(4500)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('start', 40)));
+      .then(() => (this.$root.$emit('start', 5)));
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');
@@ -41,14 +40,15 @@ export default {
   },
   mounted: function() {
     this.$root.$on('drafted', (member) => { 
+      this.$store.dispatch('setWord');
       if(member == this.$store.getters.getMyName){
-        this.$store.dispatch('setWord')
+        this.text = "You're up! The word is "+ this.word + ".";
       }
       else { this.text = "Next up: " + member + " is drawing..."; }
       this.drafted(); 
     });
     this.$root.$on('stop', () => { 
-      this.text = "The word was: " + this.$store.getters.getTheWord + "!";
+      this.text = "The word was: " + this.word + "!";
       this.stop(); 
     });
   }

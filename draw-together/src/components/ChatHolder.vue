@@ -48,7 +48,7 @@ export default {
     })
     this.$root.$on('guess', (name, msg) => { 
       if (this.isEnabled) {
-        if (msg == this.$store.getters.getTheWord){ 
+        if (msg == this.$store.getters.getPickedWord){ 
           if (!this.guessed) {
             this.$root.$emit('guessed', name); 
             this.guessed = true;
