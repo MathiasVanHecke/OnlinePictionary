@@ -12324,6 +12324,7 @@
     ".NETCoreApp,Version=v2.1": [
       "DrawIt.Models >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
+      "Microsoft.AspNetCore.Cors >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.EntityFrameworkCore >= 2.1.4",
       "Microsoft.EntityFrameworkCore.Design >= 2.1.4",
@@ -12334,27 +12335,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\celine.abbeloos\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Users\\mathi\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
+      "projectUniqueName": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
       "projectName": "DrawIt.API",
-      "projectPath": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
-      "packagesPath": "C:\\Users\\celine.abbeloos\\.nuget\\packages\\",
-      "outputPath": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\obj\\",
+      "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
+      "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+      "outputPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\celine.abbeloos\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12366,8 +12364,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj": {
-              "projectPath": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj"
+            "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj": {
+              "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj"
             }
           }
         }
@@ -12386,6 +12384,10 @@
             "target": "Package",
             "version": "[2.1.1, )",
             "autoReferenced": true
+          },
+          "Microsoft.AspNetCore.Cors": {
+            "target": "Package",
+            "version": "[2.1.1, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",

@@ -11,7 +11,6 @@ using DrawIt.Models.Repositories;
 
 namespace DrawIt.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class WordsController : ControllerBase
     {
@@ -23,22 +22,22 @@ namespace DrawIt.API.Controllers
         }
 
         // GET: api/Words
+        [Route("api/words")]
         [HttpGet]
         public async Task<IActionResult> GetAllWords()
         {
             //return _context.Word;
-            var words = await _wordRepo.GetAllWords(); //met include van platforms
+            var words = await _wordRepo.GetAllWords();
             return Ok(words);
         }
 
 
-        // GET: api/Words/rnd
-        [HttpGet("{rnd}")]
-        public ActionResult<string> Get(string rnd)
+        // GET: api/Words/random
+        [Route("api/words/random")]
+        [HttpGet]
+        public async Task<IActionResult> GetRandomWord()
         {
-            if (rnd == "rnd") ;
-            //return _context.Word;
-            var rndWord = _wordRepo.GetRndWord(); //met include van platforms
+            Word rndWord =  await _wordRepo.GetRandomWord();
             return Ok(rndWord);
         }
 
