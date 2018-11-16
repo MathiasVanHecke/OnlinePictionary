@@ -8,13 +8,14 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     myName: "Nico",
-    theWord: "eenhoorn",
+    pickedWord: "eenhoorn",
     pickedColor: "black",
     pickedBrush: "2"
   },
   mutations: {
     setPickedColor(state, c){state.pickedColor = c},
-    setPickedBrush(state, b){state.pickedBrush = b}
+    setPickedBrush(state, b){state.pickedBrush = b},
+    setPickedWord(state, w){state.Word = w},
   },
   actions: {
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
@@ -32,7 +33,7 @@ export default new Vuex.Store({
   },
   getters: {
     getMyName: state => state.myName,
-    getTheWord: state => state.theWord,
+    getTheWord: state => state.pickedWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
   }
