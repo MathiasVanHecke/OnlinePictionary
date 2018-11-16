@@ -18,7 +18,7 @@ namespace DrawIt.Models.Repositories
         }
 
         // GET: api/Words
-        public new async Task<IEnumerable<Word>> GetAllWords()
+        public async Task<IEnumerable<Word>> GetAllWords()
         {
             var words = await this._context.Word
                 .AsNoTracking()
@@ -26,11 +26,12 @@ namespace DrawIt.Models.Repositories
             return words;
         }
 
-        //GET: api/rndWord
-        public async Task<Word> GetRndWord()
+        //GET: api/rwords/random
+        public async Task<Word> GetRandomWord()
         {
-            var rndWord = await this._context.Word.SingleOrDefaultAsync();
-            return rndWord;
+            List<Word> words = await this._context.Word.AsNoTracking().ToListAsync();
+            Random r = new Random();
+            return words[r.Next(0, words.Count - 1)];
         }
     }
 }

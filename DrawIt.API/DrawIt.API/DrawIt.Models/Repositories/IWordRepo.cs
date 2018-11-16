@@ -6,7 +6,7 @@ namespace DrawIt.Models.Repositories
 {
     public interface IWordRepo
     {
-        new Task<IEnumerable<Word>> GetAllWords();
-        Task<Word> GetRndWord();
+        Task<IEnumerable<Word>> GetAllWords();
+        Task<Word> GetRandomWord();
     }
 }

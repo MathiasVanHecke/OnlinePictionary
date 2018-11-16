@@ -6,7 +6,7 @@ namespace DrawIt.Models.Data
 {
     public class Word
     {
-        public Guid wordId { get; set; }
+        public int wordId { get; set; }
         public String wordNl { get; set; }
         public String wordEng { get; set; }
         public int likes { get; set; }
