@@ -1,5 +1,5 @@
 <template>
-  <div class="c-controls o-grid">
+  <div v-show="isEnabled" class="c-controls o-grid">
       <ColorPicker/>
       <BrushPicker/>
       <Trashcan/>
@@ -13,10 +13,18 @@ import Trashcan from '@/components/Trashcan.vue'
 
 export default {
   name: 'controls',
+  data() {
+    return {
+      isEnabled : false,
+    }
+  },
   components: {
     ColorPicker,
     BrushPicker,
     Trashcan
+  },
+  mounted () {
+    this.$root.$on('drafted', (name) => { if (name == this.$store.getters.getMyName) {this.isEnabled = true; } else this.isEnabled = false });
   }
 }
 </script>

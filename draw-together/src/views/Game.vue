@@ -27,7 +27,7 @@ export default {
     ChatHolder
   },
   mounted () {
-    this.$root.$emit('drafted', "Nico");
+    this.$root.$emit('drafted', "Mathias");
   }
 }
 </script>

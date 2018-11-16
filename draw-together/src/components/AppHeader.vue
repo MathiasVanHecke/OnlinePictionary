@@ -1,10 +1,12 @@
 <template>
   <div class="c-appheader">
       <div class="o-container">
-        <router-link to="/">Landing</router-link> |
-        <router-link to="/home">Home</router-link> |
-        <router-link to="/game">New Game</router-link> |
-        <router-link to="/waiting">Waiting Room</router-link>
+        <span>
+          <router-link to="/">Landing</router-link> |
+          <router-link to="/home">Home</router-link> |
+          <router-link to="/waiting">Waiting</router-link> |
+          <router-link to="/game">Game</router-link>
+        </span>
       </div>
       <div class="c-bar c-bar-header"></div>
   </div>
