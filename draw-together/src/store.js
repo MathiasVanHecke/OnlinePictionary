@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     myName: "Nico",
-    pickedWord: "eenhoorn",
+    Word: "",
     pickedColor: "black",
     pickedBrush: "2"
   },
@@ -29,11 +29,24 @@ export default new Vuex.Store({
       console.log(connection);
 
       connection.start();
+    },
+
+    setWord:({commit})=>{
+      fetch('https://localhost:44321/api/words/random')
+        .then(function(response){
+          if(!response.ok) return new Error(response);
+          else return response.json();
+        })
+        .then(function(json){
+          console.log(json['wordEng']);
+          commit( 'setPickedWord', json['wordEng'])
+        })
+        .catch((error => { console.log(error.statusText); }));
     }
   },
   getters: {
     getMyName: state => state.myName,
-    getTheWord: state => state.pickedWord,
+    getTheWord: state => state.Word,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
   }

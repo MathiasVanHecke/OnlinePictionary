@@ -41,14 +41,15 @@ namespace DrawIt.API
 
             services.AddSignalR();
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials());
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy",
+            //        builder => builder.AllowAnyOrigin()
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader()
+            //        .AllowCredentials());
+            //});
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,11 +71,19 @@ namespace DrawIt.API
                 routes.MapHub<ChatHub>("/chatHub");
             });
 
-            app.UseCors(builder =>
-            {
-                builder.AllowAnyOrigin()
-                .AllowAnyHeader().AllowAnyMethod().AllowCredentials();
-            });
+            //app.UseCors(builder =>
+            //{
+            //    builder
+            //    .AllowAnyOrigin()
+            //    .AllowAnyHeader()
+            //    .AllowAnyMethod()
+            //    .AllowCredentials()
+            //    .WithOrigins("http://localhost:8080/");
+            //});
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:8080").AllowAnyMethod()
+            );
 
             app.UseHttpsRedirection();
             app.UseMvc();
