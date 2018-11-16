@@ -16,3 +16,7 @@
 .o-input:focus{
     background-color: $focus-light-grey;
 }
+
+.o-input--invalid {
+    background-color: $invalid-light-grey;
+}

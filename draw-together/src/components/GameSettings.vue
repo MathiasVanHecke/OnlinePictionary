@@ -1,8 +1,8 @@
 <template>
   <div class="c-gamesettings o-smallpage">
     <h1 class="o-smallpage-header">New Game</h1>
-    <input v-model="rounds" type="number" class="o-input" placeholder="Amount of rounds"    min="1" max="10">
-    <input v-model="length" type="number" class="o-input" placeholder="Length of one round" min="40" max="120" step="10">
+    <input v-model="rounds" ref="rounds" v-on:focusout="validateRounds" type="number" class="o-input" placeholder="Amount of rounds" min="1" max="10">
+    <input v-model="length" ref="length" v-on:focusout="validateLength" type="number" class="o-input" placeholder="Length of one round" min="40" max="120" step="10">
     <h3>Share this roomkey so people can join:</h3>
     <div class="c-gamesettings-key">
       <p>{{ roomkey }}</p>
@@ -25,6 +25,24 @@ export default {
     }
   },
   methods: {
+    validateRounds() {
+      if (this.rounds < 1) this.rounds = 1;
+      if (this.rounds > 10) this.rounds = 10;
+      this.validate();
+    },
+    validateLength() {
+      if (this.length < 40) this.length = 40;
+      if (this.length > 120) this.length = 120;
+      this.validate();
+    },
+    validate() {
+      console.log("here");
+      if (this.rounds >= 1 && this.rounds <= 10 && this.length >= 40 && this.length <= 120) this.isValid = true;
+      if (this.rounds < 1 || this.rounds > 10) this.$refs.rounds.classList.add('o-input--invalid');
+      else this.$refs.rounds.classList.remove('o-input--invalid');
+      if (this.length < 40 || this.length > 120) this.$refs.length.classList.add('o-input--invalid');
+      else this.$refs.length.classList.remove('o-input--invalid');
+    },
     copyToClipboard() {
       let text = document.querySelector('#roomkey');
       text.setAttribute('type', 'text');
@@ -35,6 +53,7 @@ export default {
       window.getSelection().removeAllRanges();
     },
     start(){
+      this.validate();
       if (this.isValid){
         this.$store.dispatch('setRoundsAmount', this.rounds);
         this.$store.dispatch('setRoundsLength', this.length);
