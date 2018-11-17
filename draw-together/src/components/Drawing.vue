@@ -48,7 +48,6 @@ export default {
   methods: {
     //event handelers
     start : function(e) {
-      console.log(e);
       if (this.isEnabled){
         this.getXY(e);
         this.isDrawing = true;

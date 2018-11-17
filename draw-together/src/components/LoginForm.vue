@@ -3,7 +3,7 @@
     <h1 class="o-smallpage-header">Log In</h1>
     <input v-model="email" type="email" class="o-input" placeholder="Email">
     <input v-model="password" type="password" class="o-input" placeholder="Password">
-    <button class="o-fancybutton">Log In</button>
+    <button class="o-fancybutton" v-on:click="enter">Log In</button>
     <a class="c-login-link" v-on:click="switchLogin">Don't have an account yet?</a>
   </div>
   <div v-else class="c-login o-smallpage">
@@ -13,7 +13,7 @@
     <input v-model="password" type="password" class="o-input" placeholder="Password">
     <input v-model="password2" type="password" class="o-input" placeholder="Confirm password">
     <span class="c-login-tac"><FancyCheckbox/><p class="c-login-tac-text">I agree with the terms and conditions.</p></span>
-    <button class="o-fancybutton">Register</button>
+    <button class="o-fancybutton" v-on:click="enter">Register</button>
     <a class="c-login-link" v-on:click="switchLogin">Already have an account?</a>
   </div>
 </template>
@@ -33,12 +33,18 @@ export default {
       password: '',
       password2: '',
       isLogin : false,
+      isValid : true,
     }
   },
   methods : {
-    switchLogin : function () {
+    switchLogin : function(){
       this.isLogin = !this.isLogin;
-    }
+    },
+    enter : function(){
+      if (this.isValid){
+        this.$router.push({ path: 'home' });
+      }
+    },
   }
 }
 </script>

@@ -24,13 +24,16 @@ export default {
       this.$el.classList.remove('c-hidden');
       this.wait(4500)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('start', 60)));
+      .then(() => (this.$root.$emit('start', 40)));
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');
       this.wait(4500)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('drafted', "Nico")));
+      .then(() => (this.newdraft()));
+    },
+    newdraft : function() {
+      this.$root.$emit('drafted', "Nico");
     },
     hide : function() {
       this.$el.classList.add('c-hidden');
