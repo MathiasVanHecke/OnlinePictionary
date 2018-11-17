@@ -16,6 +16,12 @@ using DrawIt.Models.Repositories;
 using DrawIt.API.Controllers;
 using DrawIt.Models.Hubs;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using DrawIt.Models.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using DrawIt.Models.Seeders;
 
 namespace DrawIt.API
 {
@@ -31,6 +37,14 @@ namespace DrawIt.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddPolicy("CorsPolicy",
+               builder =>
+               {
+                   builder.AllowAnyMethod().AllowAnyHeader()
+                   .WithOrigins("http://localhost:8080/", "http://localhost:44321/", "http://192.168.0.210:8080")
+                   .AllowCredentials();
+               }));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddTransient<IWordRepo, WordRepo>();
@@ -38,24 +52,41 @@ namespace DrawIt.API
             services.AddDbContext<DrawItAPIContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("DrawItAPIContext")));
 
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<DrawItAPIContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+             .AddJwtBearer(options =>
+             {
+                 options.SaveToken = true;
+                 options.RequireHttpsMetadata = false;
+                 options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                 {
+                     ValidateIssuer = true,
+                     ValidateAudience = true,
+                     ValidAudience = "http://online-pictionary.com",
+                     ValidIssuer = "http://online-pictionary.com",
+                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySercureKeySuperrrrr"))
+                 };
+
+             });
 
             services.AddSignalR();
 
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("CorsPolicy",
-            //        builder => builder.AllowAnyOrigin()
-            //        .AllowAnyMethod()
-            //        .AllowAnyHeader()
-            //        .AllowCredentials());
-            //});
             services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-          
+
+            app.UseCors("CorsPolicy");
 
             if (env.IsDevelopment())
             {
@@ -71,22 +102,12 @@ namespace DrawIt.API
                 routes.MapHub<ChatHub>("/chatHub");
             });
 
-            //app.UseCors(builder =>
-            //{
-            //    builder
-            //    .AllowAnyOrigin()
-            //    .AllowAnyHeader()
-            //    .AllowAnyMethod()
-            //    .AllowCredentials()
-            //    .WithOrigins("http://localhost:8080/");
-            //});
+            SeedDatabase.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
 
-            app.UseCors(
-                options => options.WithOrigins("http://localhost:8080").AllowAnyMethod()
-            );
+            app.UseAuthentication();
 
-            app.UseHttpsRedirection();
             app.UseMvc();
+
         }
 
         
