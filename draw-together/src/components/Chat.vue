@@ -60,7 +60,15 @@ export default {
         });
       this.scrolldown();
     })
-    this.$root.$on('message', (name, msg) => { 
+    this.$store.getters.getConnection.on("Guessed", (name) => {
+      this.chatitems.push({
+        id : this.chatitems.length + 1,
+        msg : name + " guessed the word!",
+        name : ""
+        });
+      this.scrolldown();
+    })
+    this.$store.getters.getConnection.on("ReceiveMessage", (name, msg) => { 
       this.chatitems.push({
         id : this.chatitems.length + 1,
         msg : msg,

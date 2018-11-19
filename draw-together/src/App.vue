@@ -11,6 +11,9 @@ import appheader from '@/components/AppHeader.vue'
 export default {
   components: {
     appheader
+  },
+  mounted() {
+    this.$store.dispatch("startConnection");
   }
 }
 </script>

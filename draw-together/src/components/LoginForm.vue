@@ -3,7 +3,7 @@
     <h1 class="o-smallpage-header">Log In</h1>
     <input v-model="email" type="email" class="o-input" placeholder="Email">
     <input v-model="password" type="password" class="o-input" placeholder="Password">
-    <button class="o-fancybutton" v-on:click="enter">Log In</button>
+    <button class="o-fancybutton" v-on:click="login">Log In</button>
     <a class="c-login-link" v-on:click="switchLogin">Don't have an account yet?</a>
   </div>
   <div v-else class="c-login o-smallpage">
@@ -42,13 +42,20 @@ export default {
     },
     register: function(){
       var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
-      this.$store.dispatch('registerUser', credentials);
+      var url = 'https://localhost:44321/api/auth/register';
+      fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(credentials),
+            headers:{
+              'Content-Type': 'application/json'
+        }})
+      .then(res => res)
+      .then(response => console.log('Success:', this.$router.push({ path: 'home' })))
+      .catch(error => console.error('Error:', console.log(error)));
     },
-    enter : function(){
-      if (this.isValid){
-        this.$router.push({ path: 'home' });
-      }
-    },
+    login: function(){
+      this.$router.push({ path: 'home' });
+    }
   }
 }
 </script>

@@ -41,7 +41,7 @@ namespace DrawIt.API
                builder =>
                {
                    builder.AllowAnyMethod().AllowAnyHeader()
-                   .WithOrigins("http://localhost:8080/", "http://localhost:44321/", "http://192.168.0.210:8080")
+                   .WithOrigins("http://localhost:8080/", "http://localhost:44321/", "http://192.168.0.210:8080", "http://192.168.56.1:8080")
                    .AllowCredentials();
                }));
 

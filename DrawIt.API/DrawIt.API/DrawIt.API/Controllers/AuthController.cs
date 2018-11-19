@@ -73,18 +73,23 @@ namespace DrawIt.API.Controllers
                 var user = await userManger.FindByEmailAsync(model.Email);
                 if (user == null)
                 {
-                    ApplicationUser userRegister = new ApplicationUser()
+                    var userName = await userManger.FindByNameAsync(model.Username);
+                    if(userName == null)
                     {
-                        Email = model.Email,
-                        SecurityStamp = Guid.NewGuid().ToString(),
-                        UserName = model.Username
-                    };
+                        ApplicationUser userRegister = new ApplicationUser()
+                        {
+                            Email = model.Email,
+                            SecurityStamp = Guid.NewGuid().ToString(),
+                            UserName = model.Username
+                        };
 
-                    await userManger.CreateAsync(userRegister, model.Password);
+                        await userManger.CreateAsync(userRegister, model.Password);
 
-                    return Ok();
+                        return Ok();
+                    }
+                    return Conflict(model.Username);
                 }
-                return Unauthorized();
+                return Conflict(model.Email);
             }
             catch (Exception e)
             {

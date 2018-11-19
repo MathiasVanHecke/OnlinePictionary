@@ -34,9 +34,6 @@ export default {
       this.guess = "";
     }
   },
-  created(){
-    this.$store.dispatch("startConnection");
-  },
   mounted: function() {
     this.$root.$on('drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
@@ -51,10 +48,13 @@ export default {
         if (msg == this.$store.getters.getPickedWord){ 
           if (!this.guessed) {
             this.$root.$emit('guessed', name); 
+            this.$store.getters.getConnection.invoke("Guessed", name);
             this.guessed = true;
           }
         }
-        else {this.$root.$emit('message', name, msg); }
+        else {
+          this.$store.getters.getConnection.invoke("SendMessage", name, msg);
+        }
       }
     });
   }

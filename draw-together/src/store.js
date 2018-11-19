@@ -12,7 +12,8 @@ export default new Vuex.Store({
     roundsLength: "",
     pickedWord: "",
     pickedColor: "black",
-    pickedBrush: "2"
+    pickedBrush: "2",
+    connection: null
   },
   mutations: {
     setRoundsAmount(state, r){state.roundsAmount = r},
@@ -20,6 +21,7 @@ export default new Vuex.Store({
     setPickedColor(state, c){state.pickedColor = c},
     setPickedBrush(state, b){state.pickedBrush = b},
     setPickedWord(state, w){state.pickedWord = w},
+    setConnection(state, c){state.connection = c}
   },
   actions: {
     setRoundsAmount: ({commit}, r) => {commit("setRoundsAmount", r)},
@@ -27,25 +29,8 @@ export default new Vuex.Store({
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
     setBrush: ({commit}, b) => {commit("setPickedBrush", b)},
 
-    //Login / Register
-    registerUser: ({commit}, credentials) =>
-    {
-      var url = 'https://localhost:44321/api/auth/register';
-
-      fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(credentials),
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      }).then(res => res.json())
-      .then(response => console.log('Success:', console.log(response)))
-      .catch(error => console.error('Error:', error));
-    },
-
-
     //SingalR
-    startConnection: () => {
+    startConnection: ({commit}) => {
       let connection = new signalR.HubConnectionBuilder({useDefaultpath : false})
         .withUrl("https://localhost:44321/chatHub",  {
           skipNegotiation: true,
@@ -57,7 +42,8 @@ export default new Vuex.Store({
           return console.error(err.toString());
         })
         .then(function(){
-          connection.invoke("SendMessage", "mathias", "vue project")
+          console.log(connection);
+          commit('setConnection', connection);
         })
         .catch((error => { console.log(error.statusText); }));
 
@@ -83,5 +69,6 @@ export default new Vuex.Store({
     getPickedWord: state => state.pickedWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
+    getConnection: state => state.connection
   }
 })
