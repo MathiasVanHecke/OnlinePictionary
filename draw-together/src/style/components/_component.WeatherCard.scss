@@ -1,0 +1,68 @@
+@import '../settings/_settings.global';
+
+
+.c-weather-card{
+    //background-color: rgb(112, 166, 255);
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+
+    background:
+    linear-gradient(
+      rgba(0,144, 255, 0.75), 
+      rgba(0, 144, 255, 0.75)
+    ),
+    /* bottom, image */
+    url("../assets/bg-image.png");
+    box-shadow: 0px 4px 15px rgba(0, 144, 255, 0.5);
+}
+
+.c-weather-card__location{
+    font-weight: bold;
+}
+.c-weather-card__region{
+    font-weight: lighter;
+}
+
+.c-weather-card__icon{
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: 60px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.c-weather-card-results{
+    display: flex;
+    justify-content: start;
+    align-items: center; //dit is vertical
+
+}
+
+.c-weather-card-results__temperature{
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+.c-weather-card-results__temperature, .c-weather-card-results__rain{
+    margin-right: 30px;
+}
+
+
+.c-weather-icon{
+    width: 20px;
+}
+.c-weather-card-results__wind, .c-weather-card-results__rain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.c-weather-card-results__wind img, .c-weather-card-results__rain img{
+margin-right: 10px;
+}

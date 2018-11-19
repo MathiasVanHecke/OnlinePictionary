@@ -27,32 +27,69 @@ namespace DrawIt.API.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
         {
-            var user = await userManger.FindByNameAsync(model.Username);
-            if (user != null && await userManger.CheckPasswordAsync(user, model.Password))
+            try
             {
-                var claims = new[]
+                var user = await userManger.FindByEmailAsync(model.Email);
+                if (user != null && await userManger.CheckPasswordAsync(user, model.Password))
                 {
+                    var claims = new[]
+                    {
                     new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                     new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-                };
+                    };
 
-                var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySercureKeySuperrrrr"));
+                    var signingKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySercureKeySuperrrrr"));
 
-                var token = new JwtSecurityToken(
-                    issuer: "http://online-pictionary.com",
-                    audience: "http://online-pictionary.com",
-                    expires: DateTime.UtcNow.AddDays(14),
-                    claims: claims,
-                    signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
-                    );
+                    var token = new JwtSecurityToken(
+                        issuer: "http://online-pictionary.com",
+                        audience: "http://online-pictionary.com",
+                        expires: DateTime.UtcNow.AddDays(14),
+                        claims: claims,
+                        signingCredentials: new Microsoft.IdentityModel.Tokens.SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
+                        );
 
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo,
-                });
+                    return Ok(new
+                    {
+                        token = new JwtSecurityTokenHandler().WriteToken(token),
+                        expiration = token.ValidTo,
+                        username = user.UserName
+                    });
+                }
+                return Unauthorized();
             }
-            return Unauthorized();
+            catch (Exception e)
+            {
+                throw e;
+                //return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> Register([FromBody] LoginModel model)
+        {
+            try
+            {
+                var user = await userManger.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    ApplicationUser userRegister = new ApplicationUser()
+                    {
+                        Email = model.Email,
+                        SecurityStamp = Guid.NewGuid().ToString(),
+                        UserName = model.Username
+                    };
+
+                    await userManger.CreateAsync(userRegister, model.Password);
+
+                    return Ok();
+                }
+                return Unauthorized();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }           
         }
     }
 }

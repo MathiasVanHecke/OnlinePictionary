@@ -13,7 +13,7 @@
     <input v-model="password" type="password" class="o-input" placeholder="Password">
     <input v-model="password2" type="password" class="o-input" placeholder="Confirm password">
     <span class="c-login-tac"><FancyCheckbox/><p class="c-login-tac-text">I agree with the terms and conditions.</p></span>
-    <button class="o-fancybutton" v-on:click="enter">Register</button>
+    <button class="o-fancybutton" v-on:click="register">Register</button>
     <a class="c-login-link" v-on:click="switchLogin">Already have an account?</a>
   </div>
 </template>
@@ -28,10 +28,10 @@ export default {
   },
   data() {
     return {
-      displayname : '',
-      email : '',
-      password: '',
-      password2: '',
+      displayname : 'Hero',
+      email : 'mathi1414@gmail.com',
+      password: 'Password@123',
+      password2: 'Password@123',
       isLogin : false,
       isValid : true,
     }
@@ -39,6 +39,10 @@ export default {
   methods : {
     switchLogin : function(){
       this.isLogin = !this.isLogin;
+    },
+    register: function(){
+      var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
+      this.$store.dispatch('registerUser', credentials);
     },
     enter : function(){
       if (this.isValid){
