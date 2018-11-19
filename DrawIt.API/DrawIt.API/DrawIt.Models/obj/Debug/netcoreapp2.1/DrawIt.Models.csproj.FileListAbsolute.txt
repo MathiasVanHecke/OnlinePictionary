@@ -23,3 +23,9 @@ D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Deb
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.SignalR.Core.dll
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.SignalR.Core.xml
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csproj.CopyComplete
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.dll
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.xml
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Core.dll
+D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Core.xml

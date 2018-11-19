@@ -8,10 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using DrawIt.API.Models;
 using DrawIt.Models.Data;
 using DrawIt.Models.Repositories;
+using Microsoft.AspNetCore.Cors;
 
 namespace DrawIt.API.Controllers
 {
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class WordsController : ControllerBase
     {
         private readonly IWordRepo _wordRepo;
