@@ -17,7 +17,4 @@ export default {
 
 <style lang="scss">
 @import './src/style/base';
-#app {
-  text-align: center;
-}
 </style>

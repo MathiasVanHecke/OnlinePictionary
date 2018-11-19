@@ -27,14 +27,40 @@ export default new Vuex.Store({
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
     setBrush: ({commit}, b) => {commit("setPickedBrush", b)},
 
+    //Login / Register
+    registerUser: ({commit}, credentials) =>
+    {
+      var url = 'https://localhost:44321/api/auth/register';
+
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(credentials),
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      }).then(res => res.json())
+      .then(response => console.log('Success:', console.log(response)))
+      .catch(error => console.error('Error:', error));
+    },
+
+
+    //SingalR
     startConnection: () => {
       let connection = new signalR.HubConnectionBuilder({useDefaultpath : false})
-        .withUrl("https://localhost:44321/chatHub")
+        .withUrl("https://localhost:44321/chatHub",  {
+          skipNegotiation: true,
+          transport: signalR.HttpTransportType.WebSockets
+        })
         .build();
 
-      console.log(connection);
+        connection.start().catch(function (err) {
+          return console.error(err.toString());
+        })
+        .then(function(){
+          connection.invoke("SendMessage", "mathias", "vue project")
+        })
+        .catch((error => { console.log(error.statusText); }));
 
-      connection.start();
     },
 
     setWord:({commit})=>{

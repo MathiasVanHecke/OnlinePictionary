@@ -339,24 +339,3 @@ template {
 [hidden] {
   display: none;
 }
-
-/* PERSONAL PREFERENCE
-========================================================================== */
-
-/**
- * Fuck focussed inputfields and buttons
- */
-
-button:focus,
-input:focus{
-  outline: none;
-}
-
- /**
- * Fuck random p margins
- */
-
-p{
-  margin: 0;
-  text-align: left;
-}
