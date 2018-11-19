@@ -1,0 +1,9 @@
+@import '../settings/_settings.global';
+
+.c-appheader {
+    display: grid;
+    grid-template-rows: $header-height $bar-height;
+    background-color: $white;
+    margin-bottom: 1.5rem;
+    line-height: $header-height;
+}

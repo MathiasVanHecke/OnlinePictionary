@@ -1,0 +1,24 @@
+@import '../settings/settings.global';
+
+.c-login {
+  padding-bottom: 0;
+}
+
+.c-login-link {
+  line-height: 5rem;
+  cursor: pointer;
+}
+
+.c-login-tac {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  padding-left: 1.5em;
+  margin-bottom: $gutter;
+}
+
+.c-login-tac-text {
+  line-height: 2em;
+  color: $dark-grey;
+  padding-left: 1em;
+}

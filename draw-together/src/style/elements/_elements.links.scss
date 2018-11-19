@@ -1,10 +1,10 @@
 @import '../settings/settings.global';
 
 a {
-	color: $primary-color;
+	color: $color-c;
 }
 
 a:hover {
-	color: $secondary-color;
+	color: $color-b;
 	text-decoration: none;
 }

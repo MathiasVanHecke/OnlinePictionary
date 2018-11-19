@@ -1,13 +1,14 @@
 body,
 html {
-    font-family: $primary-font;
-	font-size: $primary-font-size;
-	line-height: 1.2rem;
+	font-family: $font-a;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
-	background: $white;
+	background: $light-grey;
+
+	text-align: center;
 }
 
 ::selection {
-	color: $ultra-light-grey;
-	background: $dark-grey;
+	background: $color-a;
 }
