@@ -1,0 +1,30 @@
+@import '../settings/settings.global';
+
+.c-waiting-member{
+    background: $light-grey;
+
+    border: none;
+    border-radius: $small-radius;
+
+    height: 4rem;
+    margin-bottom: $gutter;
+    padding: 0 1.5rem;
+
+    transition: 300ms ease-in-out;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.c-waiting-member__p{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.c-waiting-member__u{
+    margin-left: 12px;
+}

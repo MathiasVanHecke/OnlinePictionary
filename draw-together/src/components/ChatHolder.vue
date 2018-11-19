@@ -47,7 +47,7 @@ export default {
       if (this.isEnabled) {
         if (msg == this.$store.getters.getPickedWord){ 
           if (!this.guessed) {
-            this.$root.$emit('guessed', name); 
+            //this.$root.$emit('guessed', name); 
             this.$store.getters.getConnection.invoke("Guessed", name);
             this.guessed = true;
           }
