@@ -40,7 +40,7 @@ namespace DrawIt.Models.Hubs
 
         public async Task Guessed(string user)
         {
-            await Clients.All.SendAsync("Guessed", user)
+            await Clients.All.SendAsync("Guessed", user);
         }
     }
 }
