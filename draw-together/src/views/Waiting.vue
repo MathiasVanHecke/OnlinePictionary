@@ -29,9 +29,10 @@ export default {
     WaitingMembers
   },
   mounted() {
+    if (!this.roomkey) { this.roomkey = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16); }
     this.$store.getters.getConnection.on("NewMember", (member) => { 
       console.log(member);
-      if (this.isHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.members)}
+      if (this.isHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}
     });
     this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
       console.log(members);
