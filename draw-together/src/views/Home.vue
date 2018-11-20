@@ -1,9 +1,9 @@
 <template>
   <div class="home o-smallpage">
-    <router-link to="waiting"><button class="o-fancybutton">Start a new game</button></router-link>
-    <h3>or</h3>
+    <router-link to="waiting"><button class="o-fancybutton">{{ $t('start') }}</button></router-link>
+    <h3>{{ $t('or') }}</h3>
     <input v-model="roomKey" type="text" class="o-input" placeholder="Room Key">
-    <button class="o-fancybutton" v-on:click="join">Join a room</button>
+    <button class="o-fancybutton" v-on:click="join">{{ $t('join') }}</button>
   </div>
 </template>
 

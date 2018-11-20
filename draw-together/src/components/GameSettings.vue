@@ -1,9 +1,9 @@
 <template>
   <div class="c-gamesettings o-smallpage">
-    <h1 class="o-smallpage-header">New Game</h1>
+    <h1 class="o-smallpage-header">{{ $t('newgame') }}</h1>
     <input v-model="rounds" ref="rounds" v-on:focusout="validateRounds" type="number" class="o-input" placeholder="Amount of rounds" min="1" max="10">
     <input v-model="length" ref="length" v-on:focusout="validateLength" type="number" class="o-input" placeholder="Length of one round" min="40" max="120" step="10">
-    <h3>Share this roomkey so people can join:</h3>
+    <h3>{{ $t('joincode') }}</h3>
     <div class="c-gamesettings-key">
       <p>{{ roomkey }}</p>
       <input type="hidden" id="roomkey" :value="roomkey">
@@ -16,12 +16,14 @@
 <script>
 export default {
   name: 'GameSettings',
+  props: {
+    roomkey : String,
+  },
   data() {
     return {
       isValid : false,
       rounds : null,
       length : null,
-      roomkey : "RoomKeyRandomisedJaaa"
     }
   },
   methods: {
@@ -36,7 +38,6 @@ export default {
       this.validate();
     },
     validate() {
-      console.log("here");
       if (this.rounds >= 1 && this.rounds <= 10 && this.length >= 40 && this.length <= 120) this.isValid = true;
       if (this.rounds < 1 || this.rounds > 10) this.$refs.rounds.classList.add('o-input--invalid');
       else this.$refs.rounds.classList.remove('o-input--invalid');

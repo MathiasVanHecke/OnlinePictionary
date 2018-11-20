@@ -1,30 +1,39 @@
 <template>
   <div class="o-smallpage">
-    <h3>Players that are already in the room</h3>
-    <div class="c-waiting-member">
-        <img class="c-waiting-member__p" src="../assets/p_gnome.png" alt="">
-        <p class="c-waiting-member__u">Mathias Van Hecke</p>
-    </div>
-
-       <div class="c-waiting-member">
-        <img class="c-waiting-member__p" src="../assets/p_gnome.png" alt="">
-        <p class="c-waiting-member__u">Mathias Van Hecke</p>
-    </div>
-
-       <div class="c-waiting-member">
-        <img class="c-waiting-member__p" src="../assets/p_gnome.png" alt="">
-        <p class="c-waiting-member__u">Mathias Van Hecke</p>
-    </div>    
+    <h3>{{ $t('ready') }}</h3>
+    <div class="c-waiting-member" v-for="member in members" :key="member.id">
+      <img class="c-waiting-member__p" src="../assets/p_gnome.png" alt="">
+      <p class="c-waiting-member__u">{{ member.name }}</p>
+    </div>  
   </div>
 </template>
 
 <script>
 export default {
   name: 'WaitingMembers',
-  props:{
-      playerIcon: null,
-      PlayerName: String
-  }
+  data() {
+    return {
+      members : [
+          {
+            id: 1,
+            name: "Céline",
+          },
+          {
+            id: 2,
+            name: "Mathias",
+          },
+          {
+            id: 3,
+            name: "Jens",
+          },
+          {
+            id: 4,
+            name: "Nico",
+          }
+      ]
+    }
+  },
+
 }
 </script>
 

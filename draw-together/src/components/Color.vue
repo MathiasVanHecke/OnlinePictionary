@@ -12,7 +12,6 @@ export default {
   methods: {
     setColor: function() {
       this.$store.dispatch('setColor', this.color);
-      console.log(this.$store.getters.getPickedColor);
     }
   },
   mounted: function (){
