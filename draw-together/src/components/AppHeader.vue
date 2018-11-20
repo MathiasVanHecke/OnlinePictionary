@@ -28,14 +28,19 @@ export default {
     switchLanguage : function(){
       if (this.flag == 'be') {
         this.flag = 'en';
-        this.$i18n.locale = 'be';
+        this.setLanguage('be');
       }
       else {
         this.flag = 'be';
-        this.$i18n.locale = 'en';
+        this.setLanguage('en');
       }
+    },
+    setLanguage : function(lang){
+      this.$i18n.locale = lang;
+      this.$cookies.config('30d');
+      this.$cookies.set('locale', lang);
     }
-  }
+  },
 }
 </script>
 
