@@ -13,7 +13,6 @@ export default {
   methods: {
     setBrush: function() {
       this.$store.dispatch('setBrush', this.brush);
-      console.log(this.$store.getters.getPickedBrush);
     },
   },
   mounted: function(){

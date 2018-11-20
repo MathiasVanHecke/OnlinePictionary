@@ -4,17 +4,17 @@
     <input v-model="email" type="email" class="o-input" placeholder="Email">
     <input v-model="password" type="password" class="o-input" placeholder="Password">
     <button class="o-fancybutton" v-on:click="login">Log In</button>
-    <a class="c-login-link" v-on:click="switchLogin">Don't have an account yet?</a>
+    <a class="c-login-link" v-on:click="switchLogin">{{ $t('notyet') }}</a>
   </div>
   <div v-else class="c-login o-smallpage">
-    <h1 class="o-smallpage-header">Register</h1>
-    <input v-model="displayname" type="text" class="o-input" placeholder="Display Name">
-    <input v-model="email" type="email" class="o-input" placeholder="Email">
-    <input v-model="password" type="password" class="o-input" placeholder="Password">
-    <input v-model="password2" type="password" class="o-input" placeholder="Confirm password">
-    <span class="c-login-tac"><FancyCheckbox/><p class="c-login-tac-text">I agree with the terms and conditions.</p></span>
-    <button class="o-fancybutton" v-on:click="register">Register</button>
-    <a class="c-login-link" v-on:click="switchLogin">Already have an account?</a>
+    <h1 class="o-smallpage-header">{{ $t('register') }}</h1>
+    <input v-on:focusout="validate" ref="displayname" v-model="displayname" type="text" class="o-input" placeholder="Display Name">
+    <input v-on:focusout="validate" ref="email" v-model="email" type="email" class="o-input" placeholder="Email">
+    <input v-on:focusout="validate" ref="password" v-model="password" type="password" class="o-input" placeholder="Password">
+    <input v-on:focusout="validate" ref="password2" v-model="password2" type="password" class="o-input" placeholder="Confirm password">
+    <span class="c-login-tac" v-on:click="check"><FancyCheckbox/><p class="c-login-tac-text">{{ $t('terms') }}</p></span>
+    <button class="o-fancybutton" v-on:click="register">{{ $t('register') }}</button>
+    <a class="c-login-link" v-on:click="switchLogin">{{ $t('already') }}</a>
   </div>
 </template>
 
@@ -28,12 +28,13 @@ export default {
   },
   data() {
     return {
-      displayname : 'Hero',
-      email : 'mathi1414@gmail.com',
-      password: 'Password@123',
-      password2: 'Password@123',
+      displayname : '',
+      email : '',
+      password: '',
+      password2: '',
       isLogin : false,
-      isValid : true,
+      isValid : false,
+      isChecked : false,
     }
   },
   methods : {
@@ -41,20 +42,40 @@ export default {
       this.isLogin = !this.isLogin;
     },
     register: function(){
-      var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
-      var url = 'https://localhost:44321/api/auth/register';
-      fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(credentials),
-            headers:{
-              'Content-Type': 'application/json'
-        }})
-      .then(res => res)
-      .then(response => console.log('Success:', this.$router.push({ path: 'home' })))
-      .catch(error => console.error('Error:', console.log(error)));
+      if (this.isValid && this.isChecked) {
+        var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
+        var url = 'https://localhost:44321/api/auth/register';
+        fetch(url, {
+              method: 'POST',
+              body: JSON.stringify(credentials),
+              headers:{ 'Content-Type': 'application/json' }
+              })
+        .then(response => console.log('Success:', response))
+        .catch(error => console.error('Error:', console.log(error)));
+      }
     },
     login: function(){
       this.$router.push({ path: 'home' });
+    },
+    validate : function(){
+      let check = 0;
+      if (this.displayname.length < 8 || this.displayname.length > 20) this.$refs.displayname.classList.add('o-input--invalid');
+      else { this.$refs.displayname.classList.remove('o-input--invalid'); check += 1; }
+      if (this.email != '' && this.validateEmail(this.email)) {this.$refs.email.classList.remove('o-input--invalid'); check +=1;}
+      else this.$refs.email.classList.add('o-input--invalid');
+      if (this.password.length < 8 || this.password.length > 20) this.$refs.password.classList.add('o-input--invalid');
+      else { this.$refs.password.classList.remove('o-input--invalid'); check += 1; }
+      if (this.password === this.password2) { this.$refs.password2.classList.remove('o-input--invalid'); }
+      else this.$refs.password2.classList.add('o-input--invalid');
+      if (check == 4) this.isValid = true;
+      else this.isValid = false;
+    },
+    check : function(e){
+      if (e.target == document.querySelector('#cbx')) this.isChecked = !this.isChecked;
+    },
+    validateEmail : function(email) {
+      var re = /\S+@\S+\.\S+/;
+      return re.test(email);
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="c-waiting o-container">
-    <GameSettings/>
+    <GameSettings :roomkey="roomkey"/>
     <WaitingMembers/>
   </div>
 </template>
@@ -12,10 +12,30 @@ import WaitingMembers from '@/components/WaitingMembers.vue'
 
 export default {
   name: 'Waiting',
+  props: {
+    isHost : Boolean,
+    roomkey : String
+  },
+  data() {
+    return {
+      members : [
+
+      ]
+    }
+  },
   components: {
     AppHeader,
     GameSettings,
     WaitingMembers
+  },
+  mounted() {
+    this.$store.getters.getConnection.on("NewMember", (member) => { 
+      console.log(member);
+      if (this.isHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.members)}
+    });
+    this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
+      console.log(members);
+    });
   }
 }
 </script>
