@@ -4,7 +4,7 @@ import VueI18n from 'vue-i18n';
 Vue.use(VueI18n);
 
 export default new VueI18n({
-    locale: 'en',
+    fallbackLocale: 'en',
     messages: {
         en: {
             register: 'Register',
@@ -19,7 +19,7 @@ export default new VueI18n({
             ready : "Ready to play:",
             guessed : "guessed the word!",
         },
-        nl: {
+        be: {
             register: 'Registreer',
             terms: 'Ik ga akkoord met de algemene voorwaarden.',
             already: 'Heb je al een account?',

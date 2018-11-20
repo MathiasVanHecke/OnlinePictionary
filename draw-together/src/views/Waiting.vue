@@ -12,15 +12,30 @@ import WaitingMembers from '@/components/WaitingMembers.vue'
 
 export default {
   name: 'Waiting',
+  props: {
+    isHost : Boolean,
+    roomkey : String
+  },
   data() {
     return {
-      roomkey : Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16)
+      members : [
+
+      ]
     }
   },
   components: {
     AppHeader,
     GameSettings,
     WaitingMembers
+  },
+  mounted() {
+    this.$store.getters.getConnection.on("NewMember", (member) => { 
+      console.log(member);
+      if (this.isHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.members)}
+    });
+    this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
+      console.log(members);
+    });
   }
 }
 </script>

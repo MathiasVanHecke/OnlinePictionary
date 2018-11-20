@@ -1,6 +1,6 @@
 <template>
   <div class="home o-smallpage">
-    <router-link to="waiting"><button class="o-fancybutton">{{ $t('start') }}</button></router-link>
+    <router-link to="waiting" :roomkey="newRoomkey" isHost=true><button class="o-fancybutton">{{ $t('start') }}</button></router-link>
     <h3>{{ $t('or') }}</h3>
     <input v-model="roomKey" type="text" class="o-input" placeholder="Room Key">
     <button class="o-fancybutton" v-on:click="join">{{ $t('join') }}</button>
@@ -12,14 +12,15 @@ export default {
   name: 'Home',
   data() {
     return {
-      roomKey : '',
-      isValid : false,
+      newRoomkey : Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16),
+      roomkey : '',
+      isValid : true,
     }
   },
   methods : {
     join : function() {
       if (this.isValid){
-        this.$router.push({ path: 'waiting' });
+        this.$router.push({ path: 'waiting', roomkey: this.roomkey, isHost: false });
       }
     }
   }
