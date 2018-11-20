@@ -18,14 +18,20 @@ export default {
   },
   methods : {
     create : function() {
-      this.roomkey = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
-      this.$router.push({ path: 'waiting', roomkey: this.roomkey, isHost: true });
+      this.$store.dispatch("setHost", true);
+      this.$router.push({ name: 'waiting'});
     },
     join : function() {
       if (this.isValid){
-        this.$router.push({ path: 'waiting', roomkey: this.roomkey, isHost: false });
+        this.$store.dispatch("setRoomkey", this.roomkey);
+        this.$router.push({ path: 'waiting'});
       }
     }
+  },
+  mounted() {
+    this.$store.dispatch("setHost", false);
+    this.$store.dispatch("setRoomkey", "");
+    console.log("inhome", this.$store.getters.getRoomkey, this.$store.getters.getHost);
   }
 }
 </script>

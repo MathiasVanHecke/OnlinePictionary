@@ -12,10 +12,6 @@ import WaitingMembers from '@/components/WaitingMembers.vue'
 
 export default {
   name: 'Waiting',
-  props: {
-    isHost : Boolean,
-    roomkey : String
-  },
   data() {
     return {
       members : [
@@ -23,15 +19,23 @@ export default {
       ]
     }
   },
+  computed : {
+    roomkey : function() { return this.$store.getters.getRoomkey },
+  },
   components: {
     AppHeader,
     GameSettings,
     WaitingMembers
   },
   mounted() {
+    if (this.$store.getters.getRoomkey == "") {
+      let key = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
+      this.$store.dispatch("setRoomkey", key);
+    }
+    console.log("inwaiting", this.$store.getters.getRoomkey, this.$store.getters.getHost);console.log("inwaiting", this.$store.getters.getRoomkey, this.$store.getters.getHost);
     this.$store.getters.getConnection.on("NewMember", (member) => { 
       console.log(member);
-      if (this.isHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}
+      if (this.$store.getters.getHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}
     });
     this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
       console.log(members);
