@@ -10,8 +10,9 @@ namespace DrawIt.Models.Hubs
     public class ChatHub : Hub
     {
         //Groups
-        public async Task JoinRoom(string roomName, Member member)
+        public async Task JoinRoom(string roomName, string member)
         {
+            Member m = member
             await NewMember(roomName, member);
             await Groups.AddToGroupAsync(Context.ConnectionId, roomName);
         }
