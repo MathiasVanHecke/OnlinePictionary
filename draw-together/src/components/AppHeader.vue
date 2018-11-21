@@ -61,5 +61,11 @@ export default {
   padding-left: 1rem;
   height: 1rem;
   width:  1rem;
+  opacity: .5;
+  transition: 300ms all ease-in-out;
+}
+
+.c-flag:hover{
+  opacity: 1;
 }
 </style>

@@ -2,10 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import * as signalR from '@aspnet/signalr'
+import localStoragePlugin from './plugins/localStorage'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [localStoragePlugin],
   state: {
     myName: "Nico",
     isHost: false,

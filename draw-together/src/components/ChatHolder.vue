@@ -1,6 +1,6 @@
 <template>
     <div class="c-chat-holder js-chat-holder">
-        <div class="c-word">______</div>
+        <div class="c-word">{{ wordholder }}</div>
         <GuessBar/>
         <Chat/>
         <ProgressBar/>
@@ -26,6 +26,14 @@ export default {
       guessed : false,
       isEnabled : true,
     }
+  },
+  computed : {
+    wordholder : function(){ 
+      let l = this.$store.getters.getPickedWord.length;
+      let wordholder = "";
+      for (let i = 0; i < l; i++){ wordholder += "_"; }
+      return wordholder;
+      }
   },
   methods: {
     submit : function() {
