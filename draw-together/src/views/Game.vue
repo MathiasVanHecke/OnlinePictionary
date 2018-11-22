@@ -27,7 +27,7 @@ export default {
     ChatHolder
   },
   mounted () {
-    this.$root.$emit('drafted', "Mathias");
+    if(this.$store.getters.getHost) this.$root.$emit('drafted', "Mathias");
   }
 }
 </script>
