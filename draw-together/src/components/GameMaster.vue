@@ -32,14 +32,14 @@ export default {
       .then(() => (this.newdraft()));
     },
     newdraft : function() {
-      this.$root.$emit('drafted', "Nico");
+      this.$store.getters.getConnection.invoke('drafted', "Nico");
     },
     hide : function() {
       this.$el.classList.add('c-hidden');
     }
   },
   mounted: function() {
-    this.$root.$on('drafted', (member) => { 
+    this.$store.getters.getConnection.on('drafted', (member) => { 
       this.$store.dispatch('setWord', this.$cookies.get('token'));
       if(member == this.$store.getters.getMyName){
         this.text = "You're up! The word is "+ this.word + ".";

@@ -27,7 +27,7 @@ export default {
     ChatHolder
   },
   mounted () {
-    if(this.$store.getters.getHost) this.$root.$emit('drafted', "Mathias");
+    if(this.$store.getters.getHost) this.$store.getters.getConnection.invoke('drafted', "Mathias");
   }
 }
 </script>

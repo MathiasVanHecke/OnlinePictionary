@@ -24,7 +24,7 @@ export default {
     Trashcan
   },
   mounted () {
-    this.$root.$on('drafted', (name) => { if (name == this.$store.getters.getMyName) {this.isEnabled = true; } else this.isEnabled = false });
+    this.$store.getters.getConnection.on('drafted', (name) => { if (name == this.$store.getters.getMyName) {this.isEnabled = true; } else this.isEnabled = false });
   }
 }
 </script>
