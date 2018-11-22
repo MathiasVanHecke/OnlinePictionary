@@ -55,7 +55,7 @@ export default {
         }
     },
     login: function(){
-      if (this.isValid && this.isChecked) {
+      let that = this;
         var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
         var url = 'https://localhost:44321/api/auth/login';
         fetch(url, {
@@ -63,10 +63,15 @@ export default {
               body: JSON.stringify(credentials),
               headers:{ 'Content-Type': 'application/json' }
               })
-        .then(response => console.log('Success:', response))
+        .then(function(a){
+          return a.json()
+        })
+        .then(function(json){
+          that.$cookies.set('token', json.token);
+        })
         .catch(error => console.error('Error:', console.log(error)));
-      }
-      this.$router.push({ path: 'home' });
+      
+      //this.$router.push({ path: 'home' });
     },
     validate : function(){
       let check = 0;
@@ -76,7 +81,7 @@ export default {
       else this.$refs.email.classList.add('o-input--invalid');
       if (this.password.length < 8 || this.password.length > 20) this.$refs.password.classList.add('o-input--invalid');
       else { this.$refs.password.classList.remove('o-input--invalid'); check += 1; }
-      if (this.password === this.password2) { this.$refs.password2.classList.remove('o-input--invalid'); }
+      if (this.password === this.password2) { this.$refs.password2.classList.remove('o-input--invalid'); check +=1 }
       else this.$refs.password2.classList.add('o-input--invalid');
       if (check == 4) this.isValid = true;
       else this.isValid = false;
