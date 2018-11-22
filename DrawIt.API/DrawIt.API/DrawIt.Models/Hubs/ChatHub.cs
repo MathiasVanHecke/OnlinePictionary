@@ -12,8 +12,8 @@ namespace DrawIt.Models.Hubs
         //Groups
         public async Task JoinRoom(string roomName, string member)
         {
-            Member m = member
-            await NewMember(roomName, member);
+            //Member m = member
+            //await NewMember(roomName, member);
             await Groups.AddToGroupAsync(Context.ConnectionId, roomName);
         }
 
