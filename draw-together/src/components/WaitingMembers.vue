@@ -13,12 +13,7 @@ export default {
   name: 'WaitingMembers',
   data() {
     return {
-      members : [
-          {
-            id: 1,
-            name: this.$store.getters.getMyName,
-          },
-      ]
+      members : []
     }
   },
   mounted() {

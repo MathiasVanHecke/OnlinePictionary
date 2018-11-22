@@ -62,11 +62,6 @@ export default {
       }
     }
   },
-  mounted() {
-    this.$store.getters.getConnection.on("StartGame", () => {
-      this.$router.push({ path: 'game' });
-    });
-  },
 }
 </script>
 

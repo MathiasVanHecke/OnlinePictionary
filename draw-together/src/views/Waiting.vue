@@ -28,7 +28,11 @@ export default {
     }
     var me = "{name : '" + this.$store.getters.getMyName + "'}"
     this.$store.getters.getConnection.invoke("JoinRoom", this.roomkey, me);
-  }
+  
+    this.$store.getters.getConnection.on("StartGame", () => {
+      this.$router.push({ path: 'game' });
+    });
+  },
 }
 </script>
 
