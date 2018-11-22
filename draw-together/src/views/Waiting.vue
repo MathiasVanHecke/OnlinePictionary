@@ -33,8 +33,8 @@ export default {
       this.$store.dispatch("setRoomkey", key);
     }
     console.log("inwaiting", this.$store.getters.getRoomkey, this.$store.getters.getHost);
-    var me = { name : this.$store.getters.getName}
-    this.$store.getters.getConnection.invoke("JoinRoom", this.roomkey, JSON.stringify(me));
+    var me = "{name : '" + this.$store.getters.getMyName + "'}"
+    this.$store.getters.getConnection.invoke("JoinRoom", this.roomkey, me);
     this.$store.getters.getConnection.on("NewMember", (member) => { 
       console.log(member);
       if (this.$store.getters.getHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}

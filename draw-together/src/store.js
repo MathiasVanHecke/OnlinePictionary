@@ -17,7 +17,7 @@ export default new Vuex.Store({
     pickedWord: "",
     pickedColor: "black",
     pickedBrush: "2",
-    connection: null
+    connection: null,
   },
   mutations: {
     setHost(state, h){state.isHost = h},
@@ -27,7 +27,7 @@ export default new Vuex.Store({
     setPickedColor(state, c){state.pickedColor = c},
     setPickedBrush(state, b){state.pickedBrush = b},
     setPickedWord(state, w){state.pickedWord = w},
-    setConnection(state, c){state.connection = c}
+    setConnection(state, c){state.connection = c},
   },
   actions: {
     setHost: ({commit}, h) => {commit("setHost", h)},
@@ -36,7 +36,6 @@ export default new Vuex.Store({
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
     setBrush: ({commit}, b) => {commit("setPickedBrush", b)},
     setRoomkey: ({commit}, k) => {commit("setRoomkey", k)},
-
     //SingalR
     startConnection: ({commit}) => {
       let connection = new signalR.HubConnectionBuilder({useDefaultpath : false})
@@ -79,6 +78,6 @@ export default new Vuex.Store({
     getPickedWord: state => state.pickedWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
-    getConnection: state => state.connection
+    getConnection: state => state.connection,
   }
 })

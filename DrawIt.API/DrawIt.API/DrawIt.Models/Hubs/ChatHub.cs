@@ -1,5 +1,6 @@
 ﻿using DrawIt.Models.Data;
 using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,9 +13,9 @@ namespace DrawIt.Models.Hubs
         //Groups
         public async Task JoinRoom(string roomName, string member)
         {
-            //Member m = member
-            //await NewMember(roomName, member);
             await Groups.AddToGroupAsync(Context.ConnectionId, roomName);
+            Member m = JsonConvert.DeserializeObject<Member>(member);
+            await NewMember(roomName, m);
         }
 
 
