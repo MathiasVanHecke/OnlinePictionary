@@ -42,6 +42,7 @@ export default {
       this.isLogin = !this.isLogin;
     },
     register: function(){
+      console.log(this.isValid, this.isChecked);
       if (this.isValid && this.isChecked) {
         var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
         var url = 'https://localhost:44321/api/auth/register';
@@ -50,7 +51,7 @@ export default {
               body: JSON.stringify(credentials),
               headers:{ 'Content-Type': 'application/json' }
               })
-        .then(response => console.log('Success:', response))
+        .then(response => console.log('Success:', console.log(response)))
         .catch(error => console.error('Error:', console.log(error)));
       }
     },
@@ -65,7 +66,7 @@ export default {
       else this.$refs.email.classList.add('o-input--invalid');
       if (this.password.length < 8 || this.password.length > 20) this.$refs.password.classList.add('o-input--invalid');
       else { this.$refs.password.classList.remove('o-input--invalid'); check += 1; }
-      if (this.password === this.password2) { this.$refs.password2.classList.remove('o-input--invalid'); }
+      if (this.password === this.password2) { this.$refs.password2.classList.remove('o-input--invalid'); check +=1; }
       else this.$refs.password2.classList.add('o-input--invalid');
       if (check == 4) this.isValid = true;
       else this.isValid = false;
