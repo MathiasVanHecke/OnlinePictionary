@@ -35,6 +35,13 @@ namespace DrawIt.Models.Hubs
             return Groups.RemoveFromGroupAsync(Context.ConnectionId, roomName);
         }
 
+        //Start game
+        public async Task Start(int sec)
+        {
+            await Clients.All.SendAsync("Start", sec);
+        }
+
+
         //Draw
         public async Task Draw(string c, int b, int currX, int currY, int prevX, int prevY)
         {

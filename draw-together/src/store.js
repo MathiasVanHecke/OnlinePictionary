@@ -56,7 +56,8 @@ export default new Vuex.Store({
 
     },
 
-    setWord: ({commit}) => {
+    setWord: ({commit}, c) => {
+      console.log("Cookie uit store:" + c)
       fetch('https://localhost:44321/api/words/random')
         .then(function(response){
           if(!response.ok) return new Error(response);

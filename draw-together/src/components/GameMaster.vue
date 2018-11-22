@@ -40,7 +40,7 @@ export default {
   },
   mounted: function() {
     this.$root.$on('drafted', (member) => { 
-      this.$store.dispatch('setWord');
+      this.$store.dispatch('setWord', this.$cookies.get('token'));
       if(member == this.$store.getters.getMyName){
         this.text = "You're up! The word is "+ this.word + ".";
       }
