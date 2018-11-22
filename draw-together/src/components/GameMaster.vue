@@ -23,7 +23,7 @@ export default {
       this.$el.classList.remove('c-hidden');
       this.wait(450)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('start', 15)));
+      .then(() => (this.$store.getters.getConnection.invoke('Start', 5)));
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');

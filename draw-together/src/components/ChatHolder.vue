@@ -48,7 +48,7 @@ export default {
     this.$root.$on('stop', () => { 
       this.isEnabled = true; 
     });
-    this.$root.$on('start', () => {
+    this.$store.getters.getConnection.on('Start', () => {
       this.guessed = false;
     })
     this.$root.$on('guess', (name, msg) => { 
