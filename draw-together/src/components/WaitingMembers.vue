@@ -33,7 +33,16 @@ export default {
       ]
     }
   },
-
+  mounted() {
+    this.$store.getters.getConnection.on("NewMember", (member) => { 
+      this.members.push(member);
+      if (this.$store.getters.getHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}
+    });
+    this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
+      console.log(members);
+      this.members = members;
+    });
+  }
 }
 </script>
 

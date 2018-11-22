@@ -12,13 +12,6 @@ import WaitingMembers from '@/components/WaitingMembers.vue'
 
 export default {
   name: 'Waiting',
-  data() {
-    return {
-      members : [
-
-      ]
-    }
-  },
   computed : {
     roomkey : function() { return this.$store.getters.getRoomkey },
   },
@@ -35,13 +28,6 @@ export default {
     console.log("inwaiting", this.$store.getters.getRoomkey, this.$store.getters.getHost);
     var me = "{name : '" + this.$store.getters.getMyName + "'}"
     this.$store.getters.getConnection.invoke("JoinRoom", this.roomkey, me);
-    this.$store.getters.getConnection.on("NewMember", (member) => { 
-      console.log(member);
-      if (this.$store.getters.getHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}
-    });
-    this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
-      console.log(members);
-    });
   }
 }
 </script>
