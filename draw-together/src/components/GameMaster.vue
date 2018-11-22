@@ -20,10 +20,12 @@ export default {
   },
   methods: {
     drafted : function() {
+      let that = this;
       this.$el.classList.remove('c-hidden');
       this.wait(450)
       .then(() => (this.hide()))
-      .then(() => (this.$store.getters.getConnection.invoke('Start', 5)));
+      .then(function()
+      {if(that.$store.getters.getHost){that.$store.getters.getConnection.invoke('Start', 50);}})
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');
@@ -32,14 +34,14 @@ export default {
       .then(() => (this.newdraft()));
     },
     newdraft : function() {
-      this.$store.getters.getConnection.invoke('drafted', "Nico");
+      this.$store.getters.getConnection.invoke('Drafted', "Nico");
     },
     hide : function() {
       this.$el.classList.add('c-hidden');
     }
   },
   mounted: function() {
-    this.$store.getters.getConnection.on('drafted', (member) => { 
+    this.$store.getters.getConnection.on('Drafted', (member) => { 
       this.$store.dispatch('setWord', this.$cookies.get('token'));
       if(member == this.$store.getters.getMyName){
         this.text = "You're up! The word is "+ this.word + ".";

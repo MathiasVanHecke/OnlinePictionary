@@ -43,7 +43,7 @@ export default {
     }
   },
   mounted: function() {
-    this.$store.getters.getConnection.on('drafted', (member) => {
+    this.$store.getters.getConnection.on('Drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
     this.$store.getters.getConnection.on('Stop', () => { 
       this.isEnabled = true; 
@@ -56,12 +56,12 @@ export default {
         if (msg == this.$store.getters.getPickedWord){ 
           if (!this.guessed) {
             //this.$root.$emit('guessed', name); 
-            this.$store.getters.getConnection.invoke("Guessed", name);
+            this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomKey, name);
             this.guessed = true;
           }
         }
         else {
-          this.$store.getters.getConnection.invoke("SendMessage", name, msg);
+          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomKey, name, msg);
         }
       }
     });

@@ -49,7 +49,7 @@ export default new Vuex.Store({
           return console.error(err.toString());
         })
         .then(function(){
-          console.log(connection);
+          console.log("-- Connected to the hub --");
           commit('setConnection', connection);
         })
         .catch((error => { console.log(error.statusText); }));

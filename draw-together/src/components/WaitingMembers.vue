@@ -19,7 +19,8 @@ export default {
   mounted() {
     this.$store.getters.getConnection.on("NewMember", (member) => { 
       this.members.push(member);
-      if (this.$store.getters.getHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.roomkey, this.members)}
+      if (this.$store.getters.getHost) {this.$store.getters.getConnection.invoke("UpdateMembers", this.$store.getters.getRoomKey, this.members)}
+      console.log( this.$store.getters.getRoomKey)
     });
     this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
       console.log(members);

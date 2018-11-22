@@ -145,7 +145,7 @@ export default {
       this.currY = currY;
       this.drawdot(c, b, this.currX, this.currY);
     });
-    this.$store.getters.getConnection.on('drafted', (member) => {
+    this.$store.getters.getConnection.on('Drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
     });
     this.$store.getters.getConnection.on('Stop', () => { 
