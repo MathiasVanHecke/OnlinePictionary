@@ -30,7 +30,7 @@ export default {
       }
     },
   mounted: function() {
-    this.$root.$on('start', (seconds) => { this.start(seconds); });
+    this.$store.getters.getConnection.on('Start', (seconds) => { this.start(seconds); });
     this.$root.$on('stop', () => { this.stop(); });
   }
 }
