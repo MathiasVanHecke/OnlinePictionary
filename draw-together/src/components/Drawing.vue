@@ -148,7 +148,7 @@ export default {
     this.$root.$on('drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
     });
-    this.$root.$on('stop', () => { 
+    this.$store.getters.getConnection.on('stop', () => { 
       this.isEnabled = false; 
       this.erase();
     });

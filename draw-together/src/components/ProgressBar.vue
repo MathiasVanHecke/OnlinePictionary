@@ -18,7 +18,8 @@ export default {
         let width = 100;
         this.exe = setInterval(frame, 20);
         function frame() {
-            if (width <= 0) { that.$root.$emit("stop"); } 
+            if (width <= 0) { 
+                if (that.$store.getters.getHost) that.$store.getters.getConnection.invoke("stop"); } 
             else {
                 width = width - (100/seconds/50);
                 that.$el.children[0].style.width = width + '%';
@@ -31,7 +32,7 @@ export default {
     },
   mounted: function() {
     this.$store.getters.getConnection.on('Start', (seconds) => { this.start(seconds); });
-    this.$root.$on('stop', () => { this.stop(); });
+    this.$store.getters.getConnection.on('Stop', () => { this.stop(); });
   }
 }
 </script>

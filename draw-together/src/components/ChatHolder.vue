@@ -45,7 +45,7 @@ export default {
   mounted: function() {
     this.$root.$on('drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
-    this.$root.$on('stop', () => { 
+    this.$store.getters.getConnection.on('stop', () => { 
       this.isEnabled = true; 
     });
     this.$store.getters.getConnection.on('Start', () => {
