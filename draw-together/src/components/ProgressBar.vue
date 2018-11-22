@@ -19,7 +19,7 @@ export default {
         this.exe = setInterval(frame, 20);
         function frame() {
             if (width <= 0) { 
-                if (that.$store.getters.getHost) that.$store.getters.getConnection.invoke("stop"); } 
+                if (that.$store.getters.getHost) that.$store.getters.getConnection.invoke("Stop"); } 
             else {
                 width = width - (100/seconds/50);
                 that.$el.children[0].style.width = width + '%';

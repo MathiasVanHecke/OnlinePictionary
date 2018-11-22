@@ -51,7 +51,17 @@ namespace DrawIt.Models.Hubs
             await Clients.All.SendAsync("Start", sec);
         }
 
+        //Stop a round
+        public async Task Stop()
+        {
+            await Clients.All.SendAsync("Stop");
+        }
 
+        //Toon aan wie de tekenaar is
+        public async Task Drafted(string user)
+        {
+            await Clients.All.SendAsync("Drafted", user);
+        }
 
         //DRAW
         //Het tekenen van een lijn
