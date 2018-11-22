@@ -16,20 +16,8 @@ export default {
       members : [
           {
             id: 1,
-            name: "Céline",
+            name: this.$store.getters.getMyName,
           },
-          {
-            id: 2,
-            name: "Mathias",
-          },
-          {
-            id: 3,
-            name: "Jens",
-          },
-          {
-            id: 4,
-            name: "Nico",
-          }
       ]
     }
   },

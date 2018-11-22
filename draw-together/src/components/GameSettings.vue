@@ -58,9 +58,14 @@ export default {
       if (this.isValid){
         this.$store.dispatch('setRoundsAmount', this.rounds);
         this.$store.dispatch('setRoundsLength', this.length);
-        this.$router.push({ path: 'game' });
+        this.$store.getters.getConnection.invoke('StartGame');
       }
     }
+  },
+  mounted() {
+    this.$store.getters.getConnection.on("StartGame", () => {
+      this.$router.push({ path: 'game' });
+    });
   },
 }
 </script>
