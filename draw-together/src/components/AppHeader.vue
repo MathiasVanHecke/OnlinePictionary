@@ -28,14 +28,19 @@ export default {
     switchLanguage : function(){
       if (this.flag == 'be') {
         this.flag = 'en';
-        this.$i18n.locale = 'be';
+        this.setLanguage('be');
       }
       else {
         this.flag = 'be';
-        this.$i18n.locale = 'en';
+        this.setLanguage('en');
       }
+    },
+    setLanguage : function(lang){
+      this.$i18n.locale = lang;
+      this.$cookies.config('30d');
+      this.$cookies.set('locale', lang);
     }
-  }
+  },
 }
 </script>
 
@@ -56,5 +61,11 @@ export default {
   padding-left: 1rem;
   height: 1rem;
   width:  1rem;
+  opacity: .5;
+  transition: 300ms all ease-in-out;
+}
+
+.c-flag:hover{
+  opacity: 1;
 }
 </style>
