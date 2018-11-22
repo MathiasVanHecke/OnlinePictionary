@@ -53,8 +53,7 @@ export default {
         this.isDrawing = true;
         this.isDot = true;
         if (this.isDot) {
-          this.drawdot(this.ctx, this.currX, this.currY);
-          this.drawdot(this.cts, this.currX/2, this.currY/2);
+          this.senddrawdot();
           this.isDot = false;
         }
       }
@@ -63,7 +62,7 @@ export default {
       if (this.isEnabled){
         if (this.isDrawing) {
             this.getXY(e);
-            this.draw();
+            this.senddraw();
         }
       }
     },
@@ -89,35 +88,40 @@ export default {
       }
     },
 
+    //emitters
+    senddraw: function() {
+      this.$store.getters.getConnection.invoke('draw', (this.c, this.b, this.currX, this.currY, this.prevX, this.prevY))
+    },
+    senddrawdot: function() {
+      this.$store.getters.getConnection.invoke('drawdot', (this.c, this.b, this.currX, this.currY))
+    },
+
     //drawing code:
     //also call in receivers
     erase : function() {
       this.ctx.clearRect(0, 0, this.$refs.canvas.clientWidth, this.$refs.canvas.clientHeight);
       this.cts.clearRect(0, 0, this.$refs.canxxs.clientWidth, this.$refs.canxxs.clientHeight);
     },
-    draw: function() {
-        this.drawdot(this.ctx, this.currX, this.currY);
-        this.drawline(this.ctx, this.currX, this.currY, this.prevX, this.prevY);
-        this.drawdot(this.ctx, this.currX, this.currY);
-        this.drawdot(this.cts, this.currX/2, this.currY/2);
-        this.drawline(this.cts, this.currX/2, this.currY/2, this.prevX/2, this.prevY/2);
-        this.drawdot(this.cts, this.currX/2, this.currY/2);
+    draw: function(c, b) {
+        this.drawdot(c, b, this.currX, this.currY);
+        this.drawline(c, b, this.currX, this.currY, this.prevX, this.prevY);
+        this.drawdot(c, b, this.currX, this.currY);
     },
-    drawdot: function(mycanvas, currX, currY) {
-        mycanvas.beginPath();
-        mycanvas.fillStyle = this.c;
-        mycanvas.arc(currX, currY, this.b/2 , 0, 2 * Math.PI);
-        mycanvas.fill();
-        mycanvas.closePath();
+    drawdot: function(c, b, currX, currY) {
+        this.ctx.beginPath();
+        this.ctx.fillStyle = this.c;
+        this.ctx.arc(currX, currY, this.b/2 , 0, 2 * Math.PI);
+        this.ctx.fill();
+        this.ctx.closePath();
     },
-    drawline: function(mycanvas, currX, currY, prevX, prevY){
-        mycanvas.beginPath();
-        mycanvas.moveTo(prevX, prevY);
-        mycanvas.lineTo(currX, currY);
-        mycanvas.strokeStyle = this.c;
-        mycanvas.lineWidth = this.b;
-        mycanvas.stroke();
-        mycanvas.closePath();
+    drawline: function(c, b, currX, currY, prevX, prevY){
+        this.ctx.beginPath();
+        this.ctx.moveTo(prevX, prevY);
+        this.ctx.lineTo(currX, currY);
+        this.ctx.strokeStyle = this.c;
+        this.ctx.lineWidth = this.b;
+        this.ctx.stroke();
+        this.ctx.closePath();
     }
   },
   mounted: function() {
@@ -126,29 +130,26 @@ export default {
       if( window.innerWidth < 1350 ) this.isSmall = true; 
       else this.isSmall = false; 
       });
-    this.$root.$on('erasecanvas', () => { this.erase(); });
-    this.$root.$on('draw', (c, b, currX, currY, prevX, prevY) => { 
-      this.c = c;
-      this.b = b;
+    this.$store.getters.getConnection.on('erasecanvas', () => { this.erase(); });
+    this.$store.getters.getConnection.on('draw', (c, b, currX, currY, prevX, prevY) => { 
       this.currX = currX;
       this.currY = currY;
       this.prevX = prevX;
       this.prevY = prevY;
-      this.draw();
+      this.draw(c, b);
     });
-    this.$root.$on('drawdot', (c, b, currX, currY) => { 
-      this.c = c;
-      this.b = b;
+    this.$store.getters.getConnection.on('drawdot', (c, b, currX, currY) => { 
       this.currX = currX;
       this.currY = currY;
-      this.drawdot(); 
+      this.drawdot(c, b, this.currX, this.currY);
     });
-    this.$root.$on('drafted', (member) => {
-      if(member == this.$store.getters.getMyName) {this.isEnabled = true; } });
-    this.$root.$on('stop', () => { 
+    this.$store.getters.getConnection.on('drafted', (member) => {
+      if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
+    });
+    this.$store.getters.getConnection.on('stop', () => { 
       this.isEnabled = false; 
       this.erase();
-      });
+    });
   }
 }
 </script>
