@@ -90,10 +90,12 @@ export default {
 
     //emitters
     senddraw: function() {
-      this.$store.getters.getConnection.invoke('draw', (this.c, this.b, this.currX, this.currY, this.prevX, this.prevY))
+      console.log("Invoke draw");
+      this.$store.getters.getConnection.invoke('Draw', this.c, this.b, this.currX, this.currY, this.prevX, this.prevY)
     },
     senddrawdot: function() {
-      this.$store.getters.getConnection.invoke('drawdot', (this.c, this.b, this.currX, this.currY))
+      console.log("Invoke drawdot");
+      this.$store.getters.getConnection.invoke('DrawDot', this.c, this.b, this.currX, this.currY)
     },
 
     //drawing code:
@@ -143,10 +145,10 @@ export default {
       this.currY = currY;
       this.drawdot(c, b, this.currX, this.currY);
     });
-    this.$store.getters.getConnection.on('drafted', (member) => {
+    this.$root.$on('drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
     });
-    this.$store.getters.getConnection.on('stop', () => { 
+    this.$root.$on('stop', () => { 
       this.isEnabled = false; 
       this.erase();
     });

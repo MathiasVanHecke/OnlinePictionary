@@ -21,13 +21,13 @@ export default {
   methods: {
     drafted : function() {
       this.$el.classList.remove('c-hidden');
-      this.wait(4500)
+      this.wait(450)
       .then(() => (this.hide()))
-      .then(() => (this.$root.$emit('start', 5)));
+      .then(() => (this.$root.$emit('start', 15)));
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');
-      this.wait(4500)
+      this.wait(450)
       .then(() => (this.hide()))
       .then(() => (this.newdraft()));
     },

@@ -1,4 +1,5 @@
-﻿using DrawIt.Models.Data;
+﻿
+using DrawIt.Models.Data;
 using Microsoft.AspNetCore.SignalR;
 using Newtonsoft.Json;
 using System;
@@ -32,6 +33,17 @@ namespace DrawIt.Models.Hubs
         public Task LeaveRoom(string roomName)
         {
             return Groups.RemoveFromGroupAsync(Context.ConnectionId, roomName);
+        }
+
+        //Draw
+        public async Task Draw(string c, int b, int currX, int currY, int prevX, int prevY)
+        {
+            await Clients.All.SendAsync("Draw", c, b, currX, currY, prevX, prevY);
+        }
+
+        public async Task DrawDot(string c, int b, int currX, int currY)
+        {
+            await Clients.All.SendAsync("DrawDot", c, b, currX, currY);
         }
 
         //Message
