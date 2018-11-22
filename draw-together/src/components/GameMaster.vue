@@ -47,7 +47,7 @@ export default {
       else { this.text = "Next up: " + member + " is drawing..."; }
       this.drafted(); 
     });
-    this.$store.getters.getConnection.on('stop', () => { 
+    this.$store.getters.getConnection.on('Stop', () => { 
       this.text = "The word was: " + this.word + "!";
       this.stop(); 
     });

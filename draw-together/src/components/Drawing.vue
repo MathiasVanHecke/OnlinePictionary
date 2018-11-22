@@ -148,7 +148,7 @@ export default {
     this.$store.getters.getConnection.on('drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
     });
-    this.$store.getters.getConnection.on('stop', () => { 
+    this.$store.getters.getConnection.on('Stop', () => { 
       this.isEnabled = false; 
       this.erase();
     });
