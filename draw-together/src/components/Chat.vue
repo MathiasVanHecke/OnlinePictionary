@@ -46,7 +46,6 @@ export default {
     }
   },
   mounted: function() {
-    this.scrolldown();
     this.$store.getters.getConnection.on("Guessed", (name) => {
       this.chatitems.push({
         id : this.chatitems.length + 1,

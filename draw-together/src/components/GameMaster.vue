@@ -27,7 +27,7 @@ export default {
       .then(function()
       {
         if(that.$store.getters.getHost){
-          that.$store.getters.getConnection.invoke('Start', this.$store.getters.getRoomkey, 20);
+          that.$store.getters.getConnection.invoke('Start', that.$store.getters.getRoomkey, 20);
           console.log("invoked start");
         }
       })
