@@ -22,19 +22,26 @@ export default {
     drafted : function() {
       let that = this;
       this.$el.classList.remove('c-hidden');
-      this.wait(450)
+      this.wait(2000)
       .then(() => (this.hide()))
       .then(function()
-      {if(that.$store.getters.getHost){that.$store.getters.getConnection.invoke('Start', 50);}})
+      {
+        if(that.$store.getters.getHost){
+          that.$store.getters.getConnection.invoke('Start', this.$store.getters.getRoomkey, 20);
+          console.log("invoked start");
+        }
+      })
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');
-      this.wait(450)
+      this.wait(2000)
       .then(() => (this.hide()))
       .then(() => (this.newdraft()));
     },
     newdraft : function() {
-      this.$store.getters.getConnection.invoke('Drafted', "Nico");
+      if(this.$store.getters.getHost){
+        this.$store.getters.getConnection.invoke('Drafted', this.$store.getters.getRoomkey, "Nico");
+      }
     },
     hide : function() {
       this.$el.classList.add('c-hidden');

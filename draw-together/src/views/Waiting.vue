@@ -25,10 +25,10 @@ export default {
     if (this.$store.getters.getRoomkey == "") {
       let key = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
       this.$store.dispatch("setRoomkey", key);
+      console.log('roomkey set:', this.$store.getters.getRoomkey);
     }
     var me = "{name : '" + this.$store.getters.getMyName + "'}"
-    this.$store.getters.getConnection.invoke("JoinRoom", this.roomkey, me);
-  
+    this.$store.getters.getConnection.invoke("JoinRoom", this.$store.getters.getRoomkey, me);
     this.$store.getters.getConnection.on("StartGame", () => {
       this.$router.push({ path: 'game' });
     });

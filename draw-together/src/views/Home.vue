@@ -31,7 +31,6 @@ export default {
   mounted() {
     this.$store.dispatch("setHost", false);
     this.$store.dispatch("setRoomkey", "");
-    console.log("inhome", this.$store.getters.getRoomkey, this.$store.getters.getHost);
   }
 }
 </script>

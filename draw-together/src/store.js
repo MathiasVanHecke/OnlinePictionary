@@ -52,7 +52,7 @@ export default new Vuex.Store({
           console.log("-- Connected to the hub --");
           commit('setConnection', connection);
         })
-        .catch((error => { console.log(error.statusText); }));
+        .catch((error => { console.log(error); }));
 
     },
 
@@ -67,7 +67,7 @@ export default new Vuex.Store({
           console.log(json['wordEng']);
           commit('setPickedWord', json['wordEng'])
         })
-        .catch((error => { console.log(error.statusText); commit('setPickedWord', 'eenhoorn') }));
+        .catch((error => { console.log(error); commit('setPickedWord', 'eenhoorn') }));
     }
   },
   getters: {

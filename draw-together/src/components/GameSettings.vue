@@ -58,7 +58,7 @@ export default {
       if (this.isValid){
         this.$store.dispatch('setRoundsAmount', this.rounds);
         this.$store.dispatch('setRoundsLength', this.length);
-        this.$store.getters.getConnection.invoke('StartGame');
+        this.$store.getters.getConnection.invoke('StartGame', this.$store.getters.getRoomkey);
       }
     }
   },

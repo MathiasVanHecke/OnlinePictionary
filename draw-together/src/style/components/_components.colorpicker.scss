@@ -6,7 +6,7 @@
         grid-template-rows: repeat(3, 2rem);
         grid-template-columns: repeat(10, 2rem);
         grid-auto-flow: column;
-        max-width: calc(10rem + 4*$gutter)
+        max-width: calc(10rem + 4 * #{ $gutter })
     }
 }
 
@@ -16,7 +16,7 @@
         grid-template-rows: repeat(10, 2rem);
         grid-template-columns: repeat(3, 2rem);
         grid-auto-flow: row;
-        max-height: calc(10rem + 4*$gutter)
+        max-height: calc(10rem + 4 * #{ $gutter })
     }
 }
 

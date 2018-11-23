@@ -55,13 +55,12 @@ export default {
       if (this.isEnabled) {
         if (msg == this.$store.getters.getPickedWord){ 
           if (!this.guessed) {
-            //this.$root.$emit('guessed', name); 
-            this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomKey, name);
+            this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomkey, name);
             this.guessed = true;
           }
         }
         else {
-          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomKey, name, msg);
+          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, name, msg);
         }
       }
     });

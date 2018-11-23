@@ -45,28 +45,14 @@ export default {
       ]
     }
   },
-  methods: {
-    scrolldown : function() {
-      this.$el.scrollTop = this.$el.scrollHeight;
-    },
-  },
   mounted: function() {
     this.scrolldown();
-    this.$root.$on('guessed', (name) => {
-      this.chatitems.push({
-        id : this.chatitems.length + 1,
-        msg : name + " guessed the word!",
-        name : ""
-        });
-      this.scrolldown();
-    })
     this.$store.getters.getConnection.on("Guessed", (name) => {
       this.chatitems.push({
         id : this.chatitems.length + 1,
         msg : name + " guessed the word!",
         name : ""
         });
-      this.scrolldown();
     })
     this.$store.getters.getConnection.on("ReceiveMessage", (name, msg) => { 
       this.chatitems.push({
@@ -74,7 +60,6 @@ export default {
         msg : msg,
         name : name
         });
-      this.scrolldown();
     });
   }
 }
