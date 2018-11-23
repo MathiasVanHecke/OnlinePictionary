@@ -25,7 +25,7 @@ export default {
       this.wait(450)
       .then(() => (this.hide()))
       .then(function()
-      {if(that.$store.getters.getHost){that.$store.getters.getConnection.invoke('Start', 50);}})
+      {if(that.$store.getters.getHost){that.$store.getters.getConnection.invoke('Start', 3);}})
     },
     stop : function() {
       this.$el.classList.remove('c-hidden');

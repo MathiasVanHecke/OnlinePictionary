@@ -9,9 +9,11 @@ using DrawIt.API.Models;
 using DrawIt.Models.Data;
 using DrawIt.Models.Repositories;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DrawIt.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [EnableCors("CorsPolicy")]
     public class WordsController : ControllerBase

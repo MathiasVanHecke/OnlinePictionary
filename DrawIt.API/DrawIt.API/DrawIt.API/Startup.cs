@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DrawIt.API.Models;
+using DrawIt.Models.Data;
+using DrawIt.Models.Hubs;
+using DrawIt.Models.Repositories;
+using DrawIt.Models.Seeders;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.EntityFrameworkCore;
-using DrawIt.API.Models;
-using DrawIt.Models.Repositories;
-using DrawIt.API.Controllers;
-using DrawIt.Models.Hubs;
-using Microsoft.AspNetCore.Cors.Infrastructure;
-using DrawIt.Models.Data;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.Swagger;
 using System.Text;
-using DrawIt.Models.Seeders;
 
 namespace DrawIt.API
 {
@@ -79,6 +71,11 @@ namespace DrawIt.API
 
             services.AddSignalR();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "Pictionary API", Description = "De api + hub die communiceert met de client" });
+            });
+            
             services.AddCors();
         }
 
@@ -103,10 +100,16 @@ namespace DrawIt.API
             });
 
             SeedDatabase.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
-
+            
             app.UseAuthentication();
 
             app.UseMvc();
+
+            app.UseSwagger();
+            app.UseSwaggerUI( c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Draw Api");
+            });
 
         }
 
