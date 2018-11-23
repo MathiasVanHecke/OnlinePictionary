@@ -57,7 +57,6 @@ export default new Vuex.Store({
     },
 
     setWord: ({commit}, c) => {
-      console.log("Cookie uit store:" + c)
       fetch('https://localhost:44321/api/words/random',{
         headers:{
           "Authorization" : "bearer " + c
