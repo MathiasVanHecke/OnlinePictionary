@@ -12,10 +12,10 @@
 
 <script>
 import MemberBar from '@/components/MemberBar.vue';
-import GameMaster from '@/components/GameMaster.vue';
-import DrawingControls from '@/components/DrawingControls.vue';
-import Drawing from '@/components/Drawing.vue';
-import ChatHolder from '@/components/ChatHolder.vue';
+import GameMaster from '@/components/Gameplay/GameMaster.vue';
+import DrawingControls from '@/components/Drawing/DrawingControls.vue';
+import Drawing from '@/components/Drawing/Drawing.vue';
+import ChatHolder from '@/components/Chat/ChatHolder.vue';
 
 export default {
   name: 'Game',

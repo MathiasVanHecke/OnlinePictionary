@@ -6,7 +6,7 @@
 
 <script>
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
-import ChatItem from '@/components/ChatItem.vue';
+import ChatItem from '@/components/Chat/ChatItem.vue';
 
 export default {
   name: 'Chat',
@@ -46,7 +46,6 @@ export default {
     }
   },
   mounted: function() {
-    this.scrolldown();
     this.$store.getters.getConnection.on("Guessed", (name) => {
       this.chatitems.push({
         id : this.chatitems.length + 1,

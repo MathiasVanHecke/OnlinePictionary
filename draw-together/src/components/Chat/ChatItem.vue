@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import ChatAnnouncement from '@/components/ChatAnnouncement.vue';
-import ChatMessage from '@/components/ChatMessage.vue';
-import ChatResponse from '@/components/ChatResponse.vue';
+import ChatAnnouncement from '@/components/Chat/ChatAnnouncement.vue';
+import ChatMessage from '@/components/Chat/ChatMessage.vue';
+import ChatResponse from '@/components/Chat/ChatResponse.vue';
 
 export default {
   name: 'ChatItem',

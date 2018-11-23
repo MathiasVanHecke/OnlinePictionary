@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import Chat from '@/components/Chat.vue';
-import GuessBar from '@/components/GuessBar.vue';
-import ProgressBar from '@/components/ProgressBar.vue';
+import Chat from '@/components/Chat/Chat.vue';
+import GuessBar from '@/components/Gameplay/GuessBar.vue';
+import ProgressBar from '@/components/Gameplay/ProgressBar.vue';
 
 export default {
   name: 'ChatHolder',

@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import AppHeader from '@/components/AppHeader.vue'
 import GameSettings from '@/components/GameSettings.vue'
 import WaitingMembers from '@/components/WaitingMembers.vue'
 
@@ -17,7 +16,6 @@ export default {
     isHost : function() { return this.$store.getters.getHost },
   },
   components: {
-    AppHeader,
     GameSettings,
     WaitingMembers
   },

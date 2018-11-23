@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Brush from '@/components/Brush.vue';
+import Brush from '@/components/Drawing/Brush.vue';
 
 export default {
   name: 'BrushPicker',

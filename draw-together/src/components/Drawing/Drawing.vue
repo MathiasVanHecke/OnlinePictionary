@@ -75,7 +75,7 @@ export default {
       this.prevX = this.currX;
       this.prevY = this.currY;
       if (e.changedTouches != undefined) {
-        this.currX = e.changedTouches[0].pageX - e.srcElement.offsetLeft;
+        this.currX = e.changedTouches[0].pageX - e.srcElement.offsetLeft + e.srcElement.scrollHeight;
         this.currY = e.changedTouches[0].pageY - e.srcElement.offsetTop;
       }
       else {
@@ -88,7 +88,7 @@ export default {
       }
     },
 
-    //emitters
+    //invokers
     senddraw: function() {
       console.log("Invoke draw");
       this.$store.getters.getConnection.invoke('Draw', this.$store.getters.getRoomkey, this.c, this.b, this.currX, this.currY, this.prevX, this.prevY)
@@ -132,7 +132,7 @@ export default {
       if( window.innerWidth < 1350 ) this.isSmall = true; 
       else this.isSmall = false; 
       });
-    this.$store.getters.getConnection.on('erasecanvas', () => { this.erase(); });
+    this.$store.getters.getConnection.on('erase', () => { this.erase(); });
     this.$store.getters.getConnection.on('draw', (c, b, currX, currY, prevX, prevY) => { 
       this.currX = currX;
       this.currY = currY;

@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import BrushPicker from '@/components/BrushPicker.vue'
-import ColorPicker from '@/components/ColorPicker.vue'
-import Trashcan from '@/components/Trashcan.vue'
+import BrushPicker from '@/components/Drawing/BrushPicker.vue'
+import ColorPicker from '@/components/Drawing/ColorPicker.vue'
+import Trashcan from '@/components/Drawing/Trashcan.vue'
 
 export default {
   name: 'controls',

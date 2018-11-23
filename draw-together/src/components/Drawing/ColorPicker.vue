@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Color from '@/components/Color.vue';
+import Color from '@/components/Drawing/Color.vue';
 
 export default {
   name: 'ColorPicker',
