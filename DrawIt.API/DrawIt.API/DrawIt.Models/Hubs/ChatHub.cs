@@ -40,40 +40,40 @@ namespace DrawIt.Models.Hubs
 
         //GAME MANAGER
         //Start the game, waarop elke client wordt omgeleid naar de game pagina
-        public async Task StartGame()
+        public async Task StartGame(string roomName)
         {
-            await Clients.All.SendAsync("StartGame");
+            await Clients.Group(roomName).SendAsync("StartGame");
         }
 
         //Start a round
-        public async Task Start(int sec)
+        public async Task Start(string roomName, int sec)
         {
-            await Clients.All.SendAsync("Start", sec);
+            await Clients.Group(roomName).SendAsync("Start", sec);
         }
 
         //Stop a round
-        public async Task Stop()
+        public async Task Stop(string roomName)
         {
-            await Clients.All.SendAsync("Stop");
+            await Clients.Group(roomName).SendAsync("Stop");
         }
 
         //Toon aan wie de tekenaar is
-        public async Task Drafted(string user)
+        public async Task Drafted(string roomName, string user)
         {
-            await Clients.All.SendAsync("Drafted", user);
+            await Clients.Group(roomName).SendAsync("Drafted", user);
         }
 
         //DRAW
         //Het tekenen van een lijn
-        public async Task Draw(string c, int b, int currX, int currY, int prevX, int prevY)
+        public async Task Draw(string roomName, string c, int b, int currX, int currY, int prevX, int prevY)
         {
-            await Clients.All.SendAsync("Draw", c, b, currX, currY, prevX, prevY);
+            await Clients.Group(roomName).SendAsync("Draw", c, b, currX, currY, prevX, prevY);
         }
 
         //Het tekenen van een punt
-        public async Task DrawDot(string c, int b, int currX, int currY)
+        public async Task DrawDot(string roomName, string c, int b, int currX, int currY)
         {
-            await Clients.All.SendAsync("DrawDot", c, b, currX, currY);
+            await Clients.Group(roomName).SendAsync("DrawDot", c, b, currX, currY);
         }
 
         //Message
@@ -83,9 +83,9 @@ namespace DrawIt.Models.Hubs
         }
 
         //Stuur naar elke client dat het woord is geraden 
-        public async Task Guessed(string user)
+        public async Task Guessed(string roomName, string user)
         {
-            await Clients.All.SendAsync("Guessed", user);
+            await Clients.Group(roomName).SendAsync("Guessed", user);
         }
     }
 }

@@ -23,7 +23,7 @@ export default {
       console.log('roomkey get:', this.$store.getters.getRoomkey);
     });
     this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
-      console.log(members);
+      console.log("members:", members);
       this.members = members;
     });
   }
