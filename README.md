@@ -6,6 +6,7 @@ Een online tekenspel waar de kandidaten het getekend woord moet raden voor punte
 - Het canvas van de tekening.
 - De live-chat waar de kanidaten het woord moeten raden.
 - De score van de spelers.
+- De wachtkamer waar de mensen komen voor het spel gestart wordt.
 
 # Checklist
 ## Backend
