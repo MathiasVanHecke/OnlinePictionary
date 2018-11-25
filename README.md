@@ -9,42 +9,42 @@ Een online tekenspel waar de kandidaten het getekend woord moet raden voor punte
 
 # Checklist
 ## Backend
-[ ] Backend API: Is een C# API (level 2) die zowel via website of mobiel kan bevraagd worden, zonder dat hiervoor veel code moet herschreven worden.
+[X] Backend API: is een C# API (level 2) die zowel via website of mobiel kan bevraagd worden, zonder dat hiervoor veel code moet herschreven worden.
 
-[ ] De database: Gegevens worden persistent gestockeerd in MSSQL, MySQL en/of MongoDb.
+[X] De database: gegevens worden persistent gestockeerd in MSSQL, MySQL en/of MongoDb.
 
-[ ] Realtime: Wordt gerealiseerd op basis van websockets.
+[X] Realtime: wordt gerealiseerd op basis van websockets.
 
-[ ] Autorisatie en authenticatie: Gebeurt met JWT of IdentityServer4.
+[X] Autorisatie en authenticatie: gebeurt met JWT of IdentityServer4.
 
-[ ] Kwetsbaarheid: CORS is enabled met een maximale beveiliging tegen crosssite scripting. 
+[X] Kwetsbaarheid: CORS is enabled met een maximale beveiliging tegen crosssite scripting. 
 
-[ ] API docs: De API documenteert zichzelf op basis van een selfdocumenting library.
+[X] API docs: de API documenteert zichzelf op basis van een selfdocumenting library.
 
-[ ] Framework: Gebruik van het EntityFramework. Via een seeder verloopt de installatie van de MVC backend automatisch op een lokale PC.
+[ ] Framework: gebruik van het EntityFramework. Via een seeder verloopt de installatie van de MVC backend automatisch op een lokale PC.
 
-[ ] Foutcontrole: Het crashen van de applicatie wordt verhinderd door het gebruik van een logger in try/catch structuur.
+[ ] Foutcontrole: het crashen van de applicatie wordt verhinderd door het gebruik van een logger in try/catch structuur.
 
-[ ] Source controle: Source controle gebeurt via GitHub. Versiebeheer mag (moet niet) opgenomen zijn in de applicatie maar kan/mag evengoed via GitHub branches.
+[X] Source controle: source controle gebeurt via GitHub. Versiebeheer mag (moet niet) opgenomen zijn in de applicatie maar kan/mag evengoed via GitHub branches.
 
-[ ] Deployment Docker: enabled op een omgeving naar keuze, indien praktisch haalbaar (Azure,Heroku)
+[X] Deployment Docker: enabled op een omgeving naar keuze, indien praktisch haalbaar (Azure,Heroku)
 
 ## Frontend
-[ ] Framework: Met een JS framework gemaakt; Vue.js, Angular of React. Werk met components, gebruik de state management van het framework.
+[X] Framework: met een JS framework gemaakt; Vue.js, Angular of React. Werk met components, gebruik de state management van het framework.
 
-[ ] Testing: Er zijn minstens een unit en een integration test.
+[ ] Testing: er zijn minstens een unit en een integration test.
 
-[ ]Styling: Je werkt met SCSS met een achterliggende structuur.
+[X] Styling: je werkt met SCSS met een achterliggende structuur.
 
-[ ] PWA: De web app kan fullscreen launchen en heeft een correcte PWA-setup.
+[X] PWA: de web app kan fullscreen launchen en heeft een correcte PWA-setup.
 
-[ ] Multi-language: De applicatie meertalig maken kan zeker een meerwaarde zijn. Indien je dit op een goede manier uitwerkt, kan dit zeker extra punten opleveren.
+[X] Multi-language: de applicatie meertalig maken kan zeker een meerwaarde zijn. Indien je dit op een goede manier uitwerkt, kan dit zeker extra punten opleveren.
 
-[ ] Error Logging: Het is een meerwaarde om fouten te loggen
+[ ] Error Logging: het is een meerwaarde om fouten te loggen
 
-[ ] Development setup: ebruik van https://codeclimate.com/ voor code testing en reviews is een meerwaarde
+[ ] Development setup: gebruik van https://codeclimate.com/ voor code testing en reviews is een meerwaarde
 
-[ ] Optimisation :Gebruik webpack voor een betere JS files delivery.
+[X] Optimisation: gebruik webpack voor een betere JS files delivery.
 
 # Extra inbreng
 ## Backend
