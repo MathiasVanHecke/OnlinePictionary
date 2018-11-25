@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted: function() {
-    this.$root.$on('guessed', () => {
+    this.$store.getters.getConnection.on('Guessed', () => {
         this.guesses += 1;
     });
   }

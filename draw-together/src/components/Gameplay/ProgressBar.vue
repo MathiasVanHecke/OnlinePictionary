@@ -20,8 +20,7 @@ export default {
         function frame() {
             if (width <= 0) { 
                 if (that.$store.getters.getHost) {
-                    that.$store.getters.getConnection.invoke("Stop", this.$store.getters.getRoomkey);
-                    console.log("invoked stop")
+                    that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
                 }
                 this.stop();
             }
@@ -38,6 +37,9 @@ export default {
   mounted: function() {
     this.$store.getters.getConnection.on('Start', (seconds) => { this.start(seconds); });
     this.$store.getters.getConnection.on('Stop', () => { this.stop(); });
+    this.$root.$on('sendguess', function(){
+        this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomkey, this.$store.getters.getMyName, 20);
+    });
   }
 }
 </script>

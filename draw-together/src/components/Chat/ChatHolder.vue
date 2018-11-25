@@ -38,32 +38,26 @@ export default {
   methods: {
     submit : function() {
       if(this.guess.trim().length == 0){ return; }
-      this.$root.$emit('guess', this.$store.getters.getMyName, this.guess);
+      this.$root.$emit('guess', this.guess);
+      if (this.isEnabled) {
+        if (this.guess.toLowerCase() == this.$store.getters.getPickedWord.toLowerCase()){ 
+          if (!this.guessed) {
+            this.$root.$emit('sendguess');
+            this.guessed = true;
+          }
+        }
+        else {
+          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, this.$store.getters.getMyName, (this.guess));
+        }
+      }
       this.guess = "";
     }
   },
   mounted: function() {
     this.$store.getters.getConnection.on('Drafted', (member) => {
       if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
-    this.$store.getters.getConnection.on('Stop', () => { 
-      this.isEnabled = true; 
-    });
-    this.$store.getters.getConnection.on('Start', () => {
-      this.guessed = false;
-    })
-    this.$root.$on('guess', (name, msg) => { 
-      if (this.isEnabled) {
-        if (msg == this.$store.getters.getPickedWord){ 
-          if (!this.guessed) {
-            this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomkey, name);
-            this.guessed = true;
-          }
-        }
-        else {
-          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, name, msg);
-        }
-      }
-    });
+    this.$store.getters.getConnection.on('Stop', () => { this.isEnabled = true; });
+    this.$store.getters.getConnection.on('Start', () => { this.guessed = false; });
   }
 }
 </script>

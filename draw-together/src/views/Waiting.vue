@@ -1,13 +1,13 @@
 <template>
   <div class="c-waiting o-container">
     <GameSettings v-if="isHost" :roomkey="roomkey"/>
-    <WaitingMembers/>
+    <Members/>
   </div>
 </template>
 
 <script>
 import GameSettings from '@/components/GameSettings.vue'
-import WaitingMembers from '@/components/WaitingMembers.vue'
+import Members from '@/components/Members.vue'
 
 export default {
   name: 'Waiting',
@@ -17,13 +17,12 @@ export default {
   },
   components: {
     GameSettings,
-    WaitingMembers
+    Members
   },
   mounted() {
     if (this.$store.getters.getRoomkey == "") {
       let key = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
       this.$store.dispatch("setRoomkey", key);
-      console.log('roomkey set:', this.$store.getters.getRoomkey);
     }
     var me = "{name : '" + this.$store.getters.getMyName + "'}"
     this.$store.getters.getConnection.invoke("JoinRoom", this.$store.getters.getRoomkey, me);

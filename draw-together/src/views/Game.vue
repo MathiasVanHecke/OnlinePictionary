@@ -1,6 +1,6 @@
 <template>
   <div class="c-game o-container o-grid">
-    <MemberBar/>
+    <Members :inGame="inGame"/>
     <div class="o-grid c-game-row">
         <DrawingControls/>
         <Drawing/>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import MemberBar from '@/components/MemberBar.vue';
+import Members from '@/components/Members.vue';
 import GameMaster from '@/components/Gameplay/GameMaster.vue';
 import DrawingControls from '@/components/Drawing/DrawingControls.vue';
 import Drawing from '@/components/Drawing/Drawing.vue';
@@ -20,11 +20,16 @@ import ChatHolder from '@/components/Chat/ChatHolder.vue';
 export default {
   name: 'Game',
   components: {
-    MemberBar,
+    Members,
     GameMaster,
     DrawingControls,
     Drawing,
     ChatHolder
+  },
+  data() {
+    return {
+      inGame : true,
+    }
   },
   mounted () {
     if(this.$store.getters.getHost) this.$store.getters.getConnection.invoke('Drafted', this.$store.getters.getRoomkey, "Mathias");

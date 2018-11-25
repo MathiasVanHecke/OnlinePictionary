@@ -90,11 +90,9 @@ export default {
 
     //invokers
     senddraw: function() {
-      console.log("Invoke draw");
       this.$store.getters.getConnection.invoke('Draw', this.$store.getters.getRoomkey, this.c, this.b, this.currX, this.currY, this.prevX, this.prevY)
     },
     senddrawdot: function() {
-      console.log("Invoke drawdot");
       this.$store.getters.getConnection.invoke('DrawDot', this.$store.getters.getRoomkey, this.c, this.b, this.currX, this.currY)
     },
 

@@ -13,20 +13,23 @@ export default new Vuex.Store({
     isHost: false,
     roundsAmount: "",
     roundsLength: "",
-    roomkey: "",
     pickedWord: "",
     pickedColor: "black",
     pickedBrush: "2",
+    roomkey: "",
+    members: [],
     connection: null,
   },
   mutations: {
     setHost(state, h){state.isHost = h},
     setRoundsAmount(state, r){state.roundsAmount = r},
     setRoundsLength(state, l){state.roundsLength = l},
-    setRoomkey(state, k){state.roomkey = k},
     setPickedColor(state, c){state.pickedColor = c},
     setPickedBrush(state, b){state.pickedBrush = b},
     setPickedWord(state, w){state.pickedWord = w},
+    setRoomkey(state, k){state.roomkey = k},
+    setMembers(state, m){state.members = m},
+    addMember(state, m){state.members.push(m)},
     setConnection(state, c){state.connection = c},
   },
   actions: {
@@ -36,6 +39,9 @@ export default new Vuex.Store({
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
     setBrush: ({commit}, b) => {commit("setPickedBrush", b)},
     setRoomkey: ({commit}, k) => {commit("setRoomkey", k)},
+    setMembers: ({commit}, m) => {commit("setMembers", m)},
+    addMember: ({commit}, m) => {commit("addMember", m)},
+
     //SingalR
     startConnection: ({commit}) => {
       let connection = new signalR.HubConnectionBuilder({useDefaultpath : false})
@@ -56,6 +62,7 @@ export default new Vuex.Store({
 
     },
 
+    // API
     setWord: ({commit}, c) => {
       fetch('https://localhost:44321/api/words/random',{
         headers:{
@@ -67,7 +74,6 @@ export default new Vuex.Store({
           else return response.json();
         })
         .then(function(json){
-          console.log(json['wordEng']);
           commit('setPickedWord', json['wordEng'])
         })
         .catch((error => { console.log(error); commit('setPickedWord', 'eenhoorn') }));
@@ -78,10 +84,11 @@ export default new Vuex.Store({
     getHost: state => state.isHost,
     getRoundsAmount: state => state.roundsAmount,
     getRoundsLength: state => state.roundsLength,
-    getRoomkey: state => state.roomkey,
     getPickedWord: state => state.pickedWord,
     getPickedColor: state => state.pickedColor,
     getPickedBrush: state => state.pickedBrush,
+    getRoomkey: state => state.roomkey,
+    getMembers: state => state.members,
     getConnection: state => state.connection,
   }
 })

@@ -39,8 +39,13 @@ export default {
       this.$i18n.locale = lang;
       this.$cookies.config('30d');
       this.$cookies.set('locale', lang);
-    }
+    },
   },
+  mounted() {
+    if (this.$cookies.get('locale')){
+      this.$i18n.locale = this.$cookies.get('locale');
+    }
+  }
 }
 </script>
 
