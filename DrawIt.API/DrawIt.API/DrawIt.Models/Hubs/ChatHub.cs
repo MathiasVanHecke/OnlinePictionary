@@ -83,9 +83,9 @@ namespace DrawIt.Models.Hubs
         }
 
         //Stuur naar elke client dat het woord is geraden 
-        public async Task Guessed(string roomName, string user)
+        public async Task Guessed(string roomName, string user, int seconds)
         {
-            await Clients.Group(roomName).SendAsync("Guessed", user);
+            await Clients.Group(roomName).SendAsync("Guessed", user, seconds);
         }
     }
 }
