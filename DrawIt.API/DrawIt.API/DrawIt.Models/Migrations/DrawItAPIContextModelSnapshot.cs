@@ -105,6 +105,29 @@ namespace DrawIt.Models.Migrations
                     b.HasKey("wordId");
 
                     b.ToTable("Word");
+
+                    b.HasData(
+                        new { wordId = 1, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Desktop", wordNl = "Computer" },
+                        new { wordId = 2, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Popcorn", wordNl = "Popcorn" },
+                        new { wordId = 3, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Island", wordNl = "Eiland" },
+                        new { wordId = 4, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Santa Claus", wordNl = "Kerstman" },
+                        new { wordId = 5, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Toothbrush", wordNl = "Tandenborstel" },
+                        new { wordId = 6, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Shopping cart", wordNl = "Winkelwagen" },
+                        new { wordId = 7, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Traffic light", wordNl = "Koptelefoon" },
+                        new { wordId = 8, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Heater", wordNl = "Verwarming" },
+                        new { wordId = 9, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Sunglasses", wordNl = "Zonnebril" },
+                        new { wordId = 10, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Ferris wheel", wordNl = "Reuzenrad" },
+                        new { wordId = 11, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Lamppost", wordNl = "Lantaarnpaal" },
+                        new { wordId = 12, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Red", wordNl = "Rood" },
+                        new { wordId = 13, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Desktop", wordNl = "Computer" },
+                        new { wordId = 14, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Curtain", wordNl = "Gordijn" },
+                        new { wordId = 15, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Desktop", wordNl = "Computer" },
+                        new { wordId = 16, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Sleigh", wordNl = "Slee" },
+                        new { wordId = 17, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Brain", wordNl = "Hersens" },
+                        new { wordId = 18, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Clothespin", wordNl = "Wasknijper" },
+                        new { wordId = 19, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Sandwich", wordNl = "Boterham" },
+                        new { wordId = 20, DNGuessed = 0, Guessed = 0, dislikes = 0, likes = 0, wordEng = "Diaper", wordNl = "Luier" }
+                    );
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

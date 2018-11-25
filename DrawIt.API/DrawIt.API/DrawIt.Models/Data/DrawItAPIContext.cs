@@ -18,6 +18,7 @@ namespace DrawIt.API.Models
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Seed();
         }
 
         public DbSet<DrawIt.Models.Data.Word> Word { get; set; }

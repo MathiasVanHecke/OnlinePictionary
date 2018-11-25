@@ -76,13 +76,20 @@ namespace DrawIt.Models.Hubs
             await Clients.Group(roomName).SendAsync("DrawDot", c, b, currX, currY);
         }
 
+        //Verwijder de tekening van het canavas
+        public async Task Erase(string roomName)
+        {
+            await Clients.Group(roomName).SendAsync("Erase");
+        }
+
+
         //Message
         public async Task SendMessage(string roomName, string user, string message)
         {
             await Clients.Group(roomName).SendAsync("ReceiveMessage", user, message);
         }
 
-        //Stuur naar elke client dat het woord is geraden 
+        //Stuur naar elke client dat het woord is geraden
         public async Task Guessed(string roomName, string user, int seconds)
         {
             await Clients.Group(roomName).SendAsync("Guessed", user, seconds);
