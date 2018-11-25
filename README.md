@@ -49,9 +49,10 @@ Een online tekenspel waar de kandidaten het getekend woord moet raden voor punte
 
 # Extra inbreng
 ## Backend
-- Gebruik van groepen in Signal R
+- Gebruik van groepen in SignalR
 
 ## Frontend
 - Het gebruik maken van canvas
 - De event bus  gebruiken in vue: $emit & $on
-- Doorsturen van parms in linken naar een andere pagina
+- We maken gebruik van cookie's & local storage
+- Gebruik van extre package: vue-perfect-scrollbar
