@@ -62,6 +62,7 @@ Een online tekenspel waar de kandidaten het getekend woord moet raden voor punte
 - Er wordt data bijgehouden hoeveel keer een woord is geraden, en hoeveel gebruikers het woord al dan niet leuk vonden.
 - Er wordt een profielfoto bijhouden van de gebruiker.
 - De gebruiker kan data opvragen van hoe goed hij het spel speelt
+- Gebruik maken van een admin-role die woorden kan toevoegen en verwijderen
 
 ## Frontend
 - Na verloop van tijd wordt deel van het woord getoond.
