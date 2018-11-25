@@ -64,3 +64,5 @@ Een online tekenspel waar de kandidaten het getekend woord moet raden voor punte
 - De gebruiker kan data opvragen van hoe goed hij het spel speelt
 
 ## Frontend
+- Na verloop van tijd wordt deel van het woord getoond.
+- De gebruiker ziet een hint als hij heel dicht bij het woord zit
