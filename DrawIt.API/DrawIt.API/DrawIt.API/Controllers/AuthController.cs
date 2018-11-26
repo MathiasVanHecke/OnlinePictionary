@@ -9,6 +9,7 @@ using DrawIt.Models;
 using DrawIt.Models.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 
 namespace DrawIt.API.Controllers
@@ -17,10 +18,12 @@ namespace DrawIt.API.Controllers
     public class AuthController : Controller
     {
         private UserManager<ApplicationUser> userManger;
+        private readonly ILogger _logger;
 
-        public AuthController(UserManager<ApplicationUser> userManger)
+        public AuthController(UserManager<ApplicationUser> userManger, ILogger logger)
         {
             this.userManger = userManger;
+            _logger = logger;
         }
 
         [HttpPost]
@@ -59,8 +62,8 @@ namespace DrawIt.API.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogWarning(2000, "Het is niet gelukt om een gebruiker in te loggen");
                 throw e;
-                //return BadRequest();
             }
         }
 
@@ -93,6 +96,7 @@ namespace DrawIt.API.Controllers
             }
             catch (Exception e)
             {
+                _logger.LogWarning(2000, "Het is niet gelukt om een -gebruiker te registreren");
                 throw e;
             }           
         }
