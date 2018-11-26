@@ -33,6 +33,12 @@ export default {
   },
   mounted () {
     if(this.$store.getters.getHost) this.$store.getters.getConnection.invoke('Drafted', this.$store.getters.getRoomkey, "Mathias");
+  },
+  beforeCreate(){
+    //Als er geen cookie aanwezig is redirect naar de login
+    if(!this.$cookies.get('token')){
+      this.$router.push({ path: '/' });
+    }
   }
 }
 </script>
