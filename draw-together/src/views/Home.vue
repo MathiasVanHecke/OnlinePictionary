@@ -31,6 +31,12 @@ export default {
   mounted() {
     this.$store.dispatch("setHost", false);
     this.$store.dispatch("setRoomkey", "");
+  },
+  beforeCreate(){
+    //Als er geen cookie aanwezig is redirect naar de login
+    if(!this.$cookies.get('token')){
+      this.$router.push({ path: '/' });
+    }
   }
 }
 </script>
