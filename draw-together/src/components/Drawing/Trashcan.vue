@@ -7,7 +7,7 @@ export default {
   name: 'Trashcan',
   methods : {
     erase : function () {
-      this.$store.getters.getConnection.invoke('erase', this.$store.getters.getRoomkey);
+      this.$store.getters.getConnection.invoke('Erase', this.$store.getters.getRoomkey);
     }
   }
 }

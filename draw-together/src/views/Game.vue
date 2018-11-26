@@ -31,9 +31,6 @@ export default {
       inGame : true,
     }
   },
-  mounted () {
-    if(this.$store.getters.getHost) this.$store.getters.getConnection.invoke('Drafted', this.$store.getters.getRoomkey, "Mathias");
-  }
 }
 </script>
 

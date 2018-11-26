@@ -36,7 +36,6 @@ export default {
         isTouch : false,
         isDrawing : false,
         isDot : false,
-        isEnabled : false,
     }
   },
   computed: {
@@ -44,6 +43,7 @@ export default {
     b: function () { return this.$store.getters.getPickedBrush; },
     ctx: function() { return this.$refs.canvas.getContext("2d"); },
     cts: function() { return this.$refs.canxxs.getContext("2d"); },
+    isEnabled: function() { return this.$store.getters.getDrawing; },
   },
   methods: {
     //event handelers
@@ -143,11 +143,7 @@ export default {
       this.currY = currY;
       this.drawdot(c, b, this.currX, this.currY);
     });
-    this.$store.getters.getConnection.on('Drafted', (member) => {
-      if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
-    });
-    this.$store.getters.getConnection.on('Stop', () => { 
-      this.isEnabled = false; 
+    this.$store.getters.getConnection.on('Stop', () => {
       this.erase();
     });
   }

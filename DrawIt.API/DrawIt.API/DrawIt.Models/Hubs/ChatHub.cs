@@ -58,9 +58,9 @@ namespace DrawIt.Models.Hubs
         }
 
         //Toon aan wie de tekenaar is
-        public async Task Drafted(string roomName, string user)
+        public async Task Drafted(string roomName, string user, string word)
         {
-            await Clients.Group(roomName).SendAsync("Drafted", user);
+            await Clients.Group(roomName).SendAsync("Drafted", user, word);
         }
 
         //DRAW

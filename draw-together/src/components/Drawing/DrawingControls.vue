@@ -13,19 +13,14 @@ import Trashcan from '@/components/Drawing/Trashcan.vue'
 
 export default {
   name: 'controls',
-  data() {
-    return {
-      isEnabled : false,
-    }
-  },
   components: {
     ColorPicker,
     BrushPicker,
     Trashcan
   },
-  mounted () {
-    this.$store.getters.getConnection.on('Drafted', (name) => { if (name == this.$store.getters.getMyName) {this.isEnabled = true; } else this.isEnabled = false });
-  }
+  computed : {
+    isEnabled : function() { return this.$store.getters.getDrawing },
+  },
 }
 </script>
 
