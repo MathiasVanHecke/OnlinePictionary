@@ -1,6 +1,6 @@
 <template>
     <div class="c-bar c-bar-progress">
-        <div ref="progress" class="c-progress"></div>
+        <div id="progress" class="c-progress"></div>
     </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'ProgressBar',
   data() {
       return {
-          exe : null
+          exe : null,
       }
   },
   methods: {
@@ -38,7 +38,9 @@ export default {
     this.$store.getters.getConnection.on('Start', (seconds) => { this.start(seconds); });
     this.$store.getters.getConnection.on('Stop', () => { this.stop(); });
     this.$root.$on('sendguess', function(){
-        this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomkey, this.$store.getters.getMyName, 20);
+        let seconds = document.querySelector('#progress');
+        let score = parseFloat(seconds.style.width);
+        this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomkey, this.$store.getters.getMyName, score);
     });
   }
 }

@@ -27,7 +27,7 @@ export default {
       .then(function()
       {
         if(that.$store.getters.getHost){
-          that.$store.getters.getConnection.invoke('Start', that.$store.getters.getRoomkey, 20);
+          that.$store.getters.getConnection.invoke('Start', that.$store.getters.getRoomkey, that.$store.getters.getRoundsLength);
         }
       })
     },
@@ -39,7 +39,7 @@ export default {
     },
     newdraft : function() {
       if(this.$store.getters.getHost){
-        this.$store.getters.getConnection.invoke('Drafted', this.$store.getters.getRoomkey, "Nico");
+        this.$root.$emit('NewDraft');
       }
     },
     hide : function() {
@@ -47,15 +47,21 @@ export default {
     }
   },
   mounted: function() {
-    this.$store.getters.getConnection.on('Drafted', (member) => { 
-      this.$store.dispatch('setWord', this.$cookies.get('token'));
+    this.newdraft();
+    this.$store.getters.getConnection.on('Drafted', (member, word) => { 
       if(member == this.$store.getters.getMyName){
+        this.$store.dispatch("setDrawing", true),
         this.text = "You're up! The word is "+ this.word + ".";
       }
-      else { this.text = "Next up: " + member + " is drawing..."; }
+      else { 
+        this.$store.dispatch("setPickedWord", word);
+        this.$store.dispatch("setDrawing", false),
+        this.text = "Next up: " + member + " is drawing..."; 
+      }
       this.drafted(); 
     });
     this.$store.getters.getConnection.on('Stop', () => { 
+      this.$store.dispatch("setDrawing", false),
       this.text = "The word was: " + this.word + "!";
       this.stop(); 
     });

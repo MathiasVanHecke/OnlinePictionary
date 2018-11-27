@@ -22,9 +22,9 @@ Een online tekenspel waar de kandidaten het getekend woord moet raden voor punte
 
 [X] API docs: de API documenteert zichzelf op basis van een selfdocumenting library.
 
-[ ] Framework: gebruik van het EntityFramework. Via een seeder verloopt de installatie van de MVC backend automatisch op een lokale PC.
+[X] Framework: gebruik van het EntityFramework. Via een seeder verloopt de installatie van de MVC backend automatisch op een lokale PC.
 
-[ ] Foutcontrole: het crashen van de applicatie wordt verhinderd door het gebruik van een logger in try/catch structuur.
+[X] Foutcontrole: het crashen van de applicatie wordt verhinderd door het gebruik van een logger in try/catch structuur.
 
 [X] Source controle: source controle gebeurt via GitHub. Versiebeheer mag (moet niet) opgenomen zijn in de applicatie maar kan/mag evengoed via GitHub branches.
 

@@ -1,6 +1,6 @@
 <template>
     <ChatAnnouncement v-if="name == ''" :msg="msg"/>
-    <ChatResponse v-else-if="mine==false" :name="name" :msg="msg"/>
+    <ChatResponse v-else-if="mine==false" :name="name" :color="color" :msg="msg"/>
     <ChatMessage v-else :msg="msg"/>
 </template>
 
@@ -14,6 +14,7 @@ export default {
   props: {
     msg: String,
     name: String,
+    color: String,
   },
   computed: {
     mine: function () {

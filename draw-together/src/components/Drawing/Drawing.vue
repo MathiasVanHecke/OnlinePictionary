@@ -36,7 +36,6 @@ export default {
         isTouch : false,
         isDrawing : false,
         isDot : false,
-        isEnabled : false,
     }
   },
   computed: {
@@ -44,6 +43,7 @@ export default {
     b: function () { return this.$store.getters.getPickedBrush; },
     ctx: function() { return this.$refs.canvas.getContext("2d"); },
     cts: function() { return this.$refs.canxxs.getContext("2d"); },
+    isEnabled: function() { return this.$store.getters.getDrawing; },
   },
   methods: {
     //event handelers
@@ -75,12 +75,12 @@ export default {
       this.prevX = this.currX;
       this.prevY = this.currY;
       if (e.changedTouches != undefined) {
-        this.currX = e.changedTouches[0].pageX - e.srcElement.offsetLeft + e.srcElement.scrollHeight;
+        this.currX = e.changedTouches[0].pageX - e.srcElement.offsetLeft;
         this.currY = e.changedTouches[0].pageY - e.srcElement.offsetTop;
       }
       else {
-        this.currX = e.clientX - e.srcElement.offsetLeft;
-        this.currY = e.clientY - e.srcElement.offsetTop;
+        this.currX = e.clientX - e.srcElement.offsetLeft + e.view.window.scrollX;
+        this.currY = e.clientY - e.srcElement.offsetTop + e.view.window.scrollY;
       }
       if (this.isSmall) {
         this.currX *= 2;
@@ -99,8 +99,8 @@ export default {
     //drawing code:
     //also call in receivers
     erase : function() {
-      this.ctx.clearRect(0, 0, this.$refs.canvas.clientWidth, this.$refs.canvas.clientHeight);
-      this.cts.clearRect(0, 0, this.$refs.canxxs.clientWidth, this.$refs.canxxs.clientHeight);
+      this.ctx.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
+      this.cts.clearRect(0, 0, this.$refs.canxxs.width, this.$refs.canxxs.height);
     },
     draw: function(c, b) {
         this.drawdot(c, b, this.currX, this.currY);
@@ -113,6 +113,12 @@ export default {
         this.ctx.arc(currX, currY, this.b/2 , 0, 2 * Math.PI);
         this.ctx.fill();
         this.ctx.closePath();
+
+        this.cts.beginPath();
+        this.cts.fillStyle = this.c;
+        this.cts.arc(currX/2, currY/2, this.b/2/2 , 0, 2 * Math.PI);
+        this.cts.fill();
+        this.cts.closePath();
     },
     drawline: function(c, b, currX, currY, prevX, prevY){
         this.ctx.beginPath();
@@ -122,14 +128,23 @@ export default {
         this.ctx.lineWidth = this.b;
         this.ctx.stroke();
         this.ctx.closePath();
-    }
+        
+        this.cts.beginPath();
+        this.cts.moveTo(prevX/2, prevY/2);
+        this.cts.lineTo(currX/2, currY/2);
+        this.cts.strokeStyle = this.c;
+        this.cts.lineWidth = this.b/2;
+        this.cts.stroke();
+        this.cts.closePath();
+    },
+    resizer : function(){ 
+      if( window.innerWidth < 1150 ) this.isSmall = true; 
+      else this.isSmall = false; 
+    },
   },
   mounted: function() {
-    if( window.innerWidth < 1350 ) this.isSmall = true; 
-    window.addEventListener('resize', () => { 
-      if( window.innerWidth < 1350 ) this.isSmall = true; 
-      else this.isSmall = false; 
-      });
+    if( window.innerWidth < 1150 ) this.isSmall = true; 
+    window.addEventListener('resize', this.resizer);
     this.$store.getters.getConnection.on('erase', () => { this.erase(); });
     this.$store.getters.getConnection.on('draw', (c, b, currX, currY, prevX, prevY) => { 
       this.currX = currX;
@@ -143,13 +158,12 @@ export default {
       this.currY = currY;
       this.drawdot(c, b, this.currX, this.currY);
     });
-    this.$store.getters.getConnection.on('Drafted', (member) => {
-      if(member == this.$store.getters.getMyName) {this.isEnabled = true; } 
-    });
-    this.$store.getters.getConnection.on('Stop', () => { 
-      this.isEnabled = false; 
+    this.$store.getters.getConnection.on('Stop', () => {
       this.erase();
     });
+  },
+  destroyed: function(){
+    window.removeEventListener('resize', this.resizer);
   }
 }
 </script>

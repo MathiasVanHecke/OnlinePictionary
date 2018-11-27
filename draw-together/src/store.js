@@ -10,7 +10,9 @@ export default new Vuex.Store({
   plugins: [localStoragePlugin],
   state: {
     myName: "Nico",
+    myColor: "thistle",
     isHost: false,
+    isDrawing: false,
     roundsAmount: "",
     roundsLength: "",
     pickedWord: "",
@@ -21,7 +23,10 @@ export default new Vuex.Store({
     connection: null,
   },
   mutations: {
+    setMyName(state, n){state.myName = n},
+    setMyColor(state, c){state.myColor = c},
     setHost(state, h){state.isHost = h},
+    setDrawing(state, d){state.isDrawing = d},
     setRoundsAmount(state, r){state.roundsAmount = r},
     setRoundsLength(state, l){state.roundsLength = l},
     setPickedColor(state, c){state.pickedColor = c},
@@ -33,7 +38,10 @@ export default new Vuex.Store({
     setConnection(state, c){state.connection = c},
   },
   actions: {
+    setMyName: ({commit}, n) => {commit("setMyName", n)},
+    setMyColor: ({commit}, c) => {commit("setMyColor", c)},
     setHost: ({commit}, h) => {commit("setHost", h)},
+    setDrawing: ({commit}, d) => {commit("setDrawing", d)},
     setRoundsAmount: ({commit}, r) => {commit("setRoundsAmount", r)},
     setRoundsLength: ({commit}, l) => {commit("setRoundsLength", l)},
     setColor: ({commit}, c) => {commit("setPickedColor", c)},
@@ -41,6 +49,7 @@ export default new Vuex.Store({
     setRoomkey: ({commit}, k) => {commit("setRoomkey", k)},
     setMembers: ({commit}, m) => {commit("setMembers", m)},
     addMember: ({commit}, m) => {commit("addMember", m)},
+    setPickedWord: ({commit}, w) => {commit("setPickedWord", w)},
 
     //SingalR
     startConnection: ({commit}) => {
@@ -63,25 +72,35 @@ export default new Vuex.Store({
     },
 
     // API
-    setWord: ({commit}, c) => {
-      fetch('https://localhost:44321/api/words/random',{
-        headers:{
-          "Authorization" : "bearer " + c
-        }
-      })
+    setWord: ({commit}, c, lang) => {
+      return new Promise((resolve) =>
+        fetch('https://localhost:44321/api/words/random',{
+          headers:{
+            "Authorization" : "bearer " + c
+          }
+        })
         .then(function(response){
           if(!response.ok) return new Error(response);
           else return response.json();
         })
         .then(function(json){
-          commit('setPickedWord', json['wordEng'])
+          let param = '';
+          if (lang=='be') param = 'wordNl';
+          else param = 'wordEng'
+          commit('setPickedWord', json[param]);
+          resolve(json[param]);
         })
-        .catch((error => { console.log(error); commit('setPickedWord', 'eenhoorn') }));
+        .catch((error => { 
+          console.log(error); commit('setPickedWord', 'eenhoorn') 
+        }))
+      )
     }
   },
   getters: {
     getMyName: state => state.myName,
+    getMyColor: state => state.myColor,
     getHost: state => state.isHost,
+    getDrawing: state => state.isDrawing,
     getRoundsAmount: state => state.roundsAmount,
     getRoundsLength: state => state.roundsLength,
     getPickedWord: state => state.pickedWord,

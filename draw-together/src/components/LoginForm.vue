@@ -42,6 +42,7 @@ export default {
       this.isLogin = !this.isLogin;
     },
     register: function(){
+      let that = this;
       if (this.isValid && this.isChecked) {
         var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
         var url = 'https://localhost:44321/api/auth/register';
@@ -50,7 +51,7 @@ export default {
               body: JSON.stringify(credentials),
               headers:{ 'Content-Type': 'application/json' }
               })
-        .then(response => console.log('Success:', console.log(response)))
+        .then(() => that.isLogin = true)
         .catch(error => console.error('Error:', console.log(error)));
         }
     },
@@ -68,10 +69,11 @@ export default {
         })
         .then(function(json){
           that.$cookies.set('token', json.token);
+          that.$cookies.set('username', json.username);
+          that.$store.dispatch('setMyName', json.username);
         })
         .catch(error => console.error('Error:', console.log(error)));
-      
-      //this.$router.push({ path: 'home' });
+      this.$router.push({ path: 'home' });
     },
     validate : function(){
       let check = 0;

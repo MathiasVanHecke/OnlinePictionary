@@ -24,11 +24,12 @@ export default {
     return {
       guess : "",
       guessed : false,
-      isEnabled : true,
     }
   },
   computed : {
+    isEnabled : function() { return !this.$store.getters.getDrawing },
     wordholder : function(){ 
+      if (this.isEnabled) return this.$store.getters.getPickedWord.toUpperCase();
       let l = this.$store.getters.getPickedWord.length;
       let wordholder = "";
       for (let i = 0; i < l; i++){ wordholder += "_"; }
@@ -47,16 +48,13 @@ export default {
           }
         }
         else {
-          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, this.$store.getters.getMyName, (this.guess));
+          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, this.$store.getters.getMyName, this.$store.getters.getMyColor, (this.guess));
         }
       }
       this.guess = "";
     }
   },
   mounted: function() {
-    this.$store.getters.getConnection.on('Drafted', (member) => {
-      if(member == this.$store.getters.getMyName) {this.isEnabled = false; } });
-    this.$store.getters.getConnection.on('Stop', () => { this.isEnabled = true; });
     this.$store.getters.getConnection.on('Start', () => { this.guessed = false; });
   }
 }

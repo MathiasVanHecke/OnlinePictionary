@@ -58,9 +58,9 @@ namespace DrawIt.Models.Hubs
         }
 
         //Toon aan wie de tekenaar is
-        public async Task Drafted(string roomName, string user)
+        public async Task Drafted(string roomName, string user, string word)
         {
-            await Clients.Group(roomName).SendAsync("Drafted", user);
+            await Clients.Group(roomName).SendAsync("Drafted", user, word);
         }
 
         //DRAW
@@ -84,9 +84,9 @@ namespace DrawIt.Models.Hubs
 
 
         //Message
-        public async Task SendMessage(string roomName, string user, string message)
+        public async Task SendMessage(string roomName, string user, string color, string message)
         {
-            await Clients.Group(roomName).SendAsync("ReceiveMessage", user, message);
+            await Clients.Group(roomName).SendAsync("ReceiveMessage", user, color, message);
         }
 
         //Stuur naar elke client dat het woord is geraden

@@ -1,7 +1,7 @@
 <template>
   <div v-if="inGame" class="c-memberbar o-grid">
       <div class="c-member" v-for="member in members" :key="member.id">
-          <div class="c-member-avatar"></div>
+      <Avatar :color="member.img"/>
           <span>
               <p class="c-member-name">{{member.name}}</p>
               <p class="c-member-score">{{member.score}}</p>
@@ -11,17 +11,22 @@
   <div v-else class="o-smallpage">
     <h3>{{ $t('ready') }}</h3>
     <div class="c-waiting-member" v-for="member in members" :key="member.id">
-      <img class="c-waiting-member__p" src="../assets/p_gnome.png" alt="">
-      <p class="c-waiting-member__u">{{ member.name }}</p>
+      <Avatar :color="member.img"/>
+      <p class="c-member-name">{{ member.name }}</p>
     </div>  
   </div>
 </template>
 
 <script>
+import Avatar from '@/components/Avatar.vue';
+
 export default {
   name: 'Members',
   props: {
     inGame : Boolean,
+  },
+  components: {
+    Avatar,
   },
   computed : {
     members : function(){
@@ -30,19 +35,22 @@ export default {
   },
   mounted() {
     this.$store.getters.getConnection.on("NewMember", (member) => { 
-      this.$store.dispatch("addMember", member);
       if (this.$store.getters.getHost) {
-        member.color = '#'+Math.floor(Math.random()*16777215).toString(16);
-        console.log(member);
+        this.$store.dispatch("addMember", member);
         this.$store.getters.getConnection.invoke("UpdateMembers", this.$store.getters.getRoomkey, this.members)
       }
     });
     this.$store.getters.getConnection.on("UpdateMembers", (members) => { 
       this.$store.dispatch("setMembers", members);
     });
+    this.$root.$on('NewDraft', function(){
+      let that = this;
+      let randommember = this.members[Math.floor(Math.random  * this.members.length)];
+      this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))
+      .then(function(res){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, randommember.name, res)});
+    });
     this.$store.getters.getConnection.on("Guessed", (name, seconds) => {
       let member = this.members.find((m)=>(m.name == name));
-      console.log("member", member);
       member.score += seconds;
     })
   }

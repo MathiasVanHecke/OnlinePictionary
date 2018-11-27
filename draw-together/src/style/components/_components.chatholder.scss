@@ -1,5 +1,11 @@
 @import  '../settings/_settings.global';
 
+@media only screen and (max-width: 1149px) { 
+    .c-chat-holder {
+        grid-row: 1 / span 2;
+    }
+}
+
 .c-chat-holder {
     background-color: $white;
 
