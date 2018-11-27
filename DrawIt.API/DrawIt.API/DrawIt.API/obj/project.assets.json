@@ -12443,24 +12443,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mathi\\.nuget\\packages\\": {},
+    "C:\\Users\\celine.abbeloos\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
+      "projectUniqueName": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
       "projectName": "DrawIt.API",
-      "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
-      "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\obj\\",
+      "projectPath": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\DrawIt.API.csproj",
+      "packagesPath": "C:\\Users\\celine.abbeloos\\.nuget\\packages\\",
+      "outputPath": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\celine.abbeloos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -12472,8 +12475,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj": {
-              "projectPath": "D:\\18 - 19\\SEM1\\App\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj"
+            "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj": {
+              "projectPath": "D:\\OnlinePictionary\\DrawIt.API\\DrawIt.API\\DrawIt.Models\\DrawIt.Models.csproj"
             }
           }
         }

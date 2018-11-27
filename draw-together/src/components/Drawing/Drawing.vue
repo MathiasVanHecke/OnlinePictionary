@@ -145,15 +145,15 @@ export default {
   mounted: function() {
     if( window.innerWidth < 1150 ) this.isSmall = true; 
     window.addEventListener('resize', this.resizer);
-    this.$store.getters.getConnection.on('erase', () => { this.erase(); });
-    this.$store.getters.getConnection.on('draw', (c, b, currX, currY, prevX, prevY) => { 
+    this.$store.getters.getConnection.on('Erase', () => { this.erase(); });
+    this.$store.getters.getConnection.on('Draw', (c, b, currX, currY, prevX, prevY) => { 
       this.currX = currX;
       this.currY = currY;
       this.prevX = prevX;
       this.prevY = prevY;
       this.draw(c, b);
     });
-    this.$store.getters.getConnection.on('drawdot', (c, b, currX, currY) => { 
+    this.$store.getters.getConnection.on('DrawDot', (c, b, currX, currY) => { 
       this.currX = currX;
       this.currY = currY;
       this.drawdot(c, b, this.currX, this.currY);
@@ -164,6 +164,10 @@ export default {
   },
   destroyed: function(){
     window.removeEventListener('resize', this.resizer);
+    this.$store.getters.getConnection.off('Erase');
+    this.$store.getters.getConnection.off('Draw');
+    this.$store.getters.getConnection.off('DrawDot');
+    this.$store.getters.getConnection.off('Stop');
   }
 }
 </script>

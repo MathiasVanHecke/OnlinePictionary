@@ -29,7 +29,7 @@ export default {
   computed : {
     isEnabled : function() { return !this.$store.getters.getDrawing },
     wordholder : function(){ 
-      if (this.isEnabled) return this.$store.getters.getPickedWord.toUpperCase();
+      if (!this.isEnabled) return this.$store.getters.getPickedWord.toUpperCase();
       let l = this.$store.getters.getPickedWord.length;
       let wordholder = "";
       for (let i = 0; i < l; i++){ wordholder += "_"; }
@@ -56,6 +56,9 @@ export default {
   },
   mounted: function() {
     this.$store.getters.getConnection.on('Start', () => { this.guessed = false; });
+  },
+  destroyed: function() {
+    this.$store.getters.getConnection.off('Start');
   }
 }
 </script>

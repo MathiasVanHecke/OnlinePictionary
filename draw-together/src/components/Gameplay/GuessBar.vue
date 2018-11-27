@@ -18,6 +18,9 @@ export default {
     this.$store.getters.getConnection.on('Guessed', () => {
         this.guesses += 1;
     });
+  },
+  destroyed: function() {
+    this.$store.getters.getConnection.off('Guessed');
   }
 }
 </script>

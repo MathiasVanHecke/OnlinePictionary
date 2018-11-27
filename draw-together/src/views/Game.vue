@@ -31,6 +31,11 @@ export default {
       inGame : true,
     }
   },
+  beforeDestroy : function() {
+    this.$store.getters.getConnection.invoke('Draw', this.$store.getters.getRoomKey);
+    this.$store.dispatch('setRoomkey', "");
+    this.$store.dispatch('setMembers', []);
+  },
   beforeCreate(){
     //Als er geen cookie aanwezig is redirect naar de login
     if(!this.$cookies.get('token')){

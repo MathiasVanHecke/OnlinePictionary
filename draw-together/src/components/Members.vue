@@ -34,6 +34,7 @@ export default {
     }
   },
   mounted() {
+    let that = this;
     this.$store.getters.getConnection.on("NewMember", (member) => { 
       if (this.$store.getters.getHost) {
         this.$store.dispatch("addMember", member);
@@ -44,15 +45,19 @@ export default {
       this.$store.dispatch("setMembers", members);
     });
     this.$root.$on('NewDraft', function(){
-      let that = this;
-      let randommember = this.members[Math.floor(Math.random  * this.members.length)];
+      let member = that.members[(Math.floor(Math.random()*that.members.length))];
       this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))
-      .then(function(res){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, randommember.name, res)});
+      .then(function(word){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, member.name, word)});
     });
     this.$store.getters.getConnection.on("Guessed", (name, seconds) => {
       let member = this.members.find((m)=>(m.name == name));
       member.score += seconds;
     })
+  },
+  destroyed() {
+    this.$store.getters.getConnection.off('NewMember');
+    this.$store.getters.getConnection.off('UpdateMembers');
+    this.$root.$off('NewDraft');
   }
 }
 </script>

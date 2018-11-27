@@ -29,3 +29,23 @@ D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Deb
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.xml
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Core.dll
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Core.xml
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.deps.json
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.json
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.runtimeconfig.dev.json
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\DrawIt.Models.pdb
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.SignalR.Core.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Core.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.AspNetCore.SignalR.Core.xml
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Core.xml
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\bin\Debug\netcoreapp2.1\Microsoft.Extensions.Identity.Stores.xml
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csprojAssemblyReference.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csproj.CoreCompileInputs.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfoInputs.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.AssemblyInfo.cs
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.csproj.CopyComplete
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.Models\obj\Debug\netcoreapp2.1\DrawIt.Models.pdb

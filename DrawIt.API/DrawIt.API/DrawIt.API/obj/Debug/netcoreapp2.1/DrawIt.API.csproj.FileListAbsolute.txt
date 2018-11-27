@@ -32,3 +32,20 @@ D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csproj.CopyComplete
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.dll
 D:\18 - 19\SEM1\App\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.pdb
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.deps.json
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.runtimeconfig.json
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.runtimeconfig.dev.json
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.API.pdb
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.Models.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\bin\Debug\netcoreapp2.1\DrawIt.Models.pdb
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csprojAssemblyReference.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csproj.CoreCompileInputs.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.RazorAssemblyInfo.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.RazorAssemblyInfo.cs
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.AssemblyInfoInputs.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.AssemblyInfo.cs
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.RazorTargetAssemblyInfo.cache
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.csproj.CopyComplete
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.dll
+D:\OnlinePictionary\DrawIt.API\DrawIt.API\DrawIt.API\obj\Debug\netcoreapp2.1\DrawIt.API.pdb

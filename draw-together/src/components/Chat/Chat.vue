@@ -16,38 +16,12 @@ export default {
   },
   data() {
     return {
-      chatitems: [
-        {
-          id: 1,
-          msg: "kip",
-          name: "Bauke",
-          color: "#123456",
-        },
-        {
-          id: 2,
-          msg: "paard",
-          name: "Nico",
-          color: "#987654",
-        },
-        {
-          id:3,
-          msg: "Céline guessed the word!",
-          name: "",
-          color: "",
-        },
-        {
-          id: 4,
-          msg: "geit",
-          name: "Mathias",
-          color: "#456789",
-        },
-        {
-          id: 5,
-          msg: "koe",
-          name: "Piemel",
-          color: "#654321",
-        },
-      ]
+      chatitems: []
+    }
+  },
+  methods : {
+    scrollDown : function() {
+      this.scrollTop = this.scrollHeight;
     }
   },
   mounted: function() {
@@ -57,6 +31,7 @@ export default {
         msg : name + " guessed the word!",
         name : "",
         });
+      this.scrollDown;
     })
     this.$store.getters.getConnection.on("ReceiveMessage", (name, color, msg) => { 
       this.chatitems.push({
@@ -65,7 +40,12 @@ export default {
         name : name,
         color : color,
       });
+      this.scrollDown;
     });
+  },
+  destroyed: function() {
+    this.$store.getters.getConnection.off('Guessed');
+    this.$store.getters.getConnection.off('ReceiceMessage');
   }
 }
 </script>
