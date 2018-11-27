@@ -1,13 +1,13 @@
 <template>
   <div class="c-appheader">
-      <div class="o-container">
+      <div class="c-header">
         <span v-on:click="home">Online Pictionary</span>
         <div class="c-right" v-on:click="logout">
           <span class="c-flag" v-on:click="switchLanguage">
             <img v-if="flag == 'be'" src="/img/flags/be.png"/>
             <img v-if="flag == 'en'" src="/img/flags/en.png"/>
           </span>
-           <span class="c-flag">
+          <span class="c-flag">
             <img src="img/icons/logout.png">
           </span>
         </div>
@@ -60,33 +60,4 @@ export default {
 @import './src/style/components/components.appheader';
 @import './src/style/components/components.bar';
 @import './src/style/objects/objects.container';
-
-.o-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-}
-
-
-.c-flag {
-  margin-right: 10px;
-  width: 45px;
-  cursor: pointer;
-  opacity: .7;
-  transition: 300ms all ease-in-out;
-}
-
-.c-flag:hover{
-  opacity: 1;
-}
-
-.c-right{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  width: 50px;
-  align-self: center;
-}
-
 </style>
