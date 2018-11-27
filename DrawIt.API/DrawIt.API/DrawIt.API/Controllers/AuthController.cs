@@ -96,7 +96,7 @@ namespace DrawIt.API.Controllers
             }
             catch (Exception e)
             {
-                _logger.LogWarning(2000, "Het is niet gelukt om een -gebruiker te registreren");
+                _logger.LogWarning(2000, "Het is niet gelukt om een gebruiker te registreren");
                 throw e;
             }           
         }
