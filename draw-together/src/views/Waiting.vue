@@ -24,7 +24,9 @@ export default {
       let key = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
       this.$store.dispatch("setRoomkey", key);
     }
-    var me = "{name : '" + this.$store.getters.getMyName + "'}"
+    let img = '#'+Math.floor(Math.random()*16777215).toString(16);
+    this.$store.dispatch("setMyColor", img);
+    let me = "{name : '" + this.$store.getters.getMyName + "', img : '" + img + "'}";
     this.$store.getters.getConnection.invoke("JoinRoom", this.$store.getters.getRoomkey, me);
     this.$store.getters.getConnection.on("StartGame", () => {
       this.$router.push({ path: 'game' });

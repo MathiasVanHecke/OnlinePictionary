@@ -1,6 +1,6 @@
 <template>
   <div class="c-chat-response">
-    <div class="c-chat-member"></div>
+    <Avatar :color="color" :canShrink="true" />
     <span class='c-chat-responseb'>
     <p class="c-chat-memberb">{{ name }}</p>
     <p class="c-chat-message">{{ msg }}</p>
@@ -9,11 +9,22 @@
 </template>
 
 <script>
+import Avatar from '@/components/Avatar.vue';
+
 export default {
   name: 'ChatResponse',
   props: {
     msg: String,
     name: String,
+    color: String,
+  },
+  data() {
+    return {
+      true : true,
+    }
+  },
+  components: {
+    Avatar
   }
 }
 </script>

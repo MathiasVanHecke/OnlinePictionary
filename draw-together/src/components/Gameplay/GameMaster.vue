@@ -39,9 +39,7 @@ export default {
     },
     newdraft : function() {
       if(this.$store.getters.getHost){
-        let that = this;
-        this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))
-        .then(function(res){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, "Nico", res)});
+        this.$root.$emit('NewDraft');
       }
     },
     hide : function() {
