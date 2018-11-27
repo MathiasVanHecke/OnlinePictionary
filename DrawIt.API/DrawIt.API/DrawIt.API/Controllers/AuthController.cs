@@ -20,10 +20,10 @@ namespace DrawIt.API.Controllers
         private UserManager<ApplicationUser> userManger;
         private readonly ILogger _logger;
 
-        public AuthController(UserManager<ApplicationUser> userManger, ILogger logger)
+        public AuthController(UserManager<ApplicationUser> userManger, ILoggerFactory logger)
         {
             this.userManger = userManger;
-            _logger = logger;
+            _logger = logger.CreateLogger("AuthLogger");
         }
 
         [HttpPost]

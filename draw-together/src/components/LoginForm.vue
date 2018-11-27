@@ -71,9 +71,9 @@ export default {
           that.$cookies.set('token', json.token);
           that.$cookies.set('username', json.username);
           that.$store.dispatch('setMyName', json.username);
+          that.$router.push({ path: 'home' });
         })
         .catch(error => console.error('Error:', console.log(error)));
-      this.$router.push({ path: 'home' });
     },
     validate : function(){
       let check = 0;
