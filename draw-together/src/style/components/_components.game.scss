@@ -1,6 +1,20 @@
 @import  '../settings/_settings.global';
 
-@media only screen and (max-width: 1349px) { 
+@media only screen and (max-width: 1149px) { 
+    .c-game {
+        max-width: 710px;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: auto;
+        grid-gap: 1.5em;
+    }
+
+    .c-game-row {
+        grid-template-columns: 400px 300px;
+        grid-template-rows: auto auto;
+    }
+}
+
+@media only screen and (min-width: 1150px) and (max-width: 1349px) { 
     .c-game {
         max-width: 1110px;
         grid-template-rows: repeat(2, auto);

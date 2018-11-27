@@ -46,4 +46,11 @@ export default {
   display: flex;
   justify-content: center;
 }
+
+@media only screen and (max-width: 1049px) { 
+  .c-waiting {
+      flex-direction: column;
+  }
+}
+
 </style>

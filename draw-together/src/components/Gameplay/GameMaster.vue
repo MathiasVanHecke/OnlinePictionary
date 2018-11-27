@@ -49,9 +49,7 @@ export default {
     }
   },
   mounted: function() {
-    this.$store.getters.getConnection.on('StartGame', () => { 
-      this.newdraft();
-    });
+    this.newdraft();
     this.$store.getters.getConnection.on('Drafted', (member, word) => { 
       if(member == this.$store.getters.getMyName){
         this.$store.dispatch("setDrawing", true),

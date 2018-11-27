@@ -1,12 +1,24 @@
 @import  '../settings/_settings.global';
 
-@media only screen and (max-width: 1349px) { 
+@media only screen and (max-width: 1149px) { 
+    .c-colorpicker {
+        /*fat*/
+        grid-template-rows: repeat(5, 2rem);
+        grid-template-columns: repeat(6, 2rem);
+        grid-auto-flow: row;
+        min-width: calc(6 * 2rem + 5 * #{ $gutter });
+        max-width: calc(6 * 2rem + 5 * #{ $gutter });
+    }
+}
+
+@media only screen and (min-width: 1150px) and (max-width: 1349px) { 
     .c-colorpicker {
         /*liggend*/
         grid-template-rows: repeat(3, 2rem);
         grid-template-columns: repeat(10, 2rem);
         grid-auto-flow: column;
-        max-width: calc(10rem + 4 * #{ $gutter })
+        min-width: calc(10 * 2rem + 9 * #{ $gutter });
+        max-width: calc(10 * 2rem + 9 * #{ $gutter });
     }
 }
 
@@ -16,7 +28,8 @@
         grid-template-rows: repeat(10, 2rem);
         grid-template-columns: repeat(3, 2rem);
         grid-auto-flow: row;
-        max-height: calc(10rem + 4 * #{ $gutter })
+        min-height: calc(10 * 2rem + 9 * #{ $gutter });
+        max-height: calc(10 * 2rem + 9 * #{ $gutter });
     }
 }
 
