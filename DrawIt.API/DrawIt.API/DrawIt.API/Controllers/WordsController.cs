@@ -22,10 +22,10 @@ namespace DrawIt.API.Controllers
         private readonly IWordRepo _wordRepo;
         private readonly ILogger _logger;
 
-        public WordsController(IWordRepo wordRepo, ILogger logger)
+        public WordsController(IWordRepo wordRepo, ILoggerFactory logger)
         {
             _wordRepo = wordRepo;
-            _logger = logger;
+            _logger = logger.CreateLogger("WordsLogger");
         }
 
         // GET: api/Words

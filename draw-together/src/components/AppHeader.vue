@@ -1,16 +1,16 @@
 <template>
   <div class="c-appheader">
       <div class="o-container">
-        <span>
-          <router-link to="/">Landing</router-link> |
-          <router-link to="/home">Home</router-link> |
-          <router-link to="/waiting">Waiting</router-link> |
-          <router-link to="/game">Game</router-link>
-        </span>
-        <span class="c-flag" v-on:click="switchLanguage">
-          <img v-if="flag == 'be'" src="/img/flags/be.png"/>
-          <img v-if="flag == 'en'" src="/img/flags/en.png"/>
-        </span>
+        <span v-on:click="home">Online Pictionary</span>
+        <div class="c-right" v-on:click="logout">
+          <span class="c-flag" v-on:click="switchLanguage">
+            <img v-if="flag == 'be'" src="/img/flags/be.png"/>
+            <img v-if="flag == 'en'" src="/img/flags/en.png"/>
+          </span>
+           <span class="c-flag">
+            <img src="img/icons/logout.png">
+          </span>
+        </div>
       </div>
       <div class="c-bar c-bar-header"></div>
   </div>
@@ -40,6 +40,13 @@ export default {
       this.$cookies.config('30d');
       this.$cookies.set('locale', lang);
     },
+    logout : function(){
+      this.$cookies.set('token', "")
+      this.$router.push({ path: '/' });
+    },
+    home : function(){
+      this.$router.push({ path: '/home' });
+    }
   },
   mounted() {
     if (this.$cookies.get('locale')){
@@ -60,17 +67,26 @@ export default {
   justify-content: space-between;
 }
 
+
 .c-flag {
-  align-self: center;
+  margin-right: 10px;
+  width: 45px;
   cursor: pointer;
-  padding-left: 1rem;
-  height: 1rem;
-  width:  1rem;
-  opacity: .5;
+  opacity: .7;
   transition: 300ms all ease-in-out;
 }
 
 .c-flag:hover{
   opacity: 1;
 }
+
+.c-right{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 50px;
+  align-self: center;
+}
+
 </style>
