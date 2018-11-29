@@ -1,8 +1,39 @@
 @import '../settings/_settings.global';
 
 .c-appheader {
+    display: grid;
+    grid-template-rows: $header-height $bar-height;
     background-color: $white;
     margin-bottom: 1.5rem;
     line-height: $header-height;
-    border-bottom: 3px solid $focus-medium-grey;
 }
+
+.c-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0 $gutter;
+    margin: 0 auto;
+    width: 700px;
+  }
+  
+  .c-flag {
+    margin-left: 10px;
+    width: 45px;
+    cursor: pointer;
+    opacity: .7;
+    transition: 300ms all ease-in-out;
+  }
+  
+  .c-flag:hover{
+    opacity: 1;
+  }
+  
+  .c-right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    width: 50px;
+    align-self: center;
+  }

@@ -65,6 +65,10 @@ export default {
       this.text = "The word was: " + this.word + "!";
       this.stop(); 
     });
+  },
+  destroyed: function() {
+    this.$store.getters.getConnection.off('Drafted');
+    this.$store.getters.getConnection.off('Stop');
   }
 }
 </script>

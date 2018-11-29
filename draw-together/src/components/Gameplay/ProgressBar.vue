@@ -42,6 +42,11 @@ export default {
         let score = parseFloat(seconds.style.width);
         this.$store.getters.getConnection.invoke("Guessed", this.$store.getters.getRoomkey, this.$store.getters.getMyName, score);
     });
+  },
+  destroyed: function() {
+    this.$store.getters.getConnection.off('Start');
+    this.$store.getters.getConnection.off('Stop');
+    this.$root.$off('sendguess');
   }
 }
 </script>
