@@ -48,7 +48,7 @@ export default {
           }
         }
         else {
-          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, this.$store.getters.getMyName, this.$store.getters.getMyColor, (this.guess));
+          this.$store.getters.getConnection.invoke("SendMessage", this.$store.getters.getRoomkey, this.$store.getters.getMyName, this.$store.getters.getMyColor, this.guess);
         }
       }
       this.guess = "";

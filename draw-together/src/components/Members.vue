@@ -45,7 +45,10 @@ export default {
       this.$store.dispatch("setMembers", members);
     });
     this.$root.$on('NewDraft', function(){
+      console.log("trying to draft");
+      console.log("am host?", this.$store.getters.getHost)
       if (this.$store.getters.getHost) {
+        console.log("drafted");
         let member = that.members[(Math.floor(Math.random()*that.members.length))];
         this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))
         .then(function(word){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, member.name, word)});

@@ -18,7 +18,7 @@ export default {
         let width = 100;
         this.exe = setInterval(frame, 20);
         function frame() {
-            if (width <= 0) { 
+            if (width <= 0) {
                 if (that.$store.getters.getHost) {
                     that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
                 }
