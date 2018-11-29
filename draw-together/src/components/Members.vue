@@ -45,13 +45,10 @@ export default {
       this.$store.dispatch("setMembers", members);
     });
     this.$root.$on('NewDraft', function(){
-      if (this.$store.getters.getDraftPossible){
-        this.$store.dispatch("setDraftPossible", false);
-        if (this.$store.getters.getHost) {
-          let member = that.members[(Math.floor(Math.random()*that.members.length))];
-          this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))
-          .then(function(word){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, member.name, word)});
-        }
+      if (this.$store.getters.getHost) {
+        let member = that.members[(Math.floor(Math.random()*that.members.length))];
+        this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))
+        .then(function(word){that.$store.getters.getConnection.invoke('Drafted', that.$store.getters.getRoomkey, member.name, word)});
       }
     });
     this.$store.getters.getConnection.on("Guessed", (name, seconds) => {
@@ -67,7 +64,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 @import './src/style/objects/objects.smallpage';
 @import './src/style/objects/objects.grid';

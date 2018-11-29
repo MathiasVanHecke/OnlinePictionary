@@ -10,6 +10,7 @@ export default {
   data() {
       return {
           exe : null,
+          stopped : true,
       }
   },
   methods: {
@@ -19,10 +20,13 @@ export default {
         this.exe = setInterval(frame, 20);
         function frame() {
             if (width <= 0) {
-                console.log("stop");
-                this.stop();
-                if (that.$store.getters.getHost) {
-                    that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
+                if (!this.stopped){
+                    if (that.$store.getters.getHost) {
+                        that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
+                    }
+                    this.stop();
+                    this.stopped = true;
+                    console.log("stopped", this.stopped);
                 }
             }
             else {
@@ -34,11 +38,14 @@ export default {
       stop : function () {
         console.log("truestop");
         clearInterval(this.exe);
-        this.$store.dispatch("setDraftPossible", true);
       }
     },
   mounted: function() {
-    this.$store.getters.getConnection.on('Start', (seconds) => { this.start(seconds); });
+    this.$store.getters.getConnection.on('Start', (seconds) => { 
+        console.log("stopped", this.stopped); 
+        this.stopped = false; 
+        console.log("stopped", this.stopped);
+        this.start(seconds); });
     this.$store.getters.getConnection.on('Stop', () => { this.stop(); });
     this.$root.$on('sendguess', function(){
         let seconds = document.querySelector('#progress');

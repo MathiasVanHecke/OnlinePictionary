@@ -9,9 +9,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   plugins: [localStoragePlugin],
   state: {
-    myName: "Nico",
-    myColor: "thistle",
-    draft: true,
+    myName: "",
+    myColor: "",
     isHost: false,
     isDrawing: false,
     roundsAmount: "",
@@ -26,7 +25,6 @@ export default new Vuex.Store({
   mutations: {
     setMyName(state, n){state.myName = n},
     setMyColor(state, c){state.myColor = c},
-    setDraft(state, d){state.draft = d},
     setHost(state, h){state.isHost = h},
     setDrawing(state, d){state.isDrawing = d},
     setRoundsAmount(state, r){state.roundsAmount = r},
@@ -42,7 +40,6 @@ export default new Vuex.Store({
   actions: {
     setMyName: ({commit}, n) => {commit("setMyName", n)},
     setMyColor: ({commit}, c) => {commit("setMyColor", c)},
-    setDraft: ({commit}, d) => {commit("setDraft"), d},
     setHost: ({commit}, h) => {commit("setHost", h)},
     setDrawing: ({commit}, d) => {commit("setDrawing", d)},
     setRoundsAmount: ({commit}, r) => {commit("setRoundsAmount", r)},
@@ -112,6 +109,5 @@ export default new Vuex.Store({
     getRoomkey: state => state.roomkey,
     getMembers: state => state.members,
     getConnection: state => state.connection,
-    getDraftPossible: state => state.draft,
   }
 })
