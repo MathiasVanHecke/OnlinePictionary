@@ -3,7 +3,7 @@
     <Avatar :color="color" :canShrink="true" />
     <span class='c-chat-responseb'>
     <p class="c-chat-memberb">{{ name }}</p>
-    <p class="c-chat-message">{{ msg }}</p>
+    <p class="c-chat-message c-chat-messageb">{{ msg }}</p>
     </span>
   </div>
 </template>
