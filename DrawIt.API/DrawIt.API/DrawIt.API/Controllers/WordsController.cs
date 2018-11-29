@@ -11,6 +11,7 @@ using DrawIt.Models.Repositories;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
+using AutoMapper;
 
 namespace DrawIt.API.Controllers
 {
@@ -21,11 +22,13 @@ namespace DrawIt.API.Controllers
     {
         private readonly IWordRepo _wordRepo;
         private readonly ILogger _logger;
+        private readonly IMapper _mapper;
 
-        public WordsController(IWordRepo wordRepo, ILoggerFactory logger)
+        public WordsController(IWordRepo wordRepo, ILoggerFactory logger, IMapper mapper)
         {
             _wordRepo = wordRepo;
             _logger = logger.CreateLogger("WordsLogger");
+            _mapper = mapper;
         }
 
         // GET: api/Words
@@ -53,7 +56,7 @@ namespace DrawIt.API.Controllers
             try
             {
                 Word rndWord = await _wordRepo.GetRandomWord();
-                return Ok(rndWord);
+                return Ok(_mapper.Map<Word>(rndWord));
             }
             catch (Exception)
             {
