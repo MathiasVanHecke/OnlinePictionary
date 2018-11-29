@@ -19,10 +19,11 @@ export default {
         this.exe = setInterval(frame, 20);
         function frame() {
             if (width <= 0) {
+                console.log("stop");
+                this.stop();
                 if (that.$store.getters.getHost) {
                     that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
                 }
-                this.stop();
             }
             else {
                 width = width - (100/seconds/50);
@@ -31,6 +32,7 @@ export default {
         }
       },
       stop : function () {
+        console.log("truestop");
         clearInterval(this.exe);
         this.$store.dispatch("setDraftPossible", true);
       }
