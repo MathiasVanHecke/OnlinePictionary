@@ -31,7 +31,7 @@
 }
 
 .c-chat-item {
-    padding-bottom: $gutter;
+    margin-bottom: $gutter;
 }
 
 .c-chat-announcement {
@@ -54,6 +54,7 @@
 }
 
 .c-chat-response {
+    align-self: flex-start;
     justify-self: start;
     display: flex;
 }

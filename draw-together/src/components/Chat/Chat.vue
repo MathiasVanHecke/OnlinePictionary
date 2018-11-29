@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      chatitems: [{id : 1, name : "bauke", msg : "first", color : "79aaee"}, {id : 2, name : "", msg : "here", color : "79aaee"}, {id : 3, name : "bauke", msg : "here", color : "79aaee"}]
+      chatitems: []
     }
   },
   methods : {
