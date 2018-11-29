@@ -14,9 +14,7 @@ export default {
     }
   },
   computed:{
-    word: function(){
-      return this.$store.getters.getPickedWord;
-    }
+    word: function(){ return this.$store.getters.getPickedWord; }
   },
   methods: {
     drafted : function() {
@@ -49,13 +47,12 @@ export default {
   mounted: function() {
     this.newdraft();
     this.$store.getters.getConnection.on('Drafted', (member, word) => { 
+      this.$store.dispatch("setPickedWord", word);
       if(member == this.$store.getters.getMyName){
         this.$store.dispatch("setDrawing", true),
-        this.text = "You're up! The word is "+ this.word + ".";
+        this.text = "You're up! The word is "+ word + ".";
       }
       else { 
-        this.$store.dispatch("setPickedWord", word);
-        this.$store.dispatch("setDrawing", false),
         this.text = "Next up: " + member + " is drawing..."; 
       }
       this.drafted(); 
