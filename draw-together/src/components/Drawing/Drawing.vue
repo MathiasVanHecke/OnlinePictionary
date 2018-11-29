@@ -90,10 +90,20 @@ export default {
 
     //invokers
     senddraw: function() {
-      this.$store.getters.getConnection.invoke('Draw', this.$store.getters.getRoomkey, this.c, this.b, this.currX, this.currY, this.prevX, this.prevY)
+      this.$store.getters.getConnection.invoke(
+        'Draw', 
+        this.$store.getters.getRoomkey, 
+        this.$store.getters.getPickedColor, 
+        this.$store.getters.getPickedBrush, 
+        this.currX, this.currY, this.prevX, this.prevY)
     },
     senddrawdot: function() {
-      this.$store.getters.getConnection.invoke('DrawDot', this.$store.getters.getRoomkey, this.c, this.b, this.currX, this.currY)
+      this.$store.getters.getConnection.invoke(
+        'DrawDot', 
+        this.$store.getters.getRoomkey, 
+        this.$store.getters.getPickedColor, 
+        this.$store.getters.getPickedBrush, 
+        this.currX, this.currY)
     },
 
     //drawing code:
@@ -109,14 +119,14 @@ export default {
     },
     drawdot: function(c, b, currX, currY) {
         this.ctx.beginPath();
-        this.ctx.fillStyle = this.c;
+        this.ctx.fillStyle = c;
         this.ctx.arc(currX, currY, this.b/2 , 0, 2 * Math.PI);
         this.ctx.fill();
         this.ctx.closePath();
 
         this.cts.beginPath();
-        this.cts.fillStyle = this.c;
-        this.cts.arc(currX/2, currY/2, this.b/2/2 , 0, 2 * Math.PI);
+        this.cts.fillStyle = c;
+        this.cts.arc(currX/2, currY/2, b/2/2 , 0, 2 * Math.PI);
         this.cts.fill();
         this.cts.closePath();
     },
@@ -124,16 +134,16 @@ export default {
         this.ctx.beginPath();
         this.ctx.moveTo(prevX, prevY);
         this.ctx.lineTo(currX, currY);
-        this.ctx.strokeStyle = this.c;
-        this.ctx.lineWidth = this.b;
+        this.ctx.strokeStyle = c;
+        this.ctx.lineWidth = b;
         this.ctx.stroke();
         this.ctx.closePath();
         
         this.cts.beginPath();
         this.cts.moveTo(prevX/2, prevY/2);
         this.cts.lineTo(currX/2, currY/2);
-        this.cts.strokeStyle = this.c;
-        this.cts.lineWidth = this.b/2;
+        this.cts.strokeStyle = c;
+        this.cts.lineWidth = b/2;
         this.cts.stroke();
         this.cts.closePath();
     },
