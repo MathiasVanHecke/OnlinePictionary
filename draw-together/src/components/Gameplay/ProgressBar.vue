@@ -32,6 +32,7 @@ export default {
       },
       stop : function () {
         clearInterval(this.exe);
+        this.$store.dispatch("setDraftPossible", true);
       }
     },
   mounted: function() {
