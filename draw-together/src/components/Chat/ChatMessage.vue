@@ -1,5 +1,5 @@
 <template>
-  <p class="c-chat-message">
+  <p class="c-chat-item c-chat-message">
       {{ msg }}
   </p>
 </template>

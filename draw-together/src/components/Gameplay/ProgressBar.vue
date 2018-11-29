@@ -10,7 +10,7 @@ export default {
   data() {
       return {
           exe : null,
-          stopped : true,
+          stopped : false,
       }
   },
   methods: {
@@ -20,12 +20,11 @@ export default {
         this.exe = setInterval(frame, 20);
         function frame() {
             if (width <= 0) {
-                if (!this.stopped){
+                if(!this.stopped){
                     if (that.$store.getters.getHost) {
                         that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
                     }
                     this.stopped = true;
-                    console.log("stopped", this.stopped);
                 }
             }
             else {
@@ -38,7 +37,6 @@ export default {
         console.log("truestop");
         clearInterval(this.exe);
         this.stopped = false;
-        console.log("stopped", this.stopped);
       }
     },
   mounted: function() {

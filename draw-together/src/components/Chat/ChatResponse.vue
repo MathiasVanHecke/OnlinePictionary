@@ -1,9 +1,9 @@
 <template>
-  <div class="c-chat-response">
+  <div class="c-chat-item c-chat-response">
     <Avatar :color="color" :canShrink="true" />
     <span class='c-chat-responseb'>
     <p class="c-chat-memberb">{{ name }}</p>
-    <p class="c-chat-message c-chat-messageb">{{ msg }}</p>
+    <p class="c-chat-message">{{ msg }}</p>
     </span>
   </div>
 </template>

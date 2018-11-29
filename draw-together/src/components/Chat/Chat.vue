@@ -1,5 +1,5 @@
 <template>
-  <VuePerfectScrollbar class="c-chat o-grid">
+  <VuePerfectScrollbar class="c-chat">
     <ChatItem v-for="item in chatitems" :key="item.id" :msg="item.msg" :name="item.name" :color="item.color" class="fade-in"/>
   </VuePerfectScrollbar>
 </template>
@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      chatitems: []
+      chatitems: [{id : 1, name : "bauke", msg : "first", color : "79aaee"}, {id : 2, name : "", msg : "here", color : "79aaee"}, {id : 3, name : "bauke", msg : "here", color : "79aaee"}]
     }
   },
   methods : {
@@ -26,7 +26,7 @@ export default {
   },
   mounted: function() {
     this.$store.getters.getConnection.on("Guessed", (name) => {
-      this.chatitems.push({
+      this.chatitems.unshift({
         id : this.chatitems.length + 1,
         msg : name + " guessed the word!",
         name : "",
@@ -34,7 +34,7 @@ export default {
       this.scrollDown;
     })
     this.$store.getters.getConnection.on("ReceiveMessage", (name, color, msg) => { 
-      this.chatitems.push({
+      this.chatitems.unshift({
         id : this.chatitems.length + 1,
         msg : msg,
         name : name,
