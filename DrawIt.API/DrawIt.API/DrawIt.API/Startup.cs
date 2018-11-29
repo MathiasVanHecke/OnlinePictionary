@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 using System.Text;
+using AutoMapper;
 
 namespace DrawIt.API
 {
@@ -38,6 +39,8 @@ namespace DrawIt.API
                }));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddAutoMapper();
 
             services.AddTransient<IWordRepo, WordRepo>();
 
