@@ -45,7 +45,7 @@ export default {
       let that = this;
       if (this.isValid && this.isChecked) {
         var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
-        var url = 'https://localhost:44321/api/auth/register';
+        var url = 'https://drawitapi.azurewebsites.net/api/auth/register';
         fetch(url, {
               method: 'POST',
               body: JSON.stringify(credentials),
@@ -58,7 +58,7 @@ export default {
     login: function(){
       let that = this;
         var credentials = {'username': this.displayname, 'email': this.email, 'password' : this.password}
-        var url = 'https://localhost:44321/api/auth/login';
+        var url = 'https://drawitapi.azurewebsites.net/api/auth/login';
         fetch(url, {
               method: 'POST',
               body: JSON.stringify(credentials),

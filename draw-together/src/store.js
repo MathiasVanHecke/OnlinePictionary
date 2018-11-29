@@ -54,7 +54,7 @@ export default new Vuex.Store({
     //SingalR
     startConnection: ({commit}) => {
       let connection = new signalR.HubConnectionBuilder({useDefaultpath : false})
-        .withUrl("https://localhost:44321/chatHub",  {
+        .withUrl("https://drawitapi.azurewebsites.net/chatHub",  {
           skipNegotiation: true,
           transport: signalR.HttpTransportType.WebSockets
         })
@@ -74,7 +74,7 @@ export default new Vuex.Store({
     // API
     setWord: ({commit}, c, lang) => {
       return new Promise((resolve) =>
-        fetch('https://localhost:44321/api/words/random',{
+        fetch('https://drawitapi.azurewebsites.net/api/words/random',{
           headers:{
             "Authorization" : "bearer " + c
           }
