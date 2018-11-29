@@ -24,7 +24,10 @@ export default {
       .then(() => (this.hide()))
       .then(function()
       {
+        console.log("trying to invoke start");
+        console.log("am host?", that.$store.getters.getHost)
         if(that.$store.getters.getHost){
+          console.log("invoked start");
           that.$store.getters.getConnection.invoke('Start', that.$store.getters.getRoomkey, that.$store.getters.getRoundsLength);
         }
       })

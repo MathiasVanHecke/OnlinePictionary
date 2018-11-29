@@ -32,7 +32,7 @@ export default {
     }
   },
   beforeDestroy : function() {
-    this.$store.getters.getConnection.invoke('Draw', this.$store.getters.getRoomKey);
+    this.$store.getters.getConnection.invoke('LeaveRoom', this.$store.getters.getRoomKey);
     this.$store.dispatch('setRoomkey', "");
     this.$store.dispatch('setMembers', []);
   },

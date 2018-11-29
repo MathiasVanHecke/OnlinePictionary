@@ -169,6 +169,7 @@ export default {
       this.drawdot(c, b, this.currX, this.currY);
     });
     this.$store.getters.getConnection.on('Stop', () => {
+      this.isDrawing = false;
       this.erase();
     });
   },
