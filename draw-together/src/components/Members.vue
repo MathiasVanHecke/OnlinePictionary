@@ -45,6 +45,7 @@ export default {
       this.$store.dispatch("setMembers", members);
     });
     this.$root.$on('NewDraft', function(){
+      this.$root.$emit("members", this.members.length);
       if (this.$store.getters.getHost) {
         let member = that.members[(Math.floor(Math.random()*that.members.length))];
         this.$store.dispatch('setWord', this.$cookies.get('token'), this.$cookies.get('locale'))

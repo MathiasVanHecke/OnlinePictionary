@@ -112,10 +112,10 @@ export default {
       this.ctx.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
       this.cts.clearRect(0, 0, this.$refs.canxxs.width, this.$refs.canxxs.height);
     },
-    draw: function(c, b) {
-        this.drawdot(c, b, this.currX, this.currY);
-        this.drawline(c, b, this.currX, this.currY, this.prevX, this.prevY);
-        this.drawdot(c, b, this.currX, this.currY);
+    draw: function(c, b, currX, currY, prevX, prevY) {
+        this.drawdot(c, b, currX, currY);
+        this.drawline(c, b, currX, currY, prevX, prevY);
+        this.drawdot(c, b, currX, currY);
     },
     drawdot: function(c, b, currX, currY) {
         this.ctx.beginPath();
@@ -157,16 +157,10 @@ export default {
     window.addEventListener('resize', this.resizer);
     this.$store.getters.getConnection.on('Erase', () => { this.erase(); });
     this.$store.getters.getConnection.on('Draw', (c, b, currX, currY, prevX, prevY) => { 
-      this.currX = currX;
-      this.currY = currY;
-      this.prevX = prevX;
-      this.prevY = prevY;
-      this.draw(c, b);
+      this.draw(c, b, currX, currY, prevX, prevY);
     });
     this.$store.getters.getConnection.on('DrawDot', (c, b, currX, currY) => { 
-      this.currX = currX;
-      this.currY = currY;
-      this.drawdot(c, b, this.currX, this.currY);
+      this.drawdot(c, b, currX, currY);
     });
     this.$store.getters.getConnection.on('Stop', () => {
       this.isDrawing = false;

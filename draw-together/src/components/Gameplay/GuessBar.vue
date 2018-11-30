@@ -11,12 +11,19 @@ export default {
   name: 'GuessBar',
   data() {
     return {
-        guesses : 2,
+        guesses : 0,
+        members : 0,
     }
   },
   mounted: function() {
+    this.$root.$on("members", function(m){ this.members = m });
     this.$store.getters.getConnection.on('Guessed', () => {
         this.guesses += 1;
+        if (this.guesses == this.members) {
+            if (this.$store.getters.getHost) {
+                this.$store.getters.getConnection.invoke("Stop", this.$store.getters.getRoomkey);
+            }
+        }
     });
   },
   destroyed: function() {
