@@ -20,11 +20,11 @@ export default {
         this.exe = setInterval(frame, 20);
         function frame() {
             if (width <= 0) {
-                if(!this.stopped){
+                if(!that.stopped){
                     if (that.$store.getters.getHost) {
                         that.$store.getters.getConnection.invoke("Stop", that.$store.getters.getRoomkey);
                     }
-                    this.stopped = true;
+                    that.stopped = true;
                 }
             }
             else {
