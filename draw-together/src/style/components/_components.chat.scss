@@ -14,20 +14,20 @@
 }
 
 .fade-in {
-	opacity: 1;
-	animation-name: fadeInOpacity;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-out;
-	animation-duration: 300ms;
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 300ms;
 }
 
 @keyframes fadeInOpacity {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .c-chat-item {
@@ -47,7 +47,7 @@
     padding: $gutter;
     margin: 0;
     max-width: 80%;
-    align-self: flex-end;
+    align-self: flex-start;
     justify-self: end;
     transition: 800ms;
     word-break: break-word;
